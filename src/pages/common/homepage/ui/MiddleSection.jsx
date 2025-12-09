@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function MiddleSection() {
-  return (
-    <div>MiddleSection</div>
-  )
+  return <div>MiddleSection</div>;
 }
 
-export default MiddleSection
+export default MiddleSection;

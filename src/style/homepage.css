@@ -1,0 +1,6 @@
+.wave-bg {
+    background-image: url('../assets/home-wave.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
