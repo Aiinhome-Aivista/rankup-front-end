@@ -1,6 +1,8 @@
 import React from 'react'
 import '../../../style/homepage.css'
 import TopSection from './ui/TopSection.jsx'
+import MiddleSection from './ui/MiddleSection.jsx'
+
 
 function Homepage() {
   return (
