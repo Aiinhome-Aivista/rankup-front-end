@@ -19,4 +19,4 @@ function MiddleSection() {
   )
 }
 
-export default MiddleSection
+export default MiddleSection;
