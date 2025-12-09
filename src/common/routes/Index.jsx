@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import AppLayout from "../layout/AppLayout"
-import Homepage from "../../pages/common/Homepage"
+import Homepage from "../../pages/common/homepage/Homepage"
 
 function Index() {
   return (
