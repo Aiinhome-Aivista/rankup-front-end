@@ -30,15 +30,16 @@ function Navbar() {
   ];
 
   return (
-    <div className="relative w-full h-[80px] z-50">
+    <div className="absolute top-0 left-0 w-full z-50 bg-transparent pointer-events-none">
       <nav 
         className={`
+          pointer-events-auto
           absolute top-0 left-1/2 -translate-x-1/2
-          bg-[#A2AEF2] rounded-b-[2rem] rounded-t-none px-6 py-3 shadow-lg 
+          bg-[#A2AEF2] rounded-b-[2rem] rounded-t-none px-6 py-5 shadow-lg 
           border-8 border-white border-t-0
           transition-all duration-500 ease-in-out overflow-hidden 
-          ${isFeaturesOpen ? 'max-h-[500px]' : 'max-h-[72px]'}
-          w-[calc(100%-2rem)] max-w-6xl
+          ${isFeaturesOpen ? 'max-h-[500px]' : 'max-h-[90px]'}
+          w-[calc(100%-2rem)] max-w-5xl
           z-50
         `}
       >
@@ -100,26 +101,29 @@ function Navbar() {
               className={`
                 group flex items-start gap-4 p-3 rounded-2xl cursor-pointer transition-all duration-300
                 ${activeFeature === feature.id 
-                  ? 'bg-[#9ba6fa]/20 border border-[#9ba6fa]/50' 
-                  : 'hover:bg-gray-50 border border-transparent'}
+                  ? 'bg-[#514CF133] border border-[#514CF1] shadow-lg ' 
+                  : 'hover:bg-[#514CF133] border hover:border-[#514CF1] border-transparent '}
               `}
             >
               <div className={`
                 p-2.5 rounded-xl transition-colors duration-300
                 ${activeFeature === feature.id 
-                  ? 'bg-[#4f46e5] text-white shadow-md' 
-                  : 'bg-[#eef2ff] text-[#4f46e5] group-hover:bg-[#e0e7ff]'}
+                  ? 'text-[#514CF1] ' 
+                  : 'bg-[#514CF133] text-[#4f46e5] border border-[#514CF1] shadow-md group-hover:bg-transparent group-hover:shadow-none group-hover:border-transparent'}
               `}>
                 {React.cloneElement(feature.icon, { fontSize: "medium" })}
               </div>
               <div>
                 <h3 className={`
                   font-bold text-sm mb-0.5 transition-colors
-                  ${activeFeature === feature.id ? 'text-[#4f46e5]' : 'text-gray-800'}
+                  ${activeFeature === feature.id ? 'text-[#514CF1]' : 'text-[#1C1B1F] group-hover:text-[#4f46e5]'}
                 `}>
                   {feature.title}
                 </h3>
-                <p className="text-xs text-gray-500 font-medium">
+                <p className={`
+                  text-xs font-medium transition-colors
+                  ${activeFeature === feature.id ? 'text-[#514CF1]' : 'text-[#1C1B1F] group-hover:text-[#4f46e5]'}
+                `}>
                   {feature.desc}
                 </p>
               </div>
