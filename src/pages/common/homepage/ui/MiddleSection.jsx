@@ -7,9 +7,9 @@ import TrustedSection from './TrustedSection';
 function MiddleSection() {
   return (
     <>
-      <div className='relative flex flex-col md:flex-row justify-between items-center py-20 overflow-hidden bg-white'>
+      <div className='relative flex flex-col md:flex-row justify-between items-center py-30 overflow-hidden bg-white'>
         {/* Left Content */}
-        <div className='flex flex-col z-10 pl-8 md:pl-25 max-w-xl'>
+        <div className='flex flex-col z-10 pl-10 md:pl-35 max-w-2xl'>
           <div className="mb-6">
             <img src={strategyImage} alt="strategy illustration" className='h-32 w-auto' />
           </div>
@@ -27,17 +27,17 @@ function MiddleSection() {
         </div>
 
         {/* Right Background Effect */}
-        <div className='absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 md:translate-x-0 w-[400px] h-[400px] md:w-[600px] md:h-[600px] flex items-center justify-center -mr-60'>
+        <div className='absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 md:translate-x-0 w-[420px] h-[420px] md:w-[690px] md:h-[690px] flex items-center justify-center -mr-80'>
           {/* Concentric Circles */}
           {/* Largest Circle */}
-          <div className='absolute w-full h-full rounded-full bg-[#8B9AF9] opacity-30'></div>
+          <div className='absolute w-full h-full rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-40'></div>
 
           {/* Middle Circle */}
-          <div className='absolute w-[75%] h-[75%] rounded-full bg-[#7587F7] opacity-40'></div>
+          <div className='absolute w-[75%] h-[75%] rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-40'></div>
           {/* Inner Circle */}
-          <div className='absolute w-[50%] h-[50%] rounded-full bg-[#6276F5] opacity-50 flex items-center justify-center'>
+          <div className='absolute w-[50%] h-[50%] rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-60 flex items-center justify-center '>
             {/* Center Gradient Core */}
-            <div className='w-[60%] h-[60%] rounded-full bg-linear-to-br from-[#4C64F4] to-[#3651F3] opacity-80 shadow-2xl shadow-blue-500/50'></div>
+            <div className='w-[60%] h-[60%] rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-80 shadow-2xl'></div>
           </div>
           {/* Floating Icons */}
           <div className='absolute top-[25%] right-[60%] bg-white/30 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/20 transform hover:scale-110 transition-transform duration-300'>
