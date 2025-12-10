@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import youngWoman from '../../../../../assets/young woman.svg';
+import youngWoman from '../../../../assets/young woman.svg';
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import StarIcon from '@mui/icons-material/Star';
 import SchoolIcon from '@mui/icons-material/School';

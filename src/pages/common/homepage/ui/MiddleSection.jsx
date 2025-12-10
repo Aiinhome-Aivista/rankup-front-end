@@ -1,7 +1,8 @@
 import React from 'react';
 import strategyImage from '../../../../assets/strategy.svg';
 import { Google, Window } from '@mui/icons-material';
-import AIAssistanceSection from './components/AIAssistanceSection';
+import AIAssistanceSection from './AIAssistanceSection';
+import TrustedSection from './TrustedSection';
 
 function MiddleSection() {
   return (
@@ -51,6 +52,9 @@ function MiddleSection() {
 
       {/* AI Assistance Section */}
       <AIAssistanceSection />
+
+      {/* Trusted By Educators Section */}
+      <TrustedSection />
     </>
   )
 }
