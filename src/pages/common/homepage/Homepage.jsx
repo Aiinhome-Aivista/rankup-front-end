@@ -3,6 +3,8 @@ import "../../../style/homepage.css";
 import TopSection from "./ui/TopSection.jsx";
 import MiddleSection from "./ui/MiddleSection.jsx";
 
+import Footer from "./ui/Footer.jsx";
+
 function Homepage() {
   return (
     <div className="flex flex-col w-full h-full">
@@ -12,7 +14,9 @@ function Homepage() {
       <section>
         <MiddleSection />
       </section>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
