@@ -11,6 +11,8 @@ import SchoolIcon from "@mui/icons-material/School";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import PublicIcon from "@mui/icons-material/Public";
 import SpaIcon from "@mui/icons-material/Spa";
+import TopMiddleSection from "./TopMiddleSection";
+import DraggableCardsSection from "./DraggableCardsSection";
 
 function TopSection() {
   return (
@@ -56,10 +58,9 @@ function TopSection() {
 
       {/* Wave Background */}
       <div className="absolute top-1/2 left-0 w-full z-5">
-        <WaveBackground />
-        {/* <img src={vector5} alt="" className=" w-full animate-wave-slow" /> */}
+        <img src={vector5} alt="" className=" w-full animate-wave-slow" />
       </div>
-      {/* <div className="absolute top-50 -left-40 w-full z-3">
+      <div className="absolute top-50 -left-40 w-full z-3">
         <img src={vector3} alt="" className=" w-full animate-wave-medium" />
       </div>
       <div className="absolute top-80 left-0 w-full z-4">
@@ -67,7 +68,13 @@ function TopSection() {
       </div>
       <div className="absolute top-90 left-45 w-full z-4">
         <img src={vector4} alt="" className=" w-full animate-wave-slow" />
-      </div> */}
+      </div>
+
+      <div className="relative z-20 my-10">
+        <DraggableCardsSection />
+      </div>
+
+      <TopMiddleSection />
     </div>
   );
 }
