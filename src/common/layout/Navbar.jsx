@@ -82,6 +82,7 @@ function Navbar() {
           w-[calc(100%-2rem)] max-w-5xl
           z-50
         `}
+        onMouseLeave={() => setIsFeaturesOpen(false)}
       >
         {/* Top Bar */}
         <div className="flex items-center justify-between h-12">
@@ -97,7 +98,7 @@ function Navbar() {
             {/* Links */}
             <div className="hidden md:flex items-center gap-6 text-[#5c6b9f] font-medium text-sm">
               <button
-                onClick={() => setIsFeaturesOpen(!isFeaturesOpen)}
+                onMouseEnter={() => setIsFeaturesOpen(true)}
                 className="flex items-center gap-1 text-[#514BF2] cursor-pointer transition-colors outline-none"
               >
                 Features
