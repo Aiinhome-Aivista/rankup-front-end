@@ -149,33 +149,40 @@ function Navbar() {
             <div
               key={feature.id}
               onClick={() => setActiveFeature(feature.id)}
-              className={`
-                group flex items-start gap-4 p-3 rounded-2xl cursor-pointer transition-all duration-300
-                ${
-                  activeFeature === feature.id
-                    ? "bg-[#514CF133] border border-[#514CF1] shadow-lg "
-                    : "hover:bg-[#514CF133] border hover:border-[#514CF1] border-transparent "
-                }
-              `}
+              className="group relative flex items-start gap-4 p-3 rounded-2xl cursor-pointer transition-all duration-500"
             >
+              {/* Expanding Background Layer */}
               <div
                 className={`
-                p-2.5 rounded-xl transition-colors duration-300
+                  absolute bg-[#514CF133] border border-[#514CF1] transition-all duration-500 ease-in-out z-0
+                  ${
+                    activeFeature === feature.id
+                      ? "top-0 left-0 w-full h-full rounded-2xl opacity-100"
+                      : "top-3 left-3 w-[2.75rem] h-[2.75rem] rounded-xl opacity-100 group-hover:top-0 group-hover:left-0 group-hover:w-full group-hover:h-full group-hover:rounded-2xl"
+                  }
+                `}
+              />
+
+              {/* Icon Container (Transparent now, sits on top) */}
+              <div
+                className={`
+                relative z-10 p-2.5 rounded-xl transition-all duration-500
                 ${
                   activeFeature === feature.id
-                    ? "text-[#514CF1] "
-                    : "bg-[#514CF133] text-[#4f46e5] border border-[#514CF1] shadow-md group-hover:bg-transparent group-hover:shadow-none group-hover:border-transparent"
+                    ? "text-[#514CF1]"
+                    : "text-[#4f46e5]"
                 }
               `}
               >
-                {/* {React.cloneElement(feature.icon, { fontSize: "medium" })} */}
                 <img
                   src={feature.icon}
                   alt={`${feature.title} icon`}
                   className="w-6 h-6 object-contain"
                 />
               </div>
-              <div>
+
+              {/* Text Content */}
+              <div className="relative z-10 transition-colors duration-300">
                 <h3
                   className={`
                   font-bold text-sm mb-0.5 transition-colors
