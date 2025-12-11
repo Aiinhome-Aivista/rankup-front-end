@@ -11,7 +11,7 @@ const ScoreCard = () => {
                 backdropFilter: 'blur(10px)',
                 borderRadius: '24px',
                 padding: '20px',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                border: '3px solid rgba(255, 255, 255, 0.22)',
                 color: 'white',
                 width: '100%',
                 maxWidth: '280px',
@@ -38,7 +38,7 @@ const ScoreCard = () => {
 
             {/* Small Stat Blocks */}
             <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white/20 rounded-xl p-2 flex flex-col items-center justify-center backdrop-blur-sm">
+                <div className="bg-white/20  rounded-xl p-2 flex flex-col items-center justify-center backdrop-blur-sm">
                     <ScienceIcon sx={{ fontSize: 20, mb: 0.5 }} />
                     <span className="text-[10px] font-medium">Chemistry</span>
                     <div className="flex gap-0.5 mt-1">

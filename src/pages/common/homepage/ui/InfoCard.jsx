@@ -4,12 +4,15 @@ import { Box, Typography } from '@mui/material';
 const InfoCard = ({ title, features, image, align = 'left' }) => {
 
     return (
-        <div className={`relative overflow-hidden rounded-4xl p-8 h-80 bg-white/10 backdrop-blur-md border border-white/20 shadow-xl transition-transform hover:scale-[1.02] duration-300 group`}>
+        <div className={`relative overflow-hidden rounded-4xl p-8 h-80 bg-white/10 backdrop-blur-md border-3 border-[#FFFFFF38] shadow-xl transition-transform hover:scale-[1.02] duration-300 group`}>
             {/* Glow effect */}
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-purple-500/30 rounded-full blur-3xl group-hover:bg-purple-500/40 transition-colors"></div>
 
             <div className="relative z-10 h-full flex flex-col">
-                <div className="inline-block bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-white text-sm font-semibold w-fit mb-6 border border-white/10">
+                {/* <div className='w-5 h-5 rounded-full bg-[#514CF1] absolute drop-shadow-2xl inner-shadow-xl'></div>
+                     */}
+                
+                <div className="text-[#FFFFFF80] text-lg font-extrabold w-fit mb-6 border-white/10">
                     {title}
                 </div>
 
@@ -18,7 +21,7 @@ const InfoCard = ({ title, features, image, align = 'left' }) => {
                         <Typography
                             key={index}
                             variant="body1"
-                            sx={{ color: 'rgba(255,255,255,0.8)', lineHeight: 1.4 }}
+                            sx={{ color: 'rgba(255,255,255,0.5)', lineHeight: 1.4 }}
                         >
                             {feature}
                         </Typography>

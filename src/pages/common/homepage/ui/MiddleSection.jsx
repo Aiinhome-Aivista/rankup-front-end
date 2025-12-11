@@ -6,7 +6,7 @@ import TrustedSection from './TrustedSection';
 function MiddleSection() {
   return (
     <>
-      <div className='relative flex flex-col md:flex-row justify-between items-center py-30 overflow-hidden bg-white'>
+      <div className='relative flex flex-col md:flex-row justify-between items-center overflow-hidden py-30 bg-white'>
         {/* Left Content */}
         <div className='flex flex-col z-10 pl-10 md:pl-35 max-w-2xl'>
           <div className="mb-6">
