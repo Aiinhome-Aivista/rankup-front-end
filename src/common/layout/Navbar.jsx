@@ -70,7 +70,7 @@ function Navbar() {
   ];
 
   return (
-    <div className="absolute top-0 left-0 w-full z-50 bg-transparent pointer-events-none">
+    <div className="fixed top-0 left-0 w-full z-50 bg-transparent pointer-events-none">
       <nav
         className={`
           pointer-events-auto
