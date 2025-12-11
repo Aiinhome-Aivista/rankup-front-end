@@ -33,3 +33,27 @@
   scrollbar-width: none;
   /* Firefox */
 }
+
+@keyframes wave {
+  0% {
+    transform: translateX(0) rotate(180deg);
+  }
+  50% {
+    transform: translateX(-25px) rotate(180deg);
+  }
+  100% {
+    transform: translateX(0) rotate(180deg);
+  }
+}
+
+.animate-wave-slow {
+  animation: wave 8s ease-in-out infinite;
+}
+
+.animate-wave-medium {
+  animation: wave 6s ease-in-out infinite;
+}
+
+.animate-wave-fast {
+  animation: wave 4s ease-in-out infinite;
+}
