@@ -6,10 +6,10 @@ import TrustedSection from './TrustedSection';
 function MiddleSection() {
   return (
     <>
-      <div className='relative flex flex-col md:flex-row justify-between items-center overflow-hidden py-30 bg-white'>
+      <div className='relative flex flex-col md:flex-row justify-between items-center overflow-hidden py-18 md:py-40 bg-white'>
         {/* Left Content */}
         <div className='flex flex-col z-10 pl-10 md:pl-35 max-w-2xl'>
-          <div className="mb-6">
+          <div className="mb-6 items-start flex justify-center md:justify-start">
             <img src={strategyImage} alt="strategy illustration" className='h-32 w-auto' />
           </div>
 
@@ -29,12 +29,12 @@ function MiddleSection() {
         <div className='absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 md:translate-x-0 w-[420px] h-[420px] md:w-[690px] md:h-[690px] flex items-center justify-center -mr-80'>
           {/* Concentric Circles */}
           {/* Largest Circle */}
-          <div className='absolute w-full h-full rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-40'></div>
+          <div className='absolute w-full h-full rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-40 drop-shadow-2xl'></div>
 
           {/* Middle Circle */}
-          <div className='absolute w-[75%] h-[75%] rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-40'></div>
+          <div className='absolute w-[75%] h-[75%] rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-40 drop-shadow-2xl'></div>
           {/* Inner Circle */}
-          <div className='absolute w-[50%] h-[50%] rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-60 flex items-center justify-center '>
+          <div className='absolute w-[50%] h-[50%] rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-60 flex items-center justify-center drop-shadow-2xl '>
             {/* Center Gradient Core */}
             <div className='w-[60%] h-[60%] rounded-full bg-linear-to-br from-[#A1AEF2] to-[#514CF1] opacity-80 shadow-2xl'></div>
           </div>

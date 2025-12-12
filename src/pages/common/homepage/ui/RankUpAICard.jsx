@@ -11,7 +11,7 @@ const RankUpAICard = () => {
     return (
         <div className='relative w-full max-w-2xl h-[300px] rounded-4xl overflow-hidden shadow-2xl border-3 border-[#FFFFFF38]'>
             {/* Background Gradient */}
-            <div className='absolute inset-0 bg-linear-to-r from-[#7B61FF] to-[#6BA5F2] opacity-90'></div>
+            <div className='absolute inset-0'></div>
 
             {/* Abstract Waves */}
             <div className='absolute inset-0 opacity-40'>

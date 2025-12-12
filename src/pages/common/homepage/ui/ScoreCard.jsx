@@ -1,87 +1,117 @@
 import React from 'react';
-import { Box, Typography, Rating, Avatar, Chip } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import CalculateIcon from '@mui/icons-material/Calculate';
+import BiotechIcon from '@mui/icons-material/Biotech';
 import ScienceIcon from '@mui/icons-material/Science';
-import FunctionsIcon from '@mui/icons-material/Functions';
+import PublicIcon from '@mui/icons-material/Public';
+import face2 from '../../../../assets/icons/face_2.svg';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 const ScoreCard = () => {
     return (
-        <Box
-            sx={{
-                background: 'rgba(255, 255, 255, 0.15)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '24px',
-                padding: '20px',
-                border: '3px solid rgba(255, 255, 255, 0.22)',
-                color: 'white',
-                width: '100%',
-                maxWidth: '280px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 2,
-                boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
-            }}
-        >
-            <Typography variant="h6" sx={{ fontWeight: 'bold', textAlign: 'center', mb: 1 }}>
-                Score Card
-            </Typography>
+        <div className="relative w-full max-w-[300px]">
+            {/* Main Card Container */}
+            <div className="relative z-10 rounded-[30px] p-6 text-white shadow-2xl border border-white/20">
 
-            <Box sx={{ display: 'flex', flexDirection: 'col', alignItems: 'center', mb: 2 }}>
-                {/*  Placeholder for the small logo/avatar in the score card */}
-                <div className="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center mb-2 shadow-lg">
-                    <span className="font-bold text-white text-xs">S</span>
-                </div>
-                <Typography variant="body2" sx={{ opacity: 0.9 }}>Sumaya</Typography>
-                <Typography variant="h3" sx={{ fontWeight: 'bold', mt: 1 }}>
-                    15<span className="text-xl text-white/60">/20</span>
+                {/* Title */}
+                <Typography variant="h6" sx={{ fontWeight: 'bold', textAlign: 'center', opacity: 0.9 }}>
+                    Score Card
                 </Typography>
-            </Box>
 
-            {/* Small Stat Blocks */}
-            <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white/20  rounded-xl p-2 flex flex-col items-center justify-center backdrop-blur-sm">
-                    <ScienceIcon sx={{ fontSize: 20, mb: 0.5 }} />
-                    <span className="text-[10px] font-medium">Chemistry</span>
-                    <div className="flex gap-0.5 mt-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-red-400"></div>
+                {/* Profile Section */}
+                <div className="flex flex-col items-center">
+                    <div className="rounded-2xl flex items-center justify-center">
+                        <img src={face2} alt="Profile" className="w-10 h-10" />
+                    </div>
+                    <Typography variant="h6" sx={{ fontWeight: 'normal', opacity: 0.9 }}>Sumaya</Typography>
+                    <div className="flex items-baseline">
+                        <span className="text-2xl font-bold text-[#A5C9FF]">15</span>
+                        <span className="text-lg text-white/70 ml-1">/20</span>
                     </div>
                 </div>
-                <div className="bg-white/20 rounded-xl p-2 flex flex-col items-center justify-center backdrop-blur-sm">
-                    <FunctionsIcon sx={{ fontSize: 20, mb: 0.5 }} />
-                    <span className="text-[10px] font-medium">Physics</span>
-                    <div className="flex gap-0.5 mt-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+
+                {/* Subject Grid */}
+                <div className="grid grid-cols-2 gap-3">
+                    {/* Mathematics */}
+                    <div className="bg-white/10 rounded-2xl p-3 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5">
+                        <CalculateIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.9 }} />
+                        <span className="text-[11px] font-medium text-white/80">Mathematics</span>
+                        <div className="flex gap-3 mt-2">
+                            <div className="flex items-center gap-1">
+                                <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                                <span className="text-[10px] font-bold">5</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                                <span className="text-[10px] font-bold">1</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="bg-white/20 rounded-xl p-2 flex flex-col items-center justify-center backdrop-blur-sm">
-                    <ScienceIcon sx={{ fontSize: 20, mb: 0.5 }} />
-                    <span className="text-[10px] font-medium">Chemistry</span>
-                    <div className="flex gap-0.5 mt-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-purple-400"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-pink-400"></div>
+
+                    {/* Biology */}
+                    <div className="bg-white/10 rounded-2xl p-3 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5">
+                        <BiotechIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.9 }} />
+                        <span className="text-[11px] font-medium text-white/80">Biology</span>
+                        <div className="flex gap-3 mt-2">
+                            <div className="flex items-center gap-1">
+                                <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                                <span className="text-[10px] font-bold">6</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                                <span className="text-[10px] font-bold">0</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="bg-white/20 rounded-xl p-2 flex flex-col items-center justify-center backdrop-blur-sm">
-                    <FunctionsIcon sx={{ fontSize: 20, mb: 0.5 }} />
-                    <span className="text-[10px] font-medium">Concept</span>
-                    <div className="flex gap-0.5 mt-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-orange-400"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-300"></div>
+
+                    {/* Chemistry */}
+                    <div className="bg-white/10 rounded-2xl p-3 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5">
+                        <ScienceIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.9 }} />
+                        <span className="text-[11px] font-medium text-white/80">Chemistry</span>
+                        <div className="flex gap-3 mt-2">
+                            <div className="flex items-center gap-1">
+                                <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                                <span className="text-[10px] font-bold">3</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                                <span className="text-[10px] font-bold">3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Geography */}
+                    <div className="bg-white/10 rounded-2xl p-3 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5">
+                        <PublicIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.9 }} />
+                        <span className="text-[11px] font-medium text-white/80">Geography</span>
+                        <div className="flex gap-3 mt-2">
+                            <div className="flex items-center gap-1">
+                                <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                                <span className="text-[10px] font-bold">5</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                                <span className="text-[10px] font-bold">1</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <Box sx={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: 1 }}>
-                {/* Rating stars vertical specific? No, standard 5 stars sidebar */}
-                <div className="absolute left-[-15px] top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md rounded-r-xl py-4 px-1 flex flex-col gap-1 shadow-lg border border-white/10">
-                    {[1, 2, 3, 4, 5].map((s) => (
-                        <div key={s} className="w-2 h-2 rounded-full bg-white/60"></div>
-                    ))}
-                </div>
-            </Box>
-        </Box>
+            {/* Side Star Handle */}
+            {/* Adjusted to match the visual "tab" look more closely: slightly higher, wider, specific radius */}
+            <div className="absolute top-[50%] -translate-y-1/2 -left-[18px] w-10 py-5 bg-[#A088E8] rounded-l-2xl flex flex-col items-center gap-1.5 shadow-lg border-l border-t border-b border-white/20 z-0">
+                <StarIcon sx={{ fontSize: 18, color: '#FFFFFF' }} />
+                <StarIcon sx={{ fontSize: 18, color: '#FFFFFF' }} />
+                <StarIcon sx={{ fontSize: 18, color: '#FFFFFF' }} />
+                <StarIcon sx={{ fontSize: 18, color: '#FFFFFF' }} />
+                {/* The empty star is a border star */}
+                <StarBorderIcon sx={{ fontSize: 18, color: '#FFFFFF', opacity: 0.8 }} />
+            </div>
+        </div>
     );
 };
 
 export default ScoreCard;
+
