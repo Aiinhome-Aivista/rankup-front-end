@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Patrick+Hand&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -12,7 +12,7 @@
 
   color-scheme: light dark;
   color: rgb(0, 0, 0);
-  background-color: #f7f7f7;
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
