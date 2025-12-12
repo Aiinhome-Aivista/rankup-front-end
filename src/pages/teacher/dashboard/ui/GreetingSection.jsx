@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import yogaBg from '../../../assets/yoga-bg.svg';
-import yoga from '../../../assets/yoga.svg'
+import yogaBg from '../../../../assets/yoga-bg.svg';
+import yoga from '../../../../assets/yoga.svg'
 
 function GreetingSection() {
   const [currentTime, setCurrentTime] = useState(new Date());

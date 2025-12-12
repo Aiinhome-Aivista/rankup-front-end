@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../common/layout/Header";
+import Header from "../../../common/layout/Header";
 import GreetingSection from "./ui/GreetingSection";
 import UpcomingClasses from "./ui/UpcomingClasses";
 import WeeklyClassAverage from "./ui/WeeklyClassAverage";

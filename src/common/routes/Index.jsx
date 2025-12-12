@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import AppLayout from "../layout/AppLayout";
 import Homepage from "../../pages/common/homepage/Homepage";
-import TeacherDashboard from "../../pages/teacher/TeacherDashboard";
+import TeacherDashboard from "../../pages/teacher/dashboard/TeacherDashboard";
 
 function Index() {
   return (
@@ -17,7 +17,7 @@ function Index() {
       <Route
         path="teacher/dashboard"
         element={
-            <TeacherDashboard />
+            <TeacherDashboard/>
         }
       />
     </Routes>

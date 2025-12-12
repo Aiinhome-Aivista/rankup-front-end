@@ -6,18 +6,57 @@
 }
 
 :root {
+  /* Typography */
   font-family: "Nunito", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
+  /* Transition */
+  --transition-default: 200ms;
+
+  /* Light theme (default) color tokens */
+  --color-bg: #ffffff;
+  --color-surface: #f7f7fb;
+  --color-border: #e6e7eb;
+  --color-text: #0f172a;
+  --color-text-secondary: #374151;
+  --color-muted: #6b7280;
+  --color-accent: #6366f1;
+  --color-accent-foreground: #ffffff;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --shadow-default: 0 1px 3px rgba(2, 6, 23, 0.08);
+
+  /* System-aware color scheme support */
   color-scheme: light dark;
-  color: rgb(0, 0, 0);
-  background-color: white;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark theme overrides: apply by setting `data-theme="dark"` on the root element */
+:root[data-theme="dark"] {
+  --color-bg: #0b1220;
+  --color-surface: #0f1724;
+  --color-border: #1f2937;
+  --color-text: #e6eef8;
+  --color-text-secondary: #b6c2d1;
+  --color-muted: #9aa4b2;
+  --color-accent: #8b5cf6;
+  --color-accent-foreground: #0b1220;
+  --color-success: #34d399;
+  --color-danger: #f87171;
+  --color-warning: #fbbf24;
+  --shadow-default: 0 1px 3px rgba(2, 6, 23, 0.6);
+
+  color-scheme: dark;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 /* Hide Scrollbar - All Browsers */
@@ -38,9 +77,11 @@
   0% {
     transform: translateY(0) rotate(180deg);
   }
+
   50% {
     transform: translateY(-25px) rotate(180deg);
   }
+
   100% {
     transform: translateY(0) rotate(180deg);
   }
@@ -59,10 +100,12 @@
 }
 
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
