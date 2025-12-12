@@ -2,15 +2,23 @@ import React, { useState, useRef, useEffect } from "react";
 import { GraduationCap, Globe, FileText, Trees } from "lucide-react";
 
 function DraggableCardsSection() {
-  const [cardPositions, setCardPositions] = useState([
-    { x: 15, y: 15 },
-    { x: 35, y: 40 },
-    { x: 72, y: 20 },
-    { x: 80, y: 50 },
-  ]);
+  // Initial positions that cards will snap back to
+  const initialPositions = [
+    { x: 20, y: 22 }, // Schools - top left
+    { x: 40, y: 50 }, // Countries - middle left
+    { x: 60, y: 25 }, // Submissions - top right
+    { x: 80, y: 60 }, // Trees Saved - bottom right
+  ];
 
+  const [cardPositions, setCardPositions] = useState(initialPositions);
   const [dragging, setDragging] = useState(null);
+  const [mounted, setMounted] = useState(false);
   const containerRef = useRef(null);
+
+  // Ensure component re-renders after mount so lines are visible
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const stats = [
     {
@@ -59,6 +67,8 @@ function DraggableCardsSection() {
 
   const handleMouseUp = () => {
     setDragging(null);
+    // Reset all cards back to their initial positions
+    setCardPositions(initialPositions);
   };
 
   useEffect(() => {
@@ -72,59 +82,85 @@ function DraggableCardsSection() {
     }
   }, [dragging]);
 
-  // Generate curved path between two points
-  const generatePath = (from, to) => {
-    const midX = (from.x + to.x) / 2;
-    const midY = (from.y + to.y) / 2;
-    const offset = 10;
+  // Calculate line style for connecting two cards
+  const calculateLineStyle = (from, to, containerElement) => {
+    if (!containerElement) return {};
 
-    return `M ${from.x},${from.y} Q ${midX},${midY - offset} ${to.x},${to.y}`;
+    const rect = containerElement.getBoundingClientRect();
+    const fromX = (from.x * rect.width) / 100;
+    const fromY = (from.y * rect.height) / 100;
+    const toX = (to.x * rect.width) / 100;
+    const toY = (to.y * rect.height) / 100;
+
+    const deltaX = toX - fromX;
+    const deltaY = toY - fromY;
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+
+    return {
+      width: `${distance}px`,
+      left: `${from.x}%`,
+      top: `${from.y}%`,
+      transform: `rotate(${angle}deg)`,
+      transformOrigin: "0 50%",
+    };
   };
 
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[400px] bg-gradient-to-br from-[#7c6fd6] via-[#8c7ce4] to-[#9c8ff0] rounded-2xl overflow-hidden select-none"
+      className="relative w-full h-[400px] bg-transparent rounded-2xl overflow-hidden select-none"
     >
-      {/* Decorative background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent"></div>
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-300/10 rounded-full blur-3xl"></div>
+      {/* Connecting Lines using divs */}
+      {/* Line from left edge to card 0 */}
+      <div
+        style={calculateLineStyle(
+          { x: 0, y: cardPositions[0].y },
+          cardPositions[0],
+          containerRef.current
+        )}
+        className="absolute h-[2px] bg-[#6b5cc9] opacity-60 pointer-events-none z-[1] transition-all duration-100"
+      ></div>
 
-      {/* SVG Lines connecting cards */}
-      <svg
-        className="absolute top-0 left-0 w-full h-full pointer-events-none z-[1]"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        {/* Line from card 0 to card 1 */}
-        <path
-          d={generatePath(cardPositions[0], cardPositions[1])}
-          stroke="#6b5cc9"
-          strokeWidth="0.3"
-          fill="none"
-          opacity="0.6"
-          className="transition-all duration-100"
-        />
-        {/* Line from card 1 to card 2 */}
-        <path
-          d={generatePath(cardPositions[1], cardPositions[2])}
-          stroke="#6b5cc9"
-          strokeWidth="0.3"
-          fill="none"
-          opacity="0.6"
-          className="transition-all duration-100"
-        />
-        {/* Line from card 2 to card 3 */}
-        <path
-          d={generatePath(cardPositions[2], cardPositions[3])}
-          stroke="#6b5cc9"
-          strokeWidth="0.3"
-          fill="none"
-          opacity="0.6"
-          className="transition-all duration-100"
-        />
-      </svg>
+      {/* Line from card 0 to card 1 */}
+      <div
+        style={calculateLineStyle(
+          cardPositions[0],
+          cardPositions[1],
+          containerRef.current
+        )}
+        className="absolute h-[2px] bg-[#6b5cc9] opacity-60 pointer-events-none z-[1] transition-all duration-100"
+      ></div>
+
+      {/* Line from card 1 to card 2 */}
+      <div
+        style={calculateLineStyle(
+          cardPositions[1],
+          cardPositions[2],
+          containerRef.current
+        )}
+        className="absolute h-[2px] bg-[#6b5cc9] opacity-60 pointer-events-none z-[1] transition-all duration-100"
+      ></div>
+
+      {/* Line from card 2 to card 3 */}
+      <div
+        style={calculateLineStyle(
+          cardPositions[2],
+          cardPositions[3],
+          containerRef.current
+        )}
+        className="absolute h-[2px] bg-[#6b5cc9] opacity-60 pointer-events-none z-[1] transition-all duration-100"
+      ></div>
+
+      {/* Line from card 3 to right edge */}
+      <div
+        style={calculateLineStyle(
+          cardPositions[3],
+          { x: 100, y: cardPositions[3].y },
+          containerRef.current
+        )}
+        className="absolute h-[2px] bg-[#6b5cc9] opacity-60 pointer-events-none z-[1] transition-all duration-100"
+      ></div>
 
       {/* Stats Cards */}
       {stats.map((stat, index) => (
@@ -136,7 +172,7 @@ function DraggableCardsSection() {
           }}
           onMouseDown={(e) => handleMouseDown(index, e)}
           className={`absolute -translate-x-1/2 -translate-y-1/2 bg-white/15 backdrop-blur-md border-2 border-white/40 rounded-[20px] px-8 py-6 text-center text-white min-w-[140px] shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all duration-300 ease-in-out cursor-grab active:cursor-grabbing z-10 hover:scale-105 hover:shadow-[0_12px_48px_rgba(0,0,0,0.2)] ${
-            dragging === index ? "scale-105" : "animate-float"
+            dragging === index ? "scale-105" : ""
           }`}
         >
           <div className="mb-2 flex justify-center text-white/90">
