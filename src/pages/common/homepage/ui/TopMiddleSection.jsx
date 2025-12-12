@@ -79,7 +79,7 @@ function TopMiddleSection() {
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-blue-50 to-white py-20 font-sans overflow-hidden">
+    <div className="w-full bg-transparent py-20 font-sans overflow-hidden">
       <div className="container mx-auto px-4 gap-6 flex flex-col items-center pb-6">
         {/* Header Illustration & Text */}
         <div className="mb-12 text-center">

@@ -13,6 +13,7 @@ import PublicIcon from "@mui/icons-material/Public";
 import SpaIcon from "@mui/icons-material/Spa";
 import TopMiddleSection from "./TopMiddleSection";
 import DraggableCardsSection from "./DraggableCardsSection";
+import ParallaxWaves from "./ParallaxWaves";
 
 function TopSection() {
   return (
@@ -29,13 +30,13 @@ function TopSection() {
 
         {/* Floating Illustrations */}
         {/* Coding Girl - Left */}
-        <div className="absolute left-10 top-32 hidden lg:block w-64 opacity-90 hover:scale-105 transition-transform duration-500">
+        {/* <div className="absolute left-10 top-32 hidden lg:block w-64 opacity-90 hover:scale-105 transition-transform duration-500">
           <img
             src={codingImage}
             alt="Design and code"
             className="w-full h-auto drop-shadow-lg"
           />
-        </div>
+        </div> */}
 
         {/* Student Studying - Top Right */}
         <div className="absolute right-10 top-10 hidden lg:block w-72 opacity-90 hover:scale-105 transition-transform duration-500 z-1">
@@ -47,34 +48,38 @@ function TopSection() {
         </div>
 
         {/* Having Fun - Mid Right (Lower) */}
-        <div className="absolute right-20 top-96 hidden lg:block w-64 opacity-90 hover:scale-105 transition-transform duration-500 z-1">
+        {/* <div className="absolute right-20 top-96 hidden lg:block w-64 opacity-90 hover:scale-105 transition-transform duration-500 z-1">
           <img
             src={fun}
             alt="Students having fun"
             className="w-full h-auto drop-shadow-lg"
           />
-        </div>
+        </div> */}
       </div>
 
       {/* Wave Background */}
-      <div className="absolute top-1/2 left-0 w-full z-5">
-        <img src={vector5} alt="" className=" w-full animate-wave-slow" />
-      </div>
-      <div className="absolute top-50 -left-40 w-full z-3">
-        <img src={vector3} alt="" className=" w-full animate-wave-medium" />
-      </div>
-      <div className="absolute top-80 left-0 w-full z-4">
-        <img src={vector2} alt="" className=" w-full animate-wave-fast" />
-      </div>
-      <div className="absolute top-90 left-45 w-full z-4">
-        <img src={vector4} alt="" className=" w-full animate-wave-slow" />
+      <div className="">
+        {/* <div className="absolute top-20 left-0 w-full z-5">
+          <img src={vector5} alt="" className=" w-full animate-wave-slow" />
+        </div>
+        <div className="absolute top-50 -left-40 w-full z-3">
+          <img src={vector3} alt="" className=" w-full animate-wave-medium" />
+        </div>
+        <div className="absolute top-80 left-0 w-full z-4">
+          <img src={vector2} alt="" className=" w-full animate-wave-fast" />
+        </div>
+        <div className="absolute top-90 left-45 w-full z-4">
+          <img src={vector4} alt="" className=" w-full animate-wave-slow" />
+        </div> */}
+        <ParallaxWaves />
       </div>
 
       <div className="relative z-20 my-10">
         <DraggableCardsSection />
       </div>
-
-      <TopMiddleSection />
+      <div className="relative z-20 my-10">
+        <TopMiddleSection />
+      </div>
     </div>
   );
 }
