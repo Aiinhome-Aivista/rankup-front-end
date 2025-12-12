@@ -36,13 +36,13 @@
 
 @keyframes wave {
   0% {
-    transform: translateX(0) rotate(180deg);
+    transform: translateY(0) rotate(180deg);
   }
   50% {
-    transform: translateX(-25px) rotate(180deg);
+    transform: translateY(-25px) rotate(180deg);
   }
   100% {
-    transform: translateX(0) rotate(180deg);
+    transform: translateY(0) rotate(180deg);
   }
 }
 

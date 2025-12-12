@@ -80,7 +80,7 @@ function TopMiddleSection() {
 
   return (
     <div className="w-full bg-gradient-to-b from-blue-50 to-white py-20 font-sans overflow-hidden">
-      <div className="container mx-auto px-4 flex flex-col items-center">
+      <div className="container mx-auto px-4 gap-6 flex flex-col items-center pb-6">
         {/* Header Illustration & Text */}
         <div className="mb-12 text-center">
           <img
@@ -111,12 +111,12 @@ function TopMiddleSection() {
                     isActive
                       ? "z-30 opacity-100 scale-100 bg-[#E0E7FF] border-[#6366F1] shadow-xl"
                       : isNeighbor
-                      ? "z-20 opacity-80 scale-95 bg-white/80 border-transparent blur-none"
-                      : "z-10 opacity-30 scale-90 bg-white/40 border-transparent blur-[2px]"
+                      ? "z-20 opacity-80 scale-95 bg-[#E0E7FF] border-[0.5px] border-[#6366F1] blur-[2px]"
+                      : "z-10 opacity-30 scale-90 bg-[#E0E7FF] border-transparent blur-[2px]"
                   }
                 `}
                 style={{
-                  transform: `translateY(${offset * 120}px) scale(${
+                  transform: `translateY(${offset * 150}px) scale(${
                     1 - Math.abs(offset) * 0.05
                   })`,
                 }}
