@@ -4,10 +4,10 @@ import { GraduationCap, Globe, Book, Trees } from "lucide-react";
 
 function DraggableCardsSection() {
   const initialPositions = [
-    { x: 20, y: 22 },
-    { x: 40, y: 55 },
-    { x: 60, y: 25 },
-    { x: 80, y: 65 },
+    { x: 20, y: 22 }, // Card 1: Schools
+    { x: 40, y: 48 }, // Card 2: Countries
+    { x: 57, y: 30 }, // Card 3: Submissions (Change 'x' to move left/right)
+    { x: 77, y: 65 }, // Card 4: Trees Saved
   ];
 
   const [cardPositions, setCardPositions] = useState(initialPositions);
@@ -26,7 +26,7 @@ function DraggableCardsSection() {
     const mouseYPct = (mouseY / rect.height) * 100;
 
     // Magnet Physics Constants - Tuned
-    const GRAB_RADIUS = 90; // px - Slightly reduced specific to user request
+    const GRAB_RADIUS = 95; // px - Slightly reduced specific to user request
     const RELEASE_RADIUS = 250; // px
 
     let activeMagnet = magnetRef.current;
@@ -136,8 +136,16 @@ function DraggableCardsSection() {
   const getSmoothPath = () => {
     if (dimensions.width === 0) return "";
 
+    // ------------------------------------------------------------------
+    // HOW TO MANIPULATE THE CURVE:
+    // 1. pathOffsets: Adjusts how high/low the line hits each card.
+    // 2. start/end: Adjusts where the line enters and exits the screen.
+    // ------------------------------------------------------------------
+
     // Offsets to make the line pass through cards at different heights like the image
-    const pathOffsets = [0, -5, 12, -12];
+    // Index order: Schools, Countries, Submissions, Trees Saved
+    // Offsets are percentage of container height
+    const pathOffsets = [0, -5, 8, 12];
 
     const points = cardPositions.map((p, i) => ({
       x: (p.x / 100) * dimensions.width,
@@ -146,8 +154,11 @@ function DraggableCardsSection() {
 
     // Start at left edge (x=0) at 10% height
     const start = { x: 0, y: dimensions.height * 0.1 };
-    // End at right edge (x=width) at 90% height
-    const end = { x: dimensions.width, y: dimensions.height * 0.9 };
+
+    // End at right edge (x=width).
+    // "Down to top" effect: Set Y lower (visually higher) than the last card.
+    // Last card is around 77% height. Setting end to 72% makes it curve up gently.
+    const end = { x: dimensions.width, y: dimensions.height * 0.72 };
 
     const allPoints = [start, ...points, end];
 
@@ -157,11 +168,28 @@ function DraggableCardsSection() {
       const curr = allPoints[i];
       const next = allPoints[i + 1];
 
-      // Horizontal control points for sigmoid/S-curve
-      const cp1x = curr.x + (next.x - curr.x) * 0.5;
-      const cp1y = curr.y;
-      const cp2x = curr.x + (next.x - curr.x) * 0.5;
-      const cp2y = next.y;
+      // Segment Identifiers
+      // 0: Start->Card1, 1: C1->C2, 2: C2->C3, 3: C3->C4, 4: C4->End
+      const isThirdSegment = i === 3;
+      const isLastSegment = i === allPoints.length - 2;
+
+      // Default Control Points (Horizontal S-Curve)
+      let cp1x = curr.x + (next.x - curr.x) * 0.5;
+      let cp1y = curr.y;
+      let cp2x = curr.x + (next.x - curr.x) * 0.78;
+      let cp2y = next.y;
+
+      if (isThirdSegment) {
+        // "Orange Image" Style (Card 3 -> Card 4): Straighter, diagonal drop
+        // We disable the horizontal easing by interpolating the Y values.
+        // This makes the curve follow the direct slope between the cards.
+        cp1y = curr.y + (next.y - curr.y) * 0.1; // Start dropping immediately
+        cp2y = curr.y + (next.y - curr.y) * 0.9; // Continue dropping till end
+      } else if (isLastSegment) {
+        // "Blue Image" Style (Card 4 -> Edge): Deep Dip
+        // Push the first control point DOWN to create the belly
+        cp1y += dimensions.height * 0.15;
+      }
 
       d += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${next.x} ${next.y}`;
     }
@@ -174,10 +202,10 @@ function DraggableCardsSection() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full h-[500px] bg-gradient-to-br from-[#8093f1] to-[#b388eb] rounded-[40px] overflow-hidden select-none shadow-2xl"
+      className="relative w-full h-[600px] bg-transparent rounded-[40px] overflow-hidden select-none "
     >
       {/* SVG Connected Line */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+      <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
         <path
           d={getSmoothPath()}
           fill="none"
@@ -185,7 +213,7 @@ function DraggableCardsSection() {
           strokeWidth="5"
           strokeLinecap="round"
           className="opacity-40"
-          style={{ transition: "d 0.3s ease-out" }}
+          style={{ transition: "d 0.12s ease-out" }}
         />
       </svg>
 
@@ -198,16 +226,16 @@ function DraggableCardsSection() {
             top: `${cardPositions[index].y}%`,
           }}
           className={`absolute transform -translate-x-1/2 -translate-y-1/2 
-            bg-white/20 backdrop-blur-md border-[1.5px] border-white/60 
-            rounded-[24px] p-4 text-center text-white 
-            w-[150px] h-[150px] flex flex-col items-center justify-center
+            bg-[#A1AEF2B2] backdrop-blur-[15px] border-6 border-white 
+            rounded-[24px] p-4 text-left text-[#514CF1] 
+            w-[150px] h-[150px] flex flex-col items-left justify-center
             shadow-[0_8px_32px_rgba(0,0,0,0.1)] 
             z-10
             /* Visual feedback when holding */
             ${
               magnetRef.current === index
-                ? "scale-105 shadow-[0_12px_48px_rgba(0,0,0,0.2)] bg-white/25 cursor-move"
-                : "cursor-default transition-all duration-300 ease-out"
+                ? "scale-105 shadow-[0_12px_48px_rgba(0,0,0,0.2)] "
+                : "transition-all duration-300 ease-out"
             }
           `}
         >
