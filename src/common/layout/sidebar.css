@@ -1,0 +1,233 @@
+/* Sidebar Container */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  /* Light Lavender Background matching the image */
+  background: #EBEAFF;
+  transition: width 0.3s ease, border-radius 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar.collapsed {
+  width: 80px;
+  /* Rounded bottom-right corner */
+  border-bottom-right-radius: 40px;
+  /* Ensure background doesn't bleed if we want a floating look, but fixed height 100vh usually means it touches bottom. 
+     If the design implies it's a floating island, we might need to adjust height. 
+     Assuming full height but with a rounded corner effect at the bottom if it's not expanding full height?
+     Or is it just a rounded element? layout/AppLayout has h-screen.
+     Let's stick to the visual of the sidebar itself.
+  */
+}
+
+/* If the sidebar is meant to float or end before the bottom, we'd need to change height. 
+   But "sidebar" usually implies full height. 
+   The image shows a rounded corner at the bottom right.
+   Let's keep height 100vh but add a pseudo-element or masking if needed, 
+   OR just round the corner if the body background is distinct.
+*/
+
+.sidebar.expanded {
+  width: 320px;
+  border-bottom-right-radius: 0;
+}
+
+/* Toggle Button - styling to match the "tab" look if desired or keep floating */
+.sidebar-toggle {
+  position: absolute;
+  top: 130px;
+  /* Positioned below profile/brand area */
+  right: -12px;
+  width: 24px;
+  height: 48px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background: #5046E5;
+  /* Dark purple */
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.sidebar-toggle:hover {
+  width: 28px;
+}
+
+.sidebar-toggle .material-icons {
+  font-size: 16px;
+  color: white;
+}
+
+/* Collapsed View - Icon Only */
+.sidebar-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar-brand-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  /* background: rgba(255, 255, 255, 0.5); */
+  margin-bottom: 20px;
+  color: #5046E5;
+}
+
+.sidebar-brand-icon .material-icons {
+  font-size: 32px;
+}
+
+.sidebar-icon-btn {
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  color: #7C7CFF;
+  /* Light purple for inactive */
+}
+
+.sidebar-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: #5046E5;
+}
+
+.sidebar-icon-btn.active {
+  background: #5046E5;
+  /* Dark Purple Active Background */
+  color: white;
+  /* White Icon */
+  box-shadow: 0 4px 10px rgba(80, 70, 229, 0.3);
+}
+
+/* Active indicator strip on left? 
+   Image shows active item is a filled rounded square.
+*/
+
+.sidebar-icon-btn .material-icons {
+  font-size: 24px;
+}
+
+/* Spacer for bottom items */
+.spacer {
+  flex-grow: 1;
+}
+
+/* Expanded View Content */
+.sidebar-expanded-content {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px 20px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* Profile Section */
+.sidebar-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+}
+
+.profile-avatar {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+.profile-avatar .material-icons {
+  font-size: 32px;
+  color: #5046E5;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1F2937;
+  margin: 0 0 4px 0;
+}
+
+.profile-details {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Navigation Grid */
+.sidebar-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.nav-card {
+  background: white;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 100px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.nav-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+  border-color: #5046E5;
+}
+
+.nav-card .nav-icon {
+  font-size: 32px;
+  color: #5046E5;
+}
+
+.nav-card .nav-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1F2937;
+}
