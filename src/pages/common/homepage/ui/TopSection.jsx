@@ -19,7 +19,7 @@ function TopSection() {
   return (
     <div className="relative w-full min-h-[140vh] bg-gradient-to-b from-purple-50 to-blue-50 overflow-hidden font-sans">
       {/* Main Content Container */}
-      <div className="container mx-auto pt-32 pb-60 text-center relative z-10">
+      <div className="container mx-auto pt-32 pb-10 text-center relative z-10">
         {/* Typography */}
         <h1 className="text-5xl md:text-6xl font-bold text-indigo-600 mb-4 max-w-4xl mx-auto leading-tight">
           Nest Generation Assessment <br /> Platform For Every School
