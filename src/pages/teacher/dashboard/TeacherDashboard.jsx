@@ -13,58 +13,37 @@ import AnnouncementSection from "./ui/AnnouncementSection";
 
 function TeacherDashboard() {
   return (
-    <div className="flex flex-col h-screen bg-[#514CF105]">
+    <div className="flex flex-col h-screen bg-[#514CF105] pl-12 pr-7">
       {/* Header logic is handled by parent or here if needed, keeping simple */}
       <Header />
-
-      <div className="flex-1 overflow-y-auto p-8 bg-[#514CF105]">
-        <div className="max-w-[1600px] mx-auto">
-          <GreetingSection />
-
-          {/* Main Grid Layout */}
-          <div className="flex flex-col gap-6">
-            {/* Top Row Stats */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              <div className="lg:col-span-4 xl:col-span-3 max-h-64 overflow-y-auto">
-                <UpcomingClasses />
-              </div>
-              <div className="lg:col-span-4 xl:col-span-3">
-                <WeeklyClassAverage />
-              </div>
-              <div className="lg:col-span-4 xl:col-span-3">
-                <StrengthsWeaknesses />
-              </div>
-              <div className="lg:col-span-12 xl:col-span-3">
-                <UpcomingTest />
-              </div>
+      <div className="flex flex-col">
+        <div className="flex">
+          <div></div>
+          <div className="flex">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div className="flex">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div className="flex">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div className="flex">
+          <div></div>
+          <div className="flex flex-col">
+            <div className="flex">
+              <div></div>
+              <div></div>
             </div>
-
-            {/* Bottom Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              {/* Left Column (Sidebar-ish) */}
-              <div className="lg:col-span-3 flex flex-col gap-6">
-                <StudentPerformance />
-                <div className="bg-white rounded-3xl p-1 shadow-sm border border-gray-100 flex-1">
-                  <CalendarSection />
-                </div>
-              </div>
-
-              {/* Right Main Column */}
-              <div className="lg:col-span-9 flex flex-col gap-6">
-                <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-                  <div className="xl:col-span-2 flex">
-                    <AssessmentsOverview />
-                  </div>
-                  <div className="xl:col-span-1">
-                    <ClassPerformance />
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-                  <AnnouncementSection />
-                </div>
-              </div>
-            </div>
+            <div></div>
           </div>
         </div>
       </div>
