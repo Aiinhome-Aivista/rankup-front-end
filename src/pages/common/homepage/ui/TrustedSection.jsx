@@ -28,10 +28,10 @@ const testimonials = [
 ];
 
 const videoSlides = [
-    { id: 1, color: "bg-[#9FA9F6]", content: <div className="text-center"><FastForward sx={{ fontSize: 40, color: '#1a1a1a' }} /></div> },
-    { id: 2, color: "bg-[#F69F9F]", content: <div className="text-center"><FastForward sx={{ fontSize: 40, color: '#1a1a1a' }} /></div> },
-    { id: 3, color: "bg-[#9FF6C5]", content: <div className="text-center"><FastForward x={{ fontSize: 40, color: '#1a1a1a' }} /></div> },
-    { id: 4, color: "bg-[#F6ECB9]", content: <div className="text-center"><FastForward sx={{ fontSize: 40, color: '#1a1a1a' }} /></div> },
+    { id: 1, color: "bg-[#9FA9F6]", content: <div className="text-center"><FastForward sx={{ fontSize: 40, color: '#1C1B1F' }} /></div> },
+    { id: 2, color: "bg-[#F69F9F]", content: <div className="text-center"><FastForward sx={{ fontSize: 40, color: '##1C1B1F' }} /></div> },
+    { id: 3, color: "bg-[#9FF6C5]", content: <div className="text-center"><FastForward x={{ fontSize: 40, color: '##1C1B1F' }} /></div> },
+    { id: 4, color: "bg-[#F6ECB9]", content: <div className="text-center"><FastForward sx={{ fontSize: 40, color: '#1C1B1F' }} /></div> },
 ];
 
 const TrustedSection = () => {
@@ -73,7 +73,7 @@ const TrustedSection = () => {
                         </div>
 
                         {/* Video Carousel Placeholder */}
-                        <div className="relative w-full h-48 rounded-3xl overflow-hidden mt-4 bg-gray-100">
+                        <div className="relative w-full h-48 rounded-3xl overflow-hidden mt-4 bg-[#FFFFFF03]">
                             {videoSlides.map((slide, vIndex) => {
                                 // Calculate offset for inner carousel
                                 let offset = vIndex - videoIndex;
@@ -122,7 +122,7 @@ const TrustedSection = () => {
 
                         {/* Quote */}
                         <div className="mt-4">
-                            <p className="text-xs font-medium text-gray-800 leading-relaxed min-h-12">
+                            <p className="text-xs font-medium text-black leading-relaxed min-h-12">
                                 {currentTestimonial.quote}
                             </p>
                         </div>
@@ -130,7 +130,7 @@ const TrustedSection = () => {
                         {/* Rating */}
                         <div className="flex gap-1 mt-2">
                             {[1, 2, 3, 4, 5].map((star) => (
-                                <Star key={star} sx={{ fontSize: 16, color: '#1a1a1a' }} />
+                                <Star key={star} sx={{ fontSize: 16, color: '#1C1B1F' }} />
                             ))}
                         </div>
                     </div>
@@ -141,7 +141,7 @@ const TrustedSection = () => {
                     {testimonials.map((_, index) => (
                         <div
                             key={index}
-                            className={`h-3 rounded-full bg-slate-800 transition-all duration-300 ${index === currentIndex ? 'w-8' : 'w-3'}`}
+                            className={`h-3 rounded-full bg-[#1C1B1F] transition-all duration-300 ${index === currentIndex ? 'w-8' : 'w-3'}`}
                         ></div>
                     ))}
                 </div>

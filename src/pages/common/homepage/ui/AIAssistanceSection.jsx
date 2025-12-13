@@ -81,7 +81,7 @@ const AIAssistanceSection = () => {
                 {/* Row 3: Value Prop (8 cols) & Blank Cards (4 cols) */}
                 <div className='grid grid-cols-1 md:grid-cols-12 gap-6 w-full'>
                     <div className='md:col-span-8'>
-                        <div className='w-full h-full bg-transparent rounded-3xl p-8 border-3 border-[#FFFFFF38] text-center shadow-xl flex flex-col justify-center items-center'>
+                        <div className='w-full h-full text-[#FFFFFF80] rounded-3xl p-8 border-3 border-[#FFFFFF38] text-center backdrop-blur-xl shadow-[5px_12px_22px_4px_rgba(0,0,0,0.25)] flex flex-col justify-center items-center'>
                             <Typography variant='body1' sx={{ lineHeight: 1.8, fontSize: '1.1rem', maxWidth: '800px', mx: 'auto' }}>
                                 At RankUp, we use Artificial Intelligence (AI) to transform the way students learn, practice, and succeed. Our AI-driven system personalizes learning, evaluates performance instantly, and provides deep insights to help students and educators make better decisions—faster.
                             </Typography>
@@ -95,7 +95,7 @@ const AIAssistanceSection = () => {
                                     padding: '12px 32px',
                                     background: 'rgba(255,255,255,0.2)',
                                     backdropFilter: 'blur(5px)',
-                                    border: '1px solid rgba(255,255,255,0.4)',
+                                    border: '3px solid rgba(255,255,255,0.4)',
                                     fontWeight: 'bold',
                                     textTransform: 'none',
                                     fontSize: '1rem',
@@ -114,8 +114,9 @@ const AIAssistanceSection = () => {
 
                     {/* Blank Cards Stack */}
                     <div className='md:col-span-4 flex flex-col gap-6 h-full'>
-                        <div className='flex-1 w-full bg-transparent rounded-3xl border-3 border-[#FFFFFF38] shadow-xl min-h-[140px]'></div>
-                        <div className='flex-1 w-full bg-transparent rounded-3xl border-3 border-[#FFFFFF38] shadow-xl min-h-[140px]'></div>
+                        <div className='flex-1 w-full backdrop-blur-xl shadow-[5px_12px_22px_4px_rgba(0,0,0,0.25)] rounded-3xl border-3 border-[#FFFFFF38]  min-h-[140px]'></div>
+                        <div className='flex-1 w-full rounded-[30px] backdrop-blur-xl shadow-[5px_12px_22px_4px_rgba(0,0,0,0.25)]
+  border-3 border-[#FFFFFF38] min-h-[140px]'></div>
                     </div>
                 </div>
 
