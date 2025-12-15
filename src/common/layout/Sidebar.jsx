@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Faceicon from '../../assets/icons/face_2.svg';
 
 function Sidebar() {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -17,6 +18,7 @@ function Sidebar() {
     ];
 
     const collapsedNavItems = [
+       
         { id: "dashboard", icon: "dashboard" },
         { id: "classes", icon: "table_restaurant" },
         { id: "assessment", icon: "assignment" },
@@ -34,21 +36,23 @@ function Sidebar() {
                     }`}
             >
                 {/* Main Expanded Sidebar */}
-                <div className="w-80 h-full bg-[#EBEAFF] shadow-2xl">
-                    <div className="h-full flex flex-col p-6">
+                <div className="w-80 h-full bg-[#514CF133] backdrop-blur-[44px]">
+                    <div className="h-full flex flex-col ">
                         {/* User Profile Section */}
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="w-12 h-12 rounded-full bg-[#5046E5] flex items-center justify-center">
-                                <span className="material-icons text-white text-2xl">person</span>
+                        <div className="flex items-center gap-3 p-6">
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center">
+                                <span className="material-icons text-white text-2xl border-3 border-white rounded-full ">person</span>
                             </div>
                             <div>
-                                <h3 className="text-gray-800 font-bold text-base leading-tight">Dr. Anna Viteret</h3>
-                                <p className="text-gray-600 text-xs">ZEMS world Academy, DUBAI</p>
+                                <h3 className="text-white font-extrabold">Dr. Anna Viteret</h3>
+                                <p className="text-white text-xs font-medium">ZEMS world Academy, DUBAI</p>
                             </div>
                         </div>
 
+                        <div className="w-full border-t border-white" />
+
                         {/* Navigation Grid */}
-                        <div className="flex flex-col gap-4 flex-1">
+                        <div className="flex flex-col gap-4 flex-1 p-6">
                             {/* First Row - 2 cards */}
                             <div className="grid grid-cols-2 gap-4">
                                 {mainNavItems.slice(0, 2).map((item) => (
@@ -56,10 +60,10 @@ function Sidebar() {
                                         key={item.id}
                                         onClick={() => setActiveItem(item.id)}
                                         className={`
-                      relative overflow-hidden rounded-2xl p-5 flex flex-col items-center justify-center gap-2 transition-all duration-200 min-h-[100px]
+                      relative overflow-hidden rounded-2xl p-5 flex flex-col items-center justify-center gap-2 transition-all duration-200 min-h-[100px] cursor-pointer 
                       ${activeItem === item.id
-                                                ? "bg-[#5046E5] text-white shadow-lg"
-                                                : "bg-white/80 text-[#5046E5] hover:bg-white border border-purple-200"
+                                                ? "bg-[#514CF133] text-[#514CF1] drop-shadow-lg border border-[#514CF1]"
+                                                : "bg-[#514CF133] text-white hover:bg-[#514CF133] border border-[#514CF1]"
                                             }
                     `}
                                     >
@@ -76,11 +80,11 @@ function Sidebar() {
                                         key={item.id}
                                         onClick={() => setActiveItem(item.id)}
                                         className={`
-                      relative overflow-hidden rounded-2xl p-5 flex flex-col items-center justify-center gap-2 transition-all duration-200 min-h-[100px]
+                      relative overflow-hidden rounded-2xl p-5 flex flex-col items-center justify-center gap-2 transition-all duration-200 min-h-[100px] cursor-pointer
                       ${activeItem === item.id
-                                                ? "bg-[#5046E5] text-white shadow-lg"
-                                                : "bg-white/80 text-[#5046E5] hover:bg-white border border-purple-200"
-                                            }
+                                                ? "bg-[#514CF133] text-[#514CF1] drop-shadow-lg border border-[#514CF1]"
+                                                : "bg-[#514CF133] text-white hover:bg-[#514CF133] border border-[#514CF1]"
+                                            }   
                     `}
                                     >
                                         <span className="material-icons text-4xl">{item.icon}</span>
@@ -90,15 +94,16 @@ function Sidebar() {
                             </div>
 
                             {/* Third Row - Single card */}
-                            {mainNavItems.slice(4, 5).map((item) => (
+                            <div className="grid grid-cols-2 gap-4">
+                                {mainNavItems.slice(4, 5).map((item) => (
                                 <button
                                     key={item.id}
                                     onClick={() => setActiveItem(item.id)}
                                     className={`
                     relative overflow-hidden rounded-2xl p-5 flex flex-col items-center justify-center gap-2 transition-all duration-200 min-h-[100px]
                     ${activeItem === item.id
-                                            ? "bg-[#5046E5] text-white shadow-lg"
-                                            : "bg-white/80 text-[#5046E5] hover:bg-white border border-purple-200"
+                                            ? "bg-[#514CF133] text-[#514CF1] drop-shadow-lg border border-[#514CF1]"
+                                            : "bg-[#514CF133] text-white hover:bg-[#514CF133] border border-[#514CF1]"
                                         }
                   `}
                                 >
@@ -106,21 +111,23 @@ function Sidebar() {
                                     <span className="font-semibold text-sm">{item.label}</span>
                                 </button>
                             ))}
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
 
                 {/* Collapsed Sidebar - Attached to right edge of expanded sidebar */}
                 <div className="absolute -right-14 top-1/2 -translate-y-1/2 w-14">
-                    <div className="bg-[#EBEAFF] rounded-r-[35px] py-3 shadow-lg">
+                    <div className="bg-[#514CF133] rounded-r-[35px] py-3 shadow-lg">
                         {/* Toggle Button / Logo */}
                         <button
                             onClick={toggleSidebar}
                             className="flex items-center justify-center w-full mb-2"
                         >
-                            <div className="w-8 h-8 bg-[#5046E5] rounded-full flex items-center justify-center text-white text-sm font-bold shadow-md hover:scale-110 transition-transform">
-                                R
-                            </div>
+                            {/* <div className="w-8 h-8  rounded-full flex items-center justify-center text-[#797CF1] text-sm font-bold shadow-md hover:scale-110 transition-transform">
+                                <img src={Faceicon} alt="" />
+                            </div> */}
                         </button>
 
                         {/* Navigation Icons */}
@@ -151,7 +158,7 @@ function Sidebar() {
             {/* Overlay to close sidebar when clicking outside */}
             {isExpanded && (
                 <div
-                    className="fixed inset-0 bg-black/20 z-40 transition-opacity duration-300"
+                    className="fixed inset-0 bg-black/10 z-40 transition-opacity duration-300"
                     onClick={toggleSidebar}
                 />
             )}
