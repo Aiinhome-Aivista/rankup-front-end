@@ -1,14 +1,15 @@
-import { BrowserRouter } from 'react-router-dom'
-import Index from './common/routes/Index'
+import { BrowserRouter } from "react-router-dom";
+import Index from "./common/routes/Index";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
-
   return (
-    <BrowserRouter>
-      <Index />
-    </BrowserRouter>
-  )
+    <AuthProvider>
+      <BrowserRouter>
+        <Index />
+      </BrowserRouter>
+    </AuthProvider>
+  );
 }
 
-export default App
-
+export default App;
