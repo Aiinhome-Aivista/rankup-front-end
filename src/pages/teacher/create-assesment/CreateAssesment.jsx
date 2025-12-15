@@ -65,7 +65,6 @@ const CreateAssesment = () => {
 
   return (
     <div className="flex flex-col h-screen bg-[#F8F9FA]">
-      <Header />
       <div className="flex-1 overflow-y-auto p-8 font-sans bg-white">
         {header}
 

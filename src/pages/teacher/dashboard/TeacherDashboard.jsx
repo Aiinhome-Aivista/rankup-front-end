@@ -15,8 +15,6 @@ function TeacherDashboard() {
   return (
     <div className="flex flex-col h-screen bg-[#514CF105]">
       {/* Header logic is handled by parent or here if needed, keeping simple */}
-      <Header />
-
       <div className="flex-1 overflow-y-auto p-8 bg-[#514CF105]">
         <div className="max-w-[1600px] mx-auto">
           <GreetingSection />
