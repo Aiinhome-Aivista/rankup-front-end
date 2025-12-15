@@ -100,7 +100,6 @@
 }
 
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0px);
@@ -113,4 +112,54 @@
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Custom Quill Editor Styling */
+.custom-quill-editor .p-editor-toolbar {
+  border: none !important;
+  background-color: #e0e7ff !important;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.custom-quill-editor .p-editor-content {
+  border: none !important;
+  background-color: #f0f2ff !important;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+/* Hide the default Quill borders */
+.custom-quill-editor .ql-toolbar.ql-snow,
+.custom-quill-editor .ql-container.ql-snow {
+  border: none !important;
+}
+
+/* Icon Colors */
+.custom-quill-editor .ql-formats button svg .ql-stroke {
+  stroke: #514cf1 !important;
+}
+
+.custom-quill-editor .ql-formats button svg .ql-fill {
+  fill: #514cf1 !important;
+}
+
+/* Placeholder Color */
+.custom-quill-editor .ql-editor.ql-blank::before {
+  color: #514cf1 !important;
+  opacity: 0.6;
+  font-style: normal !important;
+}
+
+.custom-quill-editor {
+  border: 1px solid #514cf11a !important;
+  border-radius: 0.5rem !important;
+}
+
+.p-button {
+  border: none !important;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  padding: 0.8rem;
 }
