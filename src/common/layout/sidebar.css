@@ -5,7 +5,7 @@
   top: 0;
   height: 100vh;
   /* Light Lavender Background matching the image */
-  background: #EBEAFF;
+  background: #514CF133;
   transition: width 0.3s ease, border-radius 0.3s ease;
   z-index: 1000;
   display: flex;
