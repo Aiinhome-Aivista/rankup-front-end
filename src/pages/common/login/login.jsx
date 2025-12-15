@@ -34,7 +34,7 @@ const Login = () => {
 
       {/* Login Card */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md lg:max-w-md xl:max-w-lg 2xl:max-w-xl px-4">
-        <div className="backdrop-blur-xl bg-white/10 border border-white rounded-3xl p-8 md:p-12 shadow-2xl">
+        <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 md:p-12 shadow-2xl">
           <div className="flex flex-col items-center text-center text-white">
             {/* Logo */}
             <div className="mb-4">
@@ -70,7 +70,10 @@ const Login = () => {
 
               <div className="mt-6 text-xs md:text-sm text-center opacity-80">
                 You don't have account?{" "}
-                <a href="#" className="font-bold hover:underline">
+                <a
+                  href="#"
+                  className="font-bold text-[#514CF1] hover:underline"
+                >
                   Register here
                 </a>
               </div>
