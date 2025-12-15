@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 // Import your SVGs here (assuming they are components or image paths)
 import Wave1 from "../../../../assets/Vector 2.svg";
@@ -18,15 +18,21 @@ const ParallaxWaves = () => {
     offset: ["start start", "end start"], // Starts animating when top hits top
   });
 
+  const smoothScrollY = useSpring(scrollYProgress, {
+    mass: 0.1,
+    stiffness: 100,
+    damping: 20,
+  });
+
   // 2. Create different movement speeds (Parallax Effect)
   // The 'y' value creates vertical movement.
   // Slowest layer (Background) moves slightly
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const backgroundY = useTransform(smoothScrollY, [0, 1], ["0%", "20%"]);
   // Mid layers move a bit faster
-  const midY1 = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-  const midY2 = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
+  const midY1 = useTransform(smoothScrollY, [0, 1], ["0%", "40%"]);
+  const midY2 = useTransform(smoothScrollY, [0, 1], ["0%", "60%"]);
   // Front layer moves the fastest
-  const foregroundY = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
+  const foregroundY = useTransform(smoothScrollY, [0, 1], ["0%", "80%"]);
 
   // Simplified logic for Mouse Parallax
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -38,18 +44,19 @@ const ParallaxWaves = () => {
     });
   };
 
-  // Apply to style:
-  // transform: `translate(${mousePosition.x * speed}px, ${mousePosition.y * speed}px)`
+  // Apply to style by combining with scrollY
+  // Layer 4 (Front) - Moves most
+  // Layer 1 (Back) - Moves least
 
   return (
     <div
       ref={ref}
       onMouseMove={handleMouseMove}
-      className="w-full h-[150vh] relative  bg-transparent" // Taller container
+      className="w-full h-[160vh] relative  bg-transparent" // Taller container
     >
       <motion.div
         style={{ y: midY2, x: mousePosition.x * 0.5, zIndex: 1 }}
-        className="absolute top-[-15%] left-[1%] z-20"
+        className="absolute top-[12%] left-[1%] z-20"
       >
         <img
           src={codingImage}
@@ -61,7 +68,7 @@ const ParallaxWaves = () => {
       {/* Content Layer - Trampoline */}
       <motion.div
         style={{ y: midY2, x: mousePosition.x * 0.5, zIndex: 1 }}
-        className="absolute top-[-10%] right-[12%] z-20"
+        className="absolute top-[12%] right-[12%] z-20"
       >
         <img
           src={fun}
@@ -70,10 +77,10 @@ const ParallaxWaves = () => {
         />
       </motion.div>
 
-      {/* Wave 1: Furthest Back (Sky/Top Hill) */}
+      {/* Wave 1: Furthest Back (Sky/Top Hill) - Slowest Mouse */}
       <motion.div
-        style={{ y: backgroundY, zIndex: 5 }}
-        className="absolute top-[-7%] left-[-2%] w-full "
+        style={{ y: backgroundY, x: mousePosition.x * -0.2, zIndex: 5 }}
+        className="absolute bottom-[45%] left-[-2%] w-full "
       >
         <img
           src={Wave1}
@@ -84,8 +91,8 @@ const ParallaxWaves = () => {
 
       {/* Wave 2: Mid Hill */}
       <motion.div
-        style={{ y: midY1, zIndex: 10 }}
-        className="absolute top-[4%] left-[0%] w-full"
+        style={{ y: midY1, x: mousePosition.x * -0.4, zIndex: 10 }}
+        className="absolute bottom-[30%] left-[0%] w-full"
       >
         <img
           src={Wave2}
@@ -96,8 +103,8 @@ const ParallaxWaves = () => {
 
       {/* Wave 3: Lower Mid Hill */}
       <motion.div
-        style={{ y: midY2, zIndex: 15 }}
-        className="absolute top-[7%] left-[9%] w-full"
+        style={{ y: midY2, x: mousePosition.x * -0.6, zIndex: 15 }}
+        className="absolute bottom-[35%] left-[9%] w-full"
       >
         <img
           src={Wave3}
@@ -106,10 +113,10 @@ const ParallaxWaves = () => {
         />
       </motion.div>
 
-      {/* Wave 4: Foreground (Closest) */}
+      {/* Wave 4: Foreground (Closest) - Fastest Mouse */}
       <motion.div
-        style={{ y: foregroundY, zIndex: 20 }}
-        className="absolute bottom-[-35%] left-[0%] w-full"
+        style={{ y: foregroundY, x: mousePosition.x * -1.0, zIndex: 20 }}
+        className="absolute bottom-[-45%] left-[0%] w-full"
       >
         <img
           src={Wave4}

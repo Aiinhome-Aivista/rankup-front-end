@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import studying from "../../../../assets/student-studying.svg";
+import studying from "../../../../assets/read-book-img.svg";
 import {
   Psychology,
   Security,
