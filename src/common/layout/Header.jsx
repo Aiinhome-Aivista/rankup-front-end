@@ -7,7 +7,7 @@ function Header() {
   const [isNotificationsExpanded, setIsNotificationsExpanded] = useState(false);
 
   return (
-    <div className="w-full h-20 flex justify-between items-center px-8 py-3 bg-[#514CF105">
+    <div className="w-full h-20 flex justify-between items-center px-8 py-3 bg-[#514CF105]">
       {/* Left Side: Logo and Title */}
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 rounded-full flex justify-center items-center">

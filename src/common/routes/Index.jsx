@@ -17,8 +17,22 @@ function Index() {
         }
       />
       <Route path="login" element={<Login />} />
-      <Route path="teacher/dashboard" element={<TeacherDashboard />} />
-      <Route path="create-assesment/dashboard" element={<CreateAssesment />} />
+      <Route
+        path="teacher/dashboard"
+        element={
+          <AppLayout>
+            <TeacherDashboard />
+          </AppLayout>
+        }
+      />
+      <Route
+        path="create-assesment/dashboard"
+        element={
+          <AppLayout>
+            <CreateAssesment />
+          </AppLayout>
+        }
+      />
     </Routes>
   );
 }
