@@ -7,7 +7,7 @@ function Header() {
   const [isNotificationsExpanded, setIsNotificationsExpanded] = useState(false);
 
   return (
-    <div className="w-full h-20 flex justify-between items-center px-8 bg-[#514CF105] border-b border-gray-100">
+    <div className="w-full h-20 flex justify-between items-center px-8 py-3 bg-[#514CF105">
       {/* Left Side: Logo and Title */}
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 rounded-full flex justify-center items-center">
@@ -33,13 +33,16 @@ function Header() {
                    ring-6 ring-[#D9D9D9] rounded-full
                    hover:bg-[#514CF1] transition-colors cursor-pointer"
         >
-          <Plus size={20} className="rounded-full border border-white font-semibold" />
+          <Plus
+            size={20}
+            className="rounded-full border border-white font-semibold"
+          />
           <span className="font-medium text-sm">Create Assessment</span>
         </button>
 
         {/* Notifications / Status Bar */}
         <div
-          className="flex items-center gap-3 bg-[#D9D9D9] px-4 py-3 rounded-full cursor-pointer hover:bg-[#D9D9D9] transition-colors"
+          className="flex items-center gap-3 bg-[#D9D9D9] px-4 py-3 rounded-full cursor-pointer hover:bg-[#D9D9D9] transition-colors h-12"
           onClick={() => setIsNotificationsExpanded(!isNotificationsExpanded)}
         >
           <Bell size={20} className="text-gray-600" />
