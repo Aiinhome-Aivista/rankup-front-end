@@ -321,7 +321,7 @@ const IndividualRegistration = () => {
       <button
         onClick={handleSubmit}
         disabled={isLoading}
-        className="w-full py-3 mt-4 bg-white/80 hover:bg-white text-indigo-900 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full py-3 mt-4 cursor-pointer bg-white/80 hover:bg-white text-indigo-900 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isLoading ? "Creating Account..." : "Create Account"}
       </button>

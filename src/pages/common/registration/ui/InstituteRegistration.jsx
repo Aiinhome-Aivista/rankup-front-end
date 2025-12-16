@@ -185,7 +185,7 @@ const InstituteRegistration = () => {
           defaultValue={100}
           min={0}
           max={5000}
-          step={50}
+          step={10}
           value={instituteStudents}
           onChange={handleSliderChange}
           sx={{
