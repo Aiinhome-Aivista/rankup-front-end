@@ -7,8 +7,10 @@ import PersonIcon from "@mui/icons-material/Person";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import IndividualRegistration from "./ui/IndividualRegistration";
 import InstituteRegistration from "./ui/InstituteRegistration";
+import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("individual");
 
   return (
@@ -80,12 +82,12 @@ const Registration = () => {
 
               <div className="mt-6 text-xs md:text-sm text-center opacity-80">
                 Already have an account?{" "}
-                <a
-                  href="/login"
+                <span
+                  onClick={() => navigate("/login")}
                   className="font-bold text-[#514CF1] hover:underline"
                 >
                   Login here
-                </a>
+                </span>
               </div>
             </div>
           </div>
