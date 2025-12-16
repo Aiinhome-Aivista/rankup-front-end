@@ -1,11 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { Toast } from "primereact/toast";
 import { useNavigate } from "react-router-dom";
 import apiService from "../../../../service/apiService";
 import { POST_APIS } from "../../../../../connection";
+import { useToast } from "../../../../context/ToastContext";
 
 const IndividualRegistration = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ const IndividualRegistration = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const toast = useRef(null);
+  const { showToast } = useToast();
   const navigate = useNavigate();
 
   const roles = [
@@ -108,27 +108,23 @@ const IndividualRegistration = () => {
         });
 
         if (response.isSuccess) {
-          toast.current.show({
-            severity: "success",
-            summary: "Success",
-            detail: response.message || "Registration Successful!",
-          });
+          showToast(
+            "success",
+            "Success",
+            response.message || "Registration Successful!"
+          );
           setTimeout(() => {
             navigate("/login");
           }, 1500);
         } else {
-          toast.current.show({
-            severity: "error",
-            summary: "Registration Failed",
-            detail: response.message || "An error occurred.",
-          });
+          showToast(
+            "error",
+            "Registration Failed",
+            response.message || "An error occurred."
+          );
         }
       } catch (error) {
-        toast.current.show({
-          severity: "error",
-          summary: "Error",
-          detail: error.message || "Something went wrong!",
-        });
+        showToast("error", "Error", error.message || "Something went wrong!");
       } finally {
         setIsLoading(false);
       }
@@ -137,7 +133,6 @@ const IndividualRegistration = () => {
 
   return (
     <>
-      <Toast ref={toast} />
       <div className="relative">
         <input
           type="text"
