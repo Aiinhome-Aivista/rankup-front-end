@@ -359,7 +359,7 @@ const InstituteRegistration = () => {
           />
           <button
             type="button"
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white"
+            className="absolute right-4 cursor-pointer top-1/2 -translate-y-1/2 text-white/70 hover:text-white"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? <VisibilityOff /> : <Visibility />}

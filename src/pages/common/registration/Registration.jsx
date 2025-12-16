@@ -84,7 +84,7 @@ const Registration = () => {
                 Already have an account?{" "}
                 <span
                   onClick={() => navigate("/login")}
-                  className="font-bold text-[#514CF1] hover:underline"
+                  className="font-bold text-[#514CF1] cursor-pointer hover:underline"
                 >
                   Login here
                 </span>

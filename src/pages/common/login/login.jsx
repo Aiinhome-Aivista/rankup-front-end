@@ -4,8 +4,10 @@ import vector3 from "../../../assets/Vector-3-login.svg";
 import vector4 from "../../../assets/Vector-4-login.svg";
 import vector5 from "../../../assets/Vector-5-login.svg";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#A1AEF2]  font-sans">
       {/* Top Left Branding */}
@@ -70,12 +72,12 @@ const Login = () => {
 
               <div className="mt-6 text-xs md:text-sm text-center opacity-80">
                 You don't have account?{" "}
-                <a
-                  href="#"
-                  className="font-bold text-[#514CF1] hover:underline"
+                <span
+                  onClick={() => navigate("/register")}
+                  className="font-bold text-[#514CF1] cursor-pointer hover:underline"
                 >
                   Register here
-                </a>
+                </span>
               </div>
             </div>
           </div>
