@@ -6,4 +6,5 @@ export const GET_APIS = {
 
 export const POST_APIS = {
   individualRegister: `${BASE_URL}auth/register`,
+  instituteRegister: `${BASE_URL}institute/register`,
 }

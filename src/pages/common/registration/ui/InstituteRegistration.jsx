@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Slider from "@mui/material/Slider";
 import { Dropdown } from "primereact/dropdown";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { Toast } from "primereact/toast";
+import { useNavigate } from "react-router-dom";
+import apiService from "../../../../service/apiService";
+import { POST_APIS } from "../../../../../connection";
 
 const InstituteRegistration = () => {
   const [formData, setFormData] = useState({
     instituteName: "",
     instituteWebsite: "",
+    institutePhone: "",
     adminFullName: "",
     adminEmail: "",
     adminPhone: "",
@@ -18,6 +23,9 @@ const InstituteRegistration = () => {
   const [selectedInstituteType, setSelectedInstituteType] = useState(null);
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const toast = useRef(null);
+  const navigate = useNavigate();
 
   const instituteTypes = [
     { label: "School", value: "school" },
@@ -33,8 +41,15 @@ const InstituteRegistration = () => {
       newErrors.instituteName = "Institute Name is required";
     if (!formData.instituteWebsite.trim())
       newErrors.instituteWebsite = "Institute Website is required";
+
     if (!selectedInstituteType)
       newErrors.instituteType = "Institute Type is required";
+
+    if (!formData.institutePhone) {
+      newErrors.institutePhone = "Institute Phone is required";
+    } else if (formData.institutePhone.length < 10) {
+      newErrors.institutePhone = "Phone Number must be 10 digits";
+    }
 
     if (!formData.adminFullName.trim())
       newErrors.adminFullName = "Admin Full Name is required";
@@ -67,16 +82,16 @@ const InstituteRegistration = () => {
   };
 
   const handlePhoneChange = (e) => {
-    const value = e.target.value;
+    const { name, value } = e.target;
     // Remove non-digit characters
     const numericValue = value.replace(/\D/g, "");
 
     // Limit to 10 digits
     if (numericValue.length <= 10) {
-      setFormData({ ...formData, adminPhone: numericValue });
+      setFormData({ ...formData, [name]: numericValue });
     }
-    if (errors.adminPhone) {
-      setErrors({ ...errors, adminPhone: "" });
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: "" });
     }
   };
 
@@ -84,19 +99,58 @@ const InstituteRegistration = () => {
     setInstituteStudents(newValue);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (validate()) {
-      console.log("Institute Form Submitted", {
-        ...formData,
-        instituteStudents,
-        instituteType: selectedInstituteType,
-      });
-      // Proceed with API call
+      setIsLoading(true);
+      try {
+        const payload = {
+          instituteName: formData.instituteName,
+          website: formData.instituteWebsite,
+          instituteType: selectedInstituteType,
+          studentRange: `${instituteStudents}`, // Sending slider value as range string for now
+          institutePhone: formData.institutePhone,
+          adminName: formData.adminFullName,
+          adminEmail: formData.adminEmail,
+          adminPhone: formData.adminPhone,
+          adminPassword: formData.adminPassword,
+        };
+
+        const response = await apiService(POST_APIS.instituteRegister, {
+          method: "POST",
+          body: payload,
+        });
+
+        if (response.isSuccess) {
+          toast.current.show({
+            severity: "success",
+            summary: "Success",
+            detail: response.message || "Institute Registered Successfully!",
+          });
+          setTimeout(() => {
+            navigate("/login");
+          }, 1500);
+        } else {
+          toast.current.show({
+            severity: "error",
+            summary: "Registration Failed",
+            detail: response.message || "An error occurred.",
+          });
+        }
+      } catch (error) {
+        toast.current.show({
+          severity: "error",
+          summary: "Error",
+          detail: error.message || "Something went wrong!",
+        });
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
   return (
     <>
+      <Toast ref={toast} />
       <div className="relative">
         <input
           type="text"
@@ -168,6 +222,29 @@ const InstituteRegistration = () => {
         {errors.instituteType && (
           <p className="text-red-300 text-xs mt-1 ml-1">
             {errors.instituteType}
+          </p>
+        )}
+      </div>
+
+      <div className="relative">
+        <div className="relative flex items-center">
+          <span className="absolute left-5 text-white z-10 pointer-events-none">
+            +91
+          </span>
+          <input
+            type="text"
+            name="institutePhone"
+            value={formData.institutePhone}
+            onChange={handlePhoneChange}
+            placeholder="Institute Phone"
+            className={`w-full pl-14 pr-5 py-3 bg-transparent border! ${
+              errors.institutePhone ? "border-red-500!" : "border-[#D9D9D9]!"
+            } rounded-xl! outline-none placeholder-white! text-white! focus:bg-white/10! focus:border-white/50! transition-all duration-300`}
+          />
+        </div>
+        {errors.institutePhone && (
+          <p className="text-red-300 text-xs mt-1 ml-1">
+            {errors.institutePhone}
           </p>
         )}
       </div>
@@ -297,9 +374,10 @@ const InstituteRegistration = () => {
 
       <button
         onClick={handleSubmit}
-        className="w-full py-3 mt-4 bg-white/80 hover:bg-white text-indigo-900 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+        disabled={isLoading}
+        className="w-full py-3 mt-4 bg-white/80 hover:bg-white text-indigo-900 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Register Institute
+        {isLoading ? "Registering Institute..." : "Register Institute"}
       </button>
     </>
   );
