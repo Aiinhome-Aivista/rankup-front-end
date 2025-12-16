@@ -1,11 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import vector2 from "../../../assets/Vector-2-login.svg";
 import vector3 from "../../../assets/Vector-3-login.svg";
 import vector4 from "../../../assets/Vector-4-login.svg";
 import vector5 from "../../../assets/Vector-5-login.svg";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import apiService from "../../../service/apiService";
+import { initiateLoginApi, verifyLoginApi } from "../../../../connection";
+import { AuthContext } from "../../../context/AuthContext";
+import { useContext, useEffect } from "react";
 
 const Login = () => {
+  const { setIsLoggedIn } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [otp, setOtp] = useState("");
+  const [isOtpSent, setIsOtpSent] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (errorMsg) {
+      setSuccessMsg("");
+      const timer = setTimeout(() => {
+        setErrorMsg("");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [errorMsg]);
+
+  const handleLogin = async (e) => {
+    e && e.preventDefault && e.preventDefault();
+    if (isOtpSent) {
+      handleVerify();
+      return;
+    }
+    setErrorMsg("");
+    setIsLoading(true);
+    try {
+      const res = await initiateLoginApi({ email, password });
+      console.log("Login response:", res);
+      if (res.isSuccess) {
+        setIsOtpSent(true);
+        setSuccessMsg("OTP sent successfully! Please check your email inbox.");
+      } else {
+        setErrorMsg(res.message || "Login failed");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setErrorMsg(err.message || "An unexpected error occurred.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleVerify = async () => {
+    setIsLoading(true);
+    try {
+      const res = await verifyLoginApi({ email, otp });
+      console.log("Verify response:", res);
+      if (res.isSuccess) {
+         setIsLoggedIn(true);
+         // Navigate or handle successful login
+      } else {
+        setErrorMsg(res.message || "Verification failed");
+      }
+    } catch (err) {
+      console.error("Verification error:", err);
+      setErrorMsg(err.message || "An unexpected verification error occurred.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#A1AEF2]  font-sans">
       {/* Top Left Branding */}
@@ -34,7 +100,7 @@ const Login = () => {
 
       {/* Login Card */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md lg:max-w-md xl:max-w-lg 2xl:max-w-xl px-4">
-        <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 md:p-12 shadow-2xl">
+        <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 md:p-12 shadow-2xl min-h-[600px] flex flex-col justify-center">
           <div className="flex flex-col items-center text-center text-white">
             {/* Logo */}
             <div className="mb-4">
@@ -51,22 +117,60 @@ const Login = () => {
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="User Name"
-                  className="w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm"
+                  placeholder="Email"
+                  value={email}
+                  disabled={isOtpSent}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className={`w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm ${
+                    isOtpSent ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 />
               </div>
 
               <div className="relative">
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm"
-                />
+                {!isOtpSent ? (
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm"
+                  />
+                ) : (
+                  <input
+                    type="text"
+                    placeholder="Enter OTP"
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    className="w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm"
+                  />
+                )}
               </div>
 
-              <button className="w-full py-3 mt-2 bg-white/80 hover:bg-white text-indigo-900 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer">
-                Login
+              <button
+                onClick={handleLogin}
+                type="button"
+                disabled={isLoading}
+                className={`w-full py-3 mt-2 bg-white/80 hover:bg-white text-indigo-900 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform cursor-pointer flex justify-center items-center gap-2 ${
+                  isLoading ? "opacity-70 cursor-not-allowed" : ""
+                }`}
+              >
+                {isLoading ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-indigo-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>{isOtpSent ? "Verifying..." : "Logging in..."}</span>
+                  </>
+                ) : (
+                  "Login"
+                )}
               </button>
+              <div className="mt-4 text-center min-h-[24px]">
+                 {errorMsg && <p className="text-red-300 text-sm font-semibold">{errorMsg}</p>}
+                 {successMsg && <p className="text-emerald-300 text-sm font-semibold">{successMsg}</p>}
+              </div>
 
               <div className="mt-6 text-xs md:text-sm text-center opacity-80">
                 You don't have account?{" "}

@@ -3,7 +3,7 @@ import AppLayout from "../layout/AppLayout";
 import Homepage from "../../pages/common/homepage/Homepage";
 import TeacherDashboard from "../../pages/teacher/dashboard/TeacherDashboard";
 import CreateAssesment from "../../pages/teacher/create-assesment/CreateAssesment";
-import Login from "../../pages/common/login/login";
+import Login from "../../pages/common/login/Login";
 
 function Index() {
   return (
@@ -26,7 +26,7 @@ function Index() {
         }
       />
       <Route
-        path="create-assesment/dashboard"
+        path="teacher/dashboard/create-assesment"
         element={
           <AppLayout>
             <CreateAssesment />
