@@ -9,7 +9,7 @@ function UpcomingClasses() {
   ];
 
   return (
-    <div className="bg-[#514BF2] rounded-3xl p-6 text-white w-full h-[220px] relative overflow-hidden flex flex-col justify-between">
+    <div className="bg-[#514BF2] rounded-3xl p-6 text-white w-full h-[200px] relative overflow-hidden flex flex-col justify-between">
       {/* Header */}
       <div className="flex justify-between items-center mb-4 z-10">
         <h3 className="font-semibold text-lg">Upcoming Classes | Today</h3>
