@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   KeyboardArrowDown,
   KeyboardArrowUp,
@@ -29,6 +29,31 @@ function Navbar() {
   const navigate = useNavigate();
   const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState("");
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 10) {
+        // Always show navbar at the top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past threshold
+        setIsVisible(false);
+        setIsFeaturesOpen(false); // Close features menu when hiding
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", controlNavbar);
+    return () => window.removeEventListener("scroll", controlNavbar);
+  }, [lastScrollY]);
 
   const features = [
     {
@@ -82,16 +107,17 @@ function Navbar() {
   ];
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 pointer-events-none">
+    <div className="fixed top-0 left-0 w-full z-55 pointer-events-none">
       <nav
         className={`
           pointer-events-auto
-          absolute top-0 left-1/2 -translate-x-1/2
+          absolute left-1/2 -translate-x-1/2
           bg-[#A2AEF2]/70 rounded-b-4xl rounded-t-none px-6 py-3 
           border-5 border-white border-t-0 shadow-lg shadow-[#514CF180]
           backdrop-blur-lg
           transition-all duration-500 ease-in-out overflow-hidden 
           ${isFeaturesOpen ? "max-h-[400px]" : "max-h-[65px]"}
+          ${isVisible ? "top-0 opacity-100" : "-top-32 opacity-0"}
           w-[calc(100%-2rem)] max-w-5xl
           z-50
         `}

@@ -2,11 +2,35 @@ import React from "react";
 import blackLogo from "../../../../assets/icons/black-logo-main.svg";
 import rankUpAcademy from "../../../../assets/icons/Rank Up Academy.svg";
 import footerImg from "../../../../assets/icons/footer-img.svg";
+import { motion } from "framer-motion";
 
-function Footer() {
+function Footer({ fadeContent = false }) {
+  // Animation variants for content fade-in
+  const contentVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+      filter: "blur(8px)",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1.5,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
   return (
     <footer className="pt-8 pb-0 relative overflow-hidden font-sans border-t border-[#D9D9D9]">
-      <div className="max-w-6xl mx-auto px-10 lg:px-14">
+      <motion.div
+        className="max-w-6xl mx-auto px-10 lg:px-14"
+        variants={contentVariants}
+        initial="hidden"
+        animate={fadeContent ? "visible" : "hidden"}
+      >
         {/* Logo Section */}
         <div className="flex items-center gap-3 mb-10">
           <img
@@ -73,7 +97,7 @@ function Footer() {
             @2020 Aiinhome Technologies Pvt. Ltd. All rights reserved
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Decorative Image */}
       <img
