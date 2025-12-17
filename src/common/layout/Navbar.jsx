@@ -13,8 +13,10 @@ import {
   Person,
   Tour,
 } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
   const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState("");
 
@@ -130,7 +132,10 @@ function Navbar() {
               <img src="/follow_the_signs.svg" alt="" />
               Take a Tour
             </button>
-            <button className="flex items-center gap-2 px-5 py-2 cursor-pointer rounded-xl bg-[#514BF2] text-white font-semibold hover:bg-[#4338ca] transition-all active:scale-95 shadow-md hover:shadow-lg">
+            <button
+              onClick={() => navigate("/login")}
+              className="flex items-center gap-2 px-5 py-2 cursor-pointer rounded-xl bg-[#514BF2] text-white font-semibold hover:bg-[#4338ca] transition-all active:scale-95 shadow-md hover:shadow-lg"
+            >
               <Person fontSize="small" />
               Sign In
             </button>

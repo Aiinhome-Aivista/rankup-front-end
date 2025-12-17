@@ -10,21 +10,22 @@ function Sidebar() {
     };
 
     const mainNavItems = [
-        { id: "dashboard", icon: "dashboard", label: "Dashboard" },
+        { id: "dashboard", icon: "bento", label: "Dashboard" },
         { id: "assessment", icon: "assignment", label: "Assessment" },
         { id: "classes", icon: "table_restaurant", label: "Classes" },
-        { id: "student", icon: "school", label: "Student" },
-        { id: "analytics", icon: "analytics", label: "Analytics" },
+        { id: "student", icon: "face", label: "Student" },
+        { id: "analytics", icon: "area_chart", label: "Analytics" },
     ];
 
     const collapsedNavItems = [
-       
-        { id: "dashboard", icon: "dashboard" },
+        { id: "student", icon: "face" },
         { id: "classes", icon: "table_restaurant" },
+        { id: "dashboard", icon: "bento" },
+        {id:"addnotes", icon:"note_add"},
         { id: "assessment", icon: "assignment" },
-        { id: "reports", icon: "description" },
-        { id: "student", icon: "person" },
-        { id: "settings", icon: "settings" },
+        { id: "persons", icon: "person_add" },
+         { id: "analytics", icon: "area_chart"},
+        { id: "library", icon: "library_add" },
         { id: "favorites", icon: "star" },
     ];
 
@@ -39,9 +40,10 @@ function Sidebar() {
                 <div className="w-80 h-full bg-[#514CF133] backdrop-blur-[44px]">
                     <div className="h-full flex flex-col ">
                         {/* User Profile Section */}
-                        <div className="flex items-center gap-3 p-6">
-                            <div className="w-12 h-12 rounded-full flex items-center justify-center">
-                                <span className="material-icons text-white text-2xl border-3 border-white rounded-full ">person</span>
+                        <div className="flex items-center gap-3 p-5">
+                            <div className="w-10 h-10 rounded-full flex items-center justify-center">
+                                <span className="material-icons text-white  border-4 border-white rounded-full ">
+                                    person</span>
                             </div>
                             <div>
                                 <h3 className="text-white font-extrabold">Dr. Anna Viteret</h3>
@@ -62,7 +64,7 @@ function Sidebar() {
                                         className={`
                       relative overflow-hidden rounded-2xl p-5 flex flex-col items-center justify-center gap-2 transition-all duration-200 min-h-[100px] cursor-pointer 
                       ${activeItem === item.id
-                                                ? "bg-[#514CF133] text-[#514CF1] drop-shadow-lg border border-[#514CF1]"
+                                                ? "bg-[#514CF133] text-[#514CF1]  border border-[#514CF1]  shadow-[0_5px_10px_2px_rgba(81,76,241,0.2)]"
                                                 : "bg-[#514CF133] text-white hover:bg-[#514CF133] border border-[#514CF1]"
                                             }
                     `}
@@ -96,30 +98,30 @@ function Sidebar() {
                             {/* Third Row - Single card */}
                             <div className="grid grid-cols-2 gap-4">
                                 {mainNavItems.slice(4, 5).map((item) => (
-                                <button
-                                    key={item.id}
-                                    onClick={() => setActiveItem(item.id)}
-                                    className={`
+                                    <button
+                                        key={item.id}
+                                        onClick={() => setActiveItem(item.id)}
+                                        className={`
                     relative overflow-hidden rounded-2xl p-5 flex flex-col items-center justify-center gap-2 transition-all duration-200 min-h-[100px]
                     ${activeItem === item.id
-                                            ? "bg-[#514CF133] text-[#514CF1] drop-shadow-lg border border-[#514CF1]"
-                                            : "bg-[#514CF133] text-white hover:bg-[#514CF133] border border-[#514CF1]"
-                                        }
+                                                ? "bg-[#514CF133] text-[#514CF1] drop-shadow-lg border border-[#514CF1]"
+                                                : "bg-[#514CF133] text-white hover:bg-[#514CF133] border border-[#514CF1]"
+                                            }
                   `}
-                                >
-                                    <span className="material-icons text-4xl">{item.icon}</span>
-                                    <span className="font-semibold text-sm">{item.label}</span>
-                                </button>
-                            ))}
+                                    >
+                                        <span className="material-icons text-4xl">{item.icon}</span>
+                                        <span className="font-semibold text-sm">{item.label}</span>
+                                    </button>
+                                ))}
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
 
                 {/* Collapsed Sidebar - Attached to right edge of expanded sidebar */}
-                <div className="absolute -right-14 top-1/2 -translate-y-1/2 w-14">
-                    <div className="bg-[#514CF133] rounded-r-[35px] py-3 shadow-lg">
+                <div className="absolute -right-9 top-1/2 -translate-y-1/2 w-9">
+                    <div className="bg-[#514CF133]  rounded-r-4xl shadow-lg">
                         {/* Toggle Button / Logo */}
                         <button
                             onClick={toggleSidebar}
@@ -131,24 +133,46 @@ function Sidebar() {
                         </button>
 
                         {/* Navigation Icons */}
-                        <div className="flex flex-col gap-1.5 px-1.5">
+                        <div className="flex flex-col gap-1.5">
                             {collapsedNavItems.map((item) => (
-                                <button
-                                    key={item.id}
-                                    onClick={() => {
-                                        setActiveItem(item.id);
-                                        if (!isExpanded) setIsExpanded(true);
-                                    }}
-                                    className={`
-                    flex items-center justify-center transition-all duration-200 w-10 h-10 rounded-lg mx-auto
-                    ${activeItem === item.id
-                                            ? "bg-[#5046E5] text-white"
-                                            : "text-[#7C7CFF] hover:text-[#5046E5]"
-                                        }
-                  `}
+                               <button
+                                key={item.id}
+                                onClick={() => {
+                                    setActiveItem(item.id);
+                                    if (!isExpanded) setIsExpanded(true);
+                                }}
+                                className="relative w-9 h-10 mx-auto flex items-center justify-center"
                                 >
-                                    <span className="material-icons text-base">{item.icon}</span>
-                                </button>
+                                {/* LEFT PILL INDICATOR */}
+                                {activeItem === item.id && (
+                                    <span
+                                    className="
+                                        absolute -left-2
+                                        w-6 h-1
+                                        bg-[#5046E5]
+                                        rotate-90
+                                        rounded-br-[10px] rounded-tl-[10px]
+                                        z-0
+                                    "
+                                    />
+                                )}
+
+                                                    {/* ICON */}
+                                                    <span
+                                                        className={`
+                                                        relative z-10
+                                                        material-icons text-base
+                                                        ${
+                                                            activeItem === item.id
+                                                            ? "text-[#5046E5]"
+                                                            : "text-[#7C7CFF] hover:text-[#5046E5]"
+                                                        }
+                                                        `}
+                                                    >
+                                                        {item.icon}
+                                                    </span>
+                                                    </button>
+
                             ))}
                         </div>
                     </div>

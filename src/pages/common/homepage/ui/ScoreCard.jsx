@@ -10,9 +10,9 @@ import StarIcon from '@mui/icons-material/Star';
 
 const ScoreCard = () => {
     return (
-        <div className="relative w-full max-w-[300px]">
+        <div className="relative w-full h-full">
             {/* Main Card Container */}
-            <div className="relative z-10 rounded-[30px] p-4 text-[#A1AEF2] shadow-2xl border-3 border-[#FFFFFF38]">
+            <div className="relative z-10 rounded-[30px] p-4 text-[#A1AEF2] shadow-2xl border-3 border-[#FFFFFF38] h-full">
 
                 {/* Title */}
                 <h1 className='text-[#A1AEF2] font-extrabold text-xl items-center justify-center flex'>
@@ -33,12 +33,12 @@ const ScoreCard = () => {
                 </div>
 
                 {/* Subject Grid */}
-                <div className="grid grid-cols-2 gap-3 pl-3">
+                <div className="grid grid-cols-2 gap-3 pl-4">
                     {/* Mathematics */}
-                    <div className="bg-white/10 rounded-2xl p-2 flex flex-col items-center justify-center border border-white/5 w-[90px]">
+                    <div className="bg-white/10 rounded-2xl flex flex-col items-center justify-center border border-white/5 w-full">
                         <CalculateIcon sx={{ fontSize: 24 }} />
                         <span className="text-[11px] font-medium">Mathematics</span>
-                        <div className="flex gap-3 mt-2">
+                        <div className="flex  mt-2">
                             <div className="flex items-center gap-1">
                                 <div className="w-2 h-2 rounded-full bg-blue-600"></div>
                                 <span className="text-[10px] font-bold">5</span>
@@ -51,7 +51,7 @@ const ScoreCard = () => {
                     </div>
 
                     {/* Biology */}
-                    <div className="bg-white/10 rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-[90px]">
+                    <div className="bg-white/10 rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-full">
                         <BiotechIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.9 }} />
                         <span className="text-[11px] font-medium">Biology</span>
                         <div className="flex gap-3 mt-2">
@@ -67,7 +67,7 @@ const ScoreCard = () => {
                     </div>
 
                     {/* Chemistry */}
-                    <div className="bg-white/10 rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-[90px]">
+                    <div className="bg-white/10 rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-full">
                         <ScienceIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.9 }} />
                         <span className="text-[11px] font-medium">Chemistry</span>
                         <div className="flex gap-3 mt-2">
@@ -83,7 +83,7 @@ const ScoreCard = () => {
                     </div>
 
                     {/* Geography */}
-                    <div className="bg-white/10 rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-[90px]">
+                    <div className="bg-white/10 rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-full">
                         <PublicIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.9 }} />
                         <span className="text-[11px] font-medium">Geography</span>
                         <div className="flex gap-3 mt-2">
@@ -103,23 +103,22 @@ const ScoreCard = () => {
             {/* Side Star Handle */}
             {/* Adjusted to match the visual "tab" look more closely: slightly higher, wider, specific radius */}
             <div className="
-  absolute top-1/2 -translate-y-1/2 
-   rotate-180
-  w-6 py-4
-  bg-[#FFFFFF38]
-  rounded-l-2xl
-  flex flex-col items-center justify-center
-  gap-2
-  shadow-lg
-  border border-white/20
-  z-10
-">
+                    absolute top-1/3
+                    rotate-180
+                    w-6 py-4
+                    bg-[#FFFFFF38]
+                    rounded-l-2xl
+                    flex flex-col items-center justify-center
+                    gap-2
+                    shadow-lg
+                    border border-white/20
+                    z-10">
                 <StarIcon sx={{ fontSize: 16, color: "#A1AEF2" }} />
                 <StarIcon sx={{ fontSize: 16, color: "#A1AEF2" }} />
                 <StarIcon sx={{ fontSize: 16, color: "#A1AEF2" }} />
                 <StarIcon sx={{ fontSize: 16, color: "#A1AEF2" }} />
                 <StarIcon sx={{ fontSize: 16, color: "#A1AEF2" }} />
-               
+
             </div>
 
         </div>
@@ -127,4 +126,3 @@ const ScoreCard = () => {
 };
 
 export default ScoreCard;
-
