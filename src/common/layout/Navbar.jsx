@@ -35,7 +35,7 @@ function Navbar() {
   useEffect(() => {
     const controlNavbar = () => {
       const currentScrollY = window.scrollY;
-      
+
       if (currentScrollY < 10) {
         // Always show navbar at the top
         setIsVisible(true);
@@ -47,12 +47,12 @@ function Navbar() {
         // Scrolling up
         setIsVisible(true);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', controlNavbar);
-    return () => window.removeEventListener('scroll', controlNavbar);
+    window.addEventListener("scroll", controlNavbar);
+    return () => window.removeEventListener("scroll", controlNavbar);
   }, [lastScrollY]);
 
   const features = [
@@ -107,7 +107,7 @@ function Navbar() {
   ];
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 pointer-events-none">
+    <div className="fixed top-0 left-0 w-full z-55 pointer-events-none">
       <nav
         className={`
           pointer-events-auto

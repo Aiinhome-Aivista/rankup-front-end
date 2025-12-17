@@ -79,10 +79,10 @@ function TopMiddleSection() {
   };
 
   return (
-    <div className="w-full bg-linear-to-b from-[#f3f6ff] to-[#ffffff] py-20 font-sans overflow-hidden">
+    <div className="w-full bg-linear-to-b from-[#b7baf8] to-[#ffffff] py-20 font-sans overflow-hidden">
       <div className="container mx-auto px-4 gap-6 flex flex-col items-center pb-6">
         {/* Header Illustration & Text */}
-        <div className="mb-12 text-center">
+        <div className="mb-12 text-center pb-12">
           <img
             src={studying}
             alt="Illustration"
@@ -92,7 +92,7 @@ function TopMiddleSection() {
         </div>
 
         {/* Vertical Carousel */}
-        <div className="relative w-full max-w-6xl h-[500px] flex flex-col items-center justify-center perspective-1000">
+        <div className="relative w-full max-w-6xl h-[600px] flex flex-col items-center justify-center perspective-1000">
           {items.map((item, index) => {
             const offset = getOffset(index);
             const isActive = offset === 0;

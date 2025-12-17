@@ -202,7 +202,7 @@ function DraggableCardsSection() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full h-[600px]  overflow-hidden select-none  bg-linear-to-b from-[#514CF1] to-[#f3f6ff] "
+      className="relative w-full h-[600px]  overflow-hidden select-none  bg-linear-to-b from-[#514CF1] to-[#b7baf8] "
     >
       {/* SVG Connected Line */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">

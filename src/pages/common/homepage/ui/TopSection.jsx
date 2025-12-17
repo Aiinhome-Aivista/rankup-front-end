@@ -14,11 +14,9 @@ import SpaIcon from "@mui/icons-material/Spa";
 import TopMiddleSection from "./TopMiddleSection";
 import DraggableCardsSection from "./DraggableCardsSection";
 
-
-
 function TopSection() {
   return (
-    <div className="relative w-full min-h-[140vh] bg-gradient-to-b from-purple-50 to-blue-50 overflow-hidden font-sans">
+    <div className="relative w-full min-h-[140vh] bg-linear-to-b from-purple-50 to-blue-50 overflow-hidden font-sans">
       {/* Main Content Container */}
       <div className="container mx-auto pt-32 pb-10 text-center relative z-10">
         {/* Typography */}
