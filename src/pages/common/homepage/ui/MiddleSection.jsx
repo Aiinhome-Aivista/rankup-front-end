@@ -1,10 +1,44 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import strategyImage from "../../../../assets/strategy.svg";
 import AIAssistanceSection from "./AIAssistanceSection";
 import TrustedSection from "./TrustedSection";
 import { motion } from "framer-motion";
 
 function MiddleSection({ fadeContent = false }) {
+  const aiAssistanceRef = useRef(null);
+  const trustedRef = useRef(null);
+
+  const [visibleSubSections, setVisibleSubSections] = useState({
+    aiAssistance: false,
+    trusted: false,
+  });
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionName = entry.target.dataset.section;
+          setVisibleSubSections((prev) => ({ ...prev, [sectionName]: true }));
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    if (aiAssistanceRef.current) observer.observe(aiAssistanceRef.current);
+    if (trustedRef.current) observer.observe(trustedRef.current);
+
+    return () => observer.disconnect();
+  }, []);
   // Animation variants for content fade-in
   const contentVariants = {
     hidden: {
@@ -113,10 +147,14 @@ function MiddleSection({ fadeContent = false }) {
       </div>
 
       {/* AI Assistance Section */}
-      <AIAssistanceSection />
+      <div ref={aiAssistanceRef} data-section="aiAssistance">
+        <AIAssistanceSection fadeContent={visibleSubSections.aiAssistance} />
+      </div>
 
       {/* Trusted By Educators Section */}
-      <TrustedSection />
+      <div ref={trustedRef} data-section="trusted">
+        <TrustedSection fadeContent={visibleSubSections.trusted} />
+      </div>
     </>
   );
 }
