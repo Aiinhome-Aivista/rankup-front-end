@@ -206,14 +206,26 @@ function DraggableCardsSection() {
     >
       {/* SVG Connected Line */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
+        <defs>
+          <filter id="lineShadow">
+            <feDropShadow
+              dx="0"
+              dy="0"
+              stdDeviation="5.5"
+              floodColor="#4338ca"
+              floodOpacity="1"
+            />
+          </filter>
+        </defs>
         <path
           d={getSmoothPath()}
           fill="none"
-          stroke="#5452CC"
+          stroke="#4338ca"
           strokeWidth="5"
           strokeLinecap="round"
           className="opacity-40"
           style={{ transition: "d 0.12s ease-out" }}
+          filter="url(#lineShadow)"
         />
       </svg>
 
@@ -224,18 +236,21 @@ function DraggableCardsSection() {
           style={{
             left: `${cardPositions[index].x}%`,
             top: `${cardPositions[index].y}%`,
+            transition:
+              magnetRef.current === index
+                ? "left 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease-out"
+                : "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
           }}
           className={`absolute transform -translate-x-1/2 -translate-y-1/2 
-            bg-[#A1AEF2B2] backdrop-blur-[15px] border-6 border-white 
+            bg-[#A1AEF2B2] backdrop-blur-[15px] border-4 border-white 
             rounded-[24px] p-4 text-left text-[#514CF1] 
-            w-[150px] h-[150px] flex flex-col items-left justify-center
+            w-[140px] h-[140px] flex flex-col items-left justify-center
             shadow-[0_8px_32px_rgba(0,0,0,0.1)] 
             z-10
-            /* Visual feedback when holding */
             ${
               magnetRef.current === index
                 ? "scale-105 shadow-[0_12px_48px_rgba(0,0,0,0.2)] "
-                : "transition-all duration-300 ease-out"
+                : ""
             }
           `}
         >
