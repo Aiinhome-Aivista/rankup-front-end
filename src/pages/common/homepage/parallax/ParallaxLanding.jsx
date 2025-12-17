@@ -24,6 +24,10 @@ export default function ParallaxLanding() {
       <section
         ref={sectionRef}
         className="relative h-[160vh] overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(to bottom, #dcdbfc 66.67%, #514cf1 66.67%)",
+        }}
       >
         {/* WAVES */}
         <motion.div
@@ -61,12 +65,12 @@ export default function ParallaxLanding() {
       </section>
 
       {/* NORMAL CONTENT FLOW */}
-   
-          <DraggableCardsSection />
-      
-        <TopMiddleSection/>
- 
-     <MiddleSection/>
+
+      <DraggableCardsSection />
+
+      <TopMiddleSection />
+
+      <MiddleSection />
     </>
   );
 }
