@@ -9,36 +9,34 @@ function RadialProgress({ value, label, color }) {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="h-16 w-16 relative">
+      <div className="h-12 w-12 relative">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
               data={data}
-              innerRadius={22}
-              outerRadius={28}
+              innerRadius={10}
+              outerRadius={14}
               startAngle={90}
               endAngle={-270}
               dataKey="value"
               stroke="none"
             >
-              <Cell key="completed" fill={color} cornerRadius={10} />
+              <Cell key="completed" fill={color} cornerRadius={8} />
               <Cell key="remaining" fill="#E2E8F0" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
-        {/* Center Content (optional, currently empty in design for some, but looks like hole) */}
       </div>
-      <span className="text-xs text-gray-500 font-medium mt-1">{label}</span>
-      <div className="flex gap-1 mt-1">
-        {/* Legend dots below if needed, but design has legend separately */}
-      </div>
+      <span className="text-[10px] text-gray-500 font-medium mt-1">
+        {label}
+      </span>
     </div>
   );
 }
 
 function StrengthsWeaknesses() {
   return (
-    <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 h-[220px] flex flex-col">
+    <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100 h-36 md:h-40 lg:h-44 flex flex-col">
       <h3 className="text-[#514BF2] font-semibold text-sm mb-6">
         Strengths & Weaknesses Heatmap
       </h3>
