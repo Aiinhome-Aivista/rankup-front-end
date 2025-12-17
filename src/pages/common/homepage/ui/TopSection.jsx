@@ -59,24 +59,13 @@ function TopSection() {
       </div>
 
       {/* Wave Background */}
-      <div className="">
-        {/* <div className="absolute top-20 left-0 w-full z-5">
-          <img src={vector5} alt="" className=" w-full animate-wave-slow" />
-        </div>
-        <div className="absolute top-50 -left-40 w-full z-3">
-          <img src={vector3} alt="" className=" w-full animate-wave-medium" />
-        </div>
-        <div className="absolute top-80 left-0 w-full z-4">
-          <img src={vector2} alt="" className=" w-full animate-wave-fast" />
-        </div>
-        <div className="absolute top-90 left-45 w-full z-4">
-          <img src={vector4} alt="" className=" w-full animate-wave-slow" />
-        </div> */}
+      <div className="h-[156vh]">
+        
 
         <ParallaxLanding />
       </div>
 
-      <div className="">
+      <div className="bg-linear-to-b from-[#514cf1] to-[#f3f6ff]">
         <DraggableCardsSection />
       </div>
       <div className="relative z-20 my-10">
