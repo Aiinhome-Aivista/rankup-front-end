@@ -19,7 +19,7 @@ const data = [
 
 function WeeklyClassAverage() {
   return (
-    <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col h-[220px]">
+    <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex flex-col h-36 md:h-40 lg:h-44">
       <div className="mb-2">
         <h3 className="text-[#514BF2] font-semibold text-sm">
           Weekly Class Average
