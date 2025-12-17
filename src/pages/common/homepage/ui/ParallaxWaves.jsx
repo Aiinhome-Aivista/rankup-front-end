@@ -1,131 +1,89 @@
-import React, { useRef, useState } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-// Import your SVGs here (assuming they are components or image paths)
-import Wave1 from "../../../../assets/Vector 2.svg";
-import Wave2 from "../../../../assets/Vector 3.svg";
-import Wave3 from "../../../../assets/Vector 4.svg";
-import Wave4 from "../../../../assets/Vector 5.svg";
-import fun from "../../../../assets/having-fun.svg";
-import codingImage from "../../../../assets/coding-a-website.svg";
+export default function ParallaxLanding() {
+  const { scrollYProgress } = useScroll();
 
-const ParallaxWaves = () => {
-  const ref = useRef(null);
+  // Layered wave animations - each layer moves at different speed for depth
+  const layer1 = useTransform(scrollYProgress, [0, 1], [0, -250]);
+  const layer1Opacity = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [1, 0.8, 0.4]
+  );
+  const layer1Scale = 1.3; // Tallest
 
-  // 1. Track the scroll position of the viewport
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"], // Starts animating when top hits top
-  });
+  const layer2 = useTransform(scrollYProgress, [0, 1], [0, -450]);
+  const layer2Opacity = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [1, 0.85, 0.5]
+  );
+  const layer2Scale = 1.1; // Shorter than layer 1
 
-  const smoothScrollY = useSpring(scrollYProgress, {
-    mass: 0.1,
-    stiffness: 100,
-    damping: 20,
-  });
+  const layer3 = useTransform(scrollYProgress, [0, 0.3, 1], [0, -120, 1000]);
+  const layer3Opacity = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.4],
+    [1, 0.5, 0]
+  );
+  const layer3Scale = 1.25; // Taller
 
-  // 2. Create different movement speeds (Parallax Effect)
-  // The 'y' value creates vertical movement.
-  // Slowest layer (Background) moves slightly
-  const backgroundY = useTransform(smoothScrollY, [0, 1], ["0%", "20%"]);
-  // Mid layers move a bit faster
-  const midY1 = useTransform(smoothScrollY, [0, 1], ["0%", "40%"]);
-  const midY2 = useTransform(smoothScrollY, [0, 1], ["0%", "60%"]);
-  // Front layer moves the fastest
-  const foregroundY = useTransform(smoothScrollY, [0, 1], ["0%", "80%"]);
+  const layer4 = useTransform(scrollYProgress, [0, 1], [0, -750]);
+  const layer4Opacity = useTransform(
+    scrollYProgress,
+    [0, 0.6, 1],
+    [1, 0.9, 0.6]
+  );
+  const layer4Scale = 1.15; // Medium height
 
-  // Simplified logic for Mouse Parallax
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    setMousePosition({
-      x: (e.clientX / window.innerWidth) * 20, // Move max 20px
-      y: (e.clientY / window.innerHeight) * 20,
-    });
-  };
-
-  // Apply to style by combining with scrollY
-  // Layer 4 (Front) - Moves most
-  // Layer 1 (Back) - Moves least
+  const layer5 = useTransform(scrollYProgress, [0, 1], [0, -2500]);
+  const layer5Opacity = useTransform(
+    scrollYProgress,
+    [0, 0.7, 1],
+    [1, 0.95, 0.7]
+  );
+  const layer5Scale = 1.0; // Shortest
 
   return (
-    <div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      className="w-full h-[160vh] relative  bg-transparent" // Taller container
-    >
+    <div className="relative h-[160vh] overflow-hidden bg-transparent">
+      {/* BACK WAVES - Slowest movement for depth */}
       <motion.div
-        style={{ y: midY2, x: mousePosition.x * 0.5, zIndex: 1 }}
-        className="absolute top-[12%] left-[1%] z-20"
+        style={{ y: layer1, opacity: layer1Opacity, scaleY: layer1Scale }}
+        className="absolute top-0 bottom-0 left-0 right-0 z-10 bg-[url('/Parallax/Layer01.svg')] bg-no-repeat bg-bottom transition-opacity duration-300 origin-bottom"
+      />
+
+      <motion.div
+        style={{ y: layer2, opacity: layer2Opacity, scaleY: layer2Scale }}
+        className="absolute top-0 bottom-0 left-0 right-0 z-20 bg-[url('/Parallax/Layer02.svg')] bg-no-repeat bg-bottom transition-opacity duration-300 origin-bottom"
+      />
+
+      {/* TEXT - Fades and moves up */}
+      <motion.div
+        style={{ y: layer3, opacity: layer3Opacity, scale: layer3Scale }}
+        className="absolute top-[20vh] bottom-0 left-0 right-0 z-30 flex items-start justify-center pt-16"
       >
-        <img
-          src={codingImage}
-          alt="Design and code"
-          className=" h-auto drop-shadow-lg hidden lg:block w-64 opacity-90 hover:scale-105 transition-transform duration-500"
-        />
+        <h1 className="text-black text-6xl font-bold drop-shadow-xl">
+          Parallax Landing Page
+        </h1>
       </motion.div>
 
-      {/* Content Layer - Trampoline */}
+      {/* FRONT WAVES - Faster movement for immersion */}
       <motion.div
-        style={{ y: midY2, x: mousePosition.x * 0.5, zIndex: 1 }}
-        className="absolute top-[12%] right-[12%] z-20"
-      >
-        <img
-          src={fun}
-          alt="Students having fun"
-          className=" h-auto drop-shadow-lg hidden lg:block w-64 opacity-90 hover:scale-105 transition-transform duration-500"
-        />
-      </motion.div>
+        style={{ y: layer4, opacity: layer4Opacity, scaleY: layer4Scale }}
+        className="absolute top-0 bottom-0 left-0 right-0 z-40 bg-[url('/Parallax/Layer03.svg')] bg-no-repeat bg-bottom transition-opacity duration-300 origin-bottom"
+      />
 
-      {/* Wave 1: Furthest Back (Sky/Top Hill) - Slowest Mouse */}
       <motion.div
-        style={{ y: backgroundY, x: mousePosition.x * -0.2, zIndex: 5 }}
-        className="absolute bottom-[45%] left-[-2%] w-full "
-      >
-        <img
-          src={Wave1}
-          alt="Back Wave"
-          className="w-full rotate-180 scale-110"
-        />
-      </motion.div>
+        style={{ y: layer5, opacity: layer5Opacity, scaleY: layer5Scale }}
+        className="absolute top-0 bottom-0 left-0 right-0 z-44 bg-[url('/Parallax/Layer04.svg')] bg-no-repeat bg-bottom transition-opacity duration-300 origin-bottom"
+      />
 
-      {/* Wave 2: Mid Hill */}
-      <motion.div
-        style={{ y: midY1, x: mousePosition.x * -0.4, zIndex: 10 }}
-        className="absolute bottom-[30%] left-[0%] w-full"
-      >
-        <img
-          src={Wave2}
-          alt="Mid Wave 1"
-          className="w-full rotate-180 scale-110"
-        />
-      </motion.div>
-
-      {/* Wave 3: Lower Mid Hill */}
-      <motion.div
-        style={{ y: midY2, x: mousePosition.x * -0.6, zIndex: 15 }}
-        className="absolute bottom-[35%] left-[9%] w-full"
-      >
-        <img
-          src={Wave3}
-          alt="Mid Wave 2"
-          className="w-full rotate-180 scale-110"
-        />
-      </motion.div>
-
-      {/* Wave 4: Foreground (Closest) - Fastest Mouse */}
-      <motion.div
-        style={{ y: foregroundY, x: mousePosition.x * -1.0, zIndex: 20 }}
-        className="absolute bottom-[-45%] left-[0%] w-full"
-      >
-        <img
-          src={Wave4}
-          alt="Front Wave"
-          className="w-full rotate-180 scale-110"
-        />
-      </motion.div>
+      {/* SCROLL CONTENT */}
+      <div className="relative z-44 mt-[120vh] text-center text-white">
+        <p className="text-xl max-w-xl mx-auto">
+          Parallax waves start from 60% viewport height.
+        </p>
+      </div>
     </div>
   );
-};
-
-export default ParallaxWaves;
+}
