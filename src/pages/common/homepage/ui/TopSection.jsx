@@ -14,6 +14,7 @@ import SpaIcon from "@mui/icons-material/Spa";
 import TopMiddleSection from "./TopMiddleSection";
 import DraggableCardsSection from "./DraggableCardsSection";
 import ParallaxWaves from "./ParallaxWaves";
+import ParallaxLanding from "../Parallax/parallazView";
 
 function TopSection() {
   return (
@@ -71,10 +72,11 @@ function TopSection() {
         <div className="absolute top-90 left-45 w-full z-4">
           <img src={vector4} alt="" className=" w-full animate-wave-slow" />
         </div> */}
-        <ParallaxWaves />
+
+        <ParallaxLanding />
       </div>
 
-      <div className="relative z-20 my-10">
+      <div className="">
         <DraggableCardsSection />
       </div>
       <div className="relative z-20 my-10">
