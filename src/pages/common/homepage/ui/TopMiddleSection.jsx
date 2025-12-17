@@ -7,8 +7,9 @@ import {
   MoodBad,
   EditNote,
 } from "@mui/icons-material";
+import { motion } from "framer-motion";
 
-function TopMiddleSection() {
+function TopMiddleSection({ fadeContent = false }) {
   const items = [
     {
       id: 1,
@@ -78,9 +79,32 @@ function TopMiddleSection() {
     return offset;
   };
 
+  // Animation variants for content fade-in
+  const contentVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+      filter: "blur(8px)",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
   return (
     <div className="w-full bg-linear-to-b from-[#b7baf8] to-[#ffffff] py-20 font-sans overflow-hidden">
-      <div className="container mx-auto px-4 gap-6 flex flex-col items-center pb-6">
+      <motion.div
+        className="container mx-auto px-4 gap-6 flex flex-col items-center pb-6"
+        variants={contentVariants}
+        initial="hidden"
+        animate={fadeContent ? "visible" : "hidden"}
+      >
         {/* Header Illustration & Text */}
         <div className="mb-12 text-center pb-12">
           <img
@@ -153,7 +177,7 @@ function TopMiddleSection() {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

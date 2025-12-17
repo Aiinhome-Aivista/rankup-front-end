@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import MiddleSection from "../ui/MiddleSection";
 import TopMiddleSection from "../ui/TopMiddleSection";
 import DraggableCardsSection from "../ui/DraggableCardsSection";
@@ -9,6 +9,15 @@ import studying from "../../../../assets/student-studying.svg";
 
 export default function ParallaxLanding() {
   const sectionRef = useRef(null);
+  const draggableRef = useRef(null);
+  const topMiddleRef = useRef(null);
+  const middleRef = useRef(null);
+
+  const [visibleSections, setVisibleSections] = useState({
+    draggable: false,
+    topMiddle: false,
+    middle: false,
+  });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -20,6 +29,53 @@ export default function ParallaxLanding() {
   const layer3 = useTransform(scrollYProgress, [0, 1], [0, 400]);
   const layer4 = useTransform(scrollYProgress, [0, 1], [0, -160]);
   const layer5 = useTransform(scrollYProgress, [0, 1], [0, -600]);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1, // Trigger when 10% of the element is visible
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionName = entry.target.dataset.section;
+          setVisibleSections((prev) => ({ ...prev, [sectionName]: true }));
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    // Observe all sections
+    if (draggableRef.current) observer.observe(draggableRef.current);
+    if (topMiddleRef.current) observer.observe(topMiddleRef.current);
+    if (middleRef.current) observer.observe(middleRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Animation variants for fade-in effect
+  const fadeInVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50, // Start slightly below
+      filter: "blur(10px)", // Add blur for premium effect
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)", // Clear and sharp
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.1, 0.25, 1], // Custom cubic-bezier for smooth easing
+      },
+    },
+  };
 
   return (
     <>
@@ -98,13 +154,19 @@ export default function ParallaxLanding() {
         />
       </section>
 
-      {/* NORMAL CONTENT FLOW */}
+      {/* NORMAL CONTENT FLOW WITH SCROLL FADE-IN EFFECTS */}
 
-      <DraggableCardsSection />
+      <div ref={draggableRef} data-section="draggable">
+        <DraggableCardsSection fadeContent={visibleSections.draggable} />
+      </div>
 
-      <TopMiddleSection />
+      <div ref={topMiddleRef} data-section="topMiddle">
+        <TopMiddleSection fadeContent={visibleSections.topMiddle} />
+      </div>
 
-      <MiddleSection />
+      <div ref={middleRef} data-section="middle">
+        <MiddleSection fadeContent={visibleSections.middle} />
+      </div>
     </>
   );
 }

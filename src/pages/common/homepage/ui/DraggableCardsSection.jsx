@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useRef, useEffect } from "react";
 import { GraduationCap, Globe, Book, Trees } from "lucide-react";
+import { motion } from "framer-motion";
 
-function DraggableCardsSection() {
+function DraggableCardsSection({ fadeContent = false }) {
   const initialPositions = [
     { x: 20, y: 22 }, // Card 1: Schools
     { x: 40, y: 48 }, // Card 2: Countries
@@ -197,6 +198,24 @@ function DraggableCardsSection() {
     return d;
   };
 
+  // Animation variants for content fade-in
+  const contentVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+      filter: "blur(8px)",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
   return (
     <div
       ref={containerRef}
@@ -204,44 +223,51 @@ function DraggableCardsSection() {
       onMouseLeave={handleMouseLeave}
       className="relative w-full h-[600px]  overflow-hidden select-none  bg-linear-to-b from-[#514CF1] to-[#b7baf8] "
     >
-      {/* SVG Connected Line */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
-        <defs>
-          <filter id="lineShadow">
-            <feDropShadow
-              dx="0"
-              dy="0"
-              stdDeviation="5.5"
-              floodColor="#4338ca"
-              floodOpacity="1"
-            />
-          </filter>
-        </defs>
-        <path
-          d={getSmoothPath()}
-          fill="none"
-          stroke="#4338ca"
-          strokeWidth="5"
-          strokeLinecap="round"
-          className="opacity-40"
-          style={{ transition: "d 0.12s ease-out" }}
-          filter="url(#lineShadow)"
-        />
-      </svg>
+      {/* Content wrapper with fade animation */}
+      <motion.div
+        className="absolute inset-0"
+        variants={contentVariants}
+        initial="hidden"
+        animate={fadeContent ? "visible" : "hidden"}
+      >
+        {/* SVG Connected Line */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
+          <defs>
+            <filter id="lineShadow">
+              <feDropShadow
+                dx="0"
+                dy="0"
+                stdDeviation="5.5"
+                floodColor="#4338ca"
+                floodOpacity="1"
+              />
+            </filter>
+          </defs>
+          <path
+            d={getSmoothPath()}
+            fill="none"
+            stroke="#4338ca"
+            strokeWidth="5"
+            strokeLinecap="round"
+            className="opacity-40"
+            style={{ transition: "d 0.12s ease-out" }}
+            filter="url(#lineShadow)"
+          />
+        </svg>
 
-      {/* Stats Cards */}
-      {stats.map((stat, index) => (
-        <div
-          key={index}
-          style={{
-            left: `${cardPositions[index].x}%`,
-            top: `${cardPositions[index].y}%`,
-            transition:
-              magnetRef.current === index
-                ? "left 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease-out"
-                : "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
-          }}
-          className={`absolute transform -translate-x-1/2 -translate-y-1/2 
+        {/* Stats Cards */}
+        {stats.map((stat, index) => (
+          <div
+            key={index}
+            style={{
+              left: `${cardPositions[index].x}%`,
+              top: `${cardPositions[index].y}%`,
+              transition:
+                magnetRef.current === index
+                  ? "left 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease-out"
+                  : "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+            }}
+            className={`absolute transform -translate-x-1/2 -translate-y-1/2 
             bg-[#A1AEF2B2] backdrop-blur-[15px] border-4 border-white 
             rounded-[24px] p-4 text-left text-[#514CF1] 
             w-[140px] h-[140px] flex flex-col items-left justify-center
@@ -253,16 +279,17 @@ function DraggableCardsSection() {
                 : ""
             }
           `}
-        >
-          <div className="mb-2 opacity-90">{stat.icon}</div>
-          <div className="text-3xl font-bold mb-1 tracking-tight">
-            {stat.value}
+          >
+            <div className="mb-2 opacity-90">{stat.icon}</div>
+            <div className="text-3xl font-bold mb-1 tracking-tight">
+              {stat.value}
+            </div>
+            <div className="text-xs font-semibold uppercase tracking-wide opacity-80">
+              {stat.label}
+            </div>
           </div>
-          <div className="text-xs font-semibold uppercase tracking-wide opacity-80">
-            {stat.label}
-          </div>
-        </div>
-      ))}
+        ))}
+      </motion.div>
     </div>
   );
 }
