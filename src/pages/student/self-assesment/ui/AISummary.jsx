@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "primereact/button";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { ProgressBar } from 'primereact/progressbar';
 
@@ -11,9 +10,8 @@ const AISummary = ({
     duration
 }) => {
     return (
-        <div className="bg-[#514CF1] p-6 rounded-2xl shadow-lg shadow-indigo-200 text-white relative overflow-hidden">
-            {/* Background decoration (optional) */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10 pointer-events-none"></div>
+        <div className="bg-[#514CF1] pt-4 px-4 pb-2 rounded-2xl text-white relative overflow-hidden h-full">
+         
 
             <div className="flex items-center gap-2 mb-6 relative z-10">
                 <AutoAwesomeIcon className="text-yellow-300" />
@@ -51,22 +49,24 @@ const AISummary = ({
                 </div>
             </div>
 
-            <div className="text-xs bg-white/10 p-3 rounded-lg mb-6 leading-relaxed relative z-10">
+            <div className="text-xs bg-white/10 p-3 rounded-lg mb-6 relative z-10">
                 *The AI will prioritize {topics && topics.length > 0 ? topics[0].name : "selected topics"} questions and adapt difficulty based on your performance in real-time.
             </div>
 
             <div className="flex gap-4 relative z-10">
-                <Button
-                    label="Upload your syllabus"
-                    className="p-button-outlined border-white text-white hover:bg-white/10 w-full"
-                    rounded
-                    style={{ borderColor: 'rgba(255,255,255,0.4)' }}
-                />
-                <Button
-                    label="Generate Assessment"
-                    className="bg-white text-[#514CF1] hover:bg-gray-100 border-none w-full font-semibold"
-                    rounded
-                />
+                <button
+                    type="button"
+                    className="border border-[#FFFFFF80] text-white hover:bg-white/10 w-full rounded-sm px-4 py-2 font-bold cursor-pointer"
+                    
+                >
+                    Upload your syllabus
+                </button>
+                <button
+                    type="button"
+                    className="bg-white text-[#514CF1] hover:bg-gray-100 border-none w-full font-bold rounded-sm cursor-pointer"
+                >
+                    Generate Assessment
+                </button>
             </div>
         </div>
     );
