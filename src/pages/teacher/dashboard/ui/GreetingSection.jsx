@@ -27,7 +27,7 @@ function GreetingSection() {
   return (
     <div className="flex justify-between items-end mb-8">
       {/* Left: Greeting */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center">
         {/* Placeholder for the Illustration - abstract cloud/person */}
         {/* Illustration with Yoga assets */}
         <div className="relative w-32 h-32 flex items-center justify-center">
@@ -42,21 +42,21 @@ function GreetingSection() {
           <img
             src={yoga}
             alt="Yoga Character"
-            className="absolute inset-0 w-full h-full object-contain z-10 scale-75 translate-y-2"
+            className="absolute inset-0 w-full h-full object-contain z-10 scale-50 translate-y-1 -translate-x-2"
           />
         </div>
 
-        <div>
-          <h2 className="text-[#A2AEF2] font-medium text-lg">Hi, Dr. Anna</h2>
-          <h1 className="text-5xl font-bold text-[#A2AEF2] tracking-tight">
+        <div className="flex flex-col gap-1 text-start -translate-x-2">
+          <h2 className="text-[#A1AEF2B2] font-bold text-lg">Hi, Dr. Anna</h2>
+          <h1 className="text-5xl font-bold text-[#A1AEF2B2] tracking-tight">
             Good Morning
           </h1>
         </div>
       </div>
 
       {/* Right: Date & Time & Stats */}
-      <div className="flex items-end gap-12">
-        <div className="text-right">
+      <div className="flex items-center gap-2">
+        <div className="text-start rounded-2xl bg-[#514CF105] px-2 py-1">
           <p className="text-[#A2AEF2] text-lg font-medium mb-0">
             {formatDate(currentTime)}
           </p>
@@ -66,11 +66,11 @@ function GreetingSection() {
         </div>
 
         <div className="flex gap-8">
-          <div className="text-center">
+          <div className="flex flex-col gap-1 py-1 px-4 rounded-2xl items-between text-center bg-[#514CF105]">
             <p className="text-[#514BF2] text-4xl font-bold">03</p>
             <p className="text-[#514BF2] text-sm font-medium">Classes</p>
           </div>
-          <div className="text-center">
+          <div className="flex flex-col gap-1 py-1 px-4 rounded-2xl items-between text-center bg-[#514CF105]">
             <p className="text-[#514BF2] text-4xl font-bold">12</p>
             <p className="text-[#514BF2] text-sm font-medium">Review</p>
           </div>

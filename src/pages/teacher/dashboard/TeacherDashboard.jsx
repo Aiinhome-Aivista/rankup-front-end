@@ -13,9 +13,9 @@ import AnnouncementSection from "./ui/AnnouncementSection";
 
 function TeacherDashboard() {
   return (
-    <div className="flex flex-col h-screen bg-[#514CF105]">
+    <div className="flex flex-col h-screen">
       {/* Header logic is handled by parent or here if needed, keeping simple */}
-      <div className="flex-1 overflow-y-auto p-8 bg-[#514CF105]">
+      <div className="flex-1 overflow-y-auto pl-14 pr-8">
         <div className="max-w-[1600px] mx-auto">
           <GreetingSection />
 

@@ -6,6 +6,7 @@ import CreateAssesment from "../../pages/teacher/create-assesment/CreateAssesmen
 import Login from "../../pages/common/login/login";
 import Registration from "../../pages/common/registration/Registration";
 
+
 function Index() {
   return (
     <Routes>
@@ -28,7 +29,7 @@ function Index() {
         }
       />
       <Route
-        path="create-assesment/dashboard"
+        path="teacher/dashboard/create-assesment"
         element={
           <AppLayout>
             <CreateAssesment />

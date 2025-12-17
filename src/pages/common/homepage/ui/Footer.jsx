@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="pt-8 mt-4 pb-0 relative overflow-hidden font-sans border-t border-[#D9D9D9]">
+    <footer className="pt-8 pb-0 relative overflow-hidden font-sans border-t border-[#D9D9D9]">
       <div className="max-w-6xl mx-auto px-10 lg:px-14">
         {/* Logo Section */}
         <div className="flex items-center gap-3 mb-10">
