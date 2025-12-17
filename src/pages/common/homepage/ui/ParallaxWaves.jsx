@@ -62,9 +62,9 @@ export default function ParallaxLanding() {
         style={{ y: layer3, opacity: layer3Opacity, scale: layer3Scale }}
         className="absolute top-[20vh] bottom-0 left-0 right-0 z-30 flex items-start justify-center pt-16"
       >
-        <h1 className="text-black text-6xl font-bold drop-shadow-xl">
+        {/* <h1 className="text-black text-6xl font-bold drop-shadow-xl">
           Parallax Landing Page
-        </h1>
+        </h1> */}
       </motion.div>
 
       {/* FRONT WAVES - Faster movement for immersion */}
@@ -79,11 +79,11 @@ export default function ParallaxLanding() {
       />
 
       {/* SCROLL CONTENT */}
-      <div className="relative z-44 mt-[120vh] text-center text-white">
+      {/* <div className="relative z-44 mt-[120vh] text-center text-white">
         <p className="text-xl max-w-xl mx-auto">
           Parallax waves start from 60% viewport height.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }

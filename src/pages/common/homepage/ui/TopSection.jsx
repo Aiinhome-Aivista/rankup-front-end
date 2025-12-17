@@ -22,12 +22,6 @@ function TopSection() {
       {/* Main Content Container */}
       <div className="container mx-auto pt-32 pb-10 text-center relative z-10">
         {/* Typography */}
-        <h1 className="text-5xl md:text-6xl font-bold text-indigo-600 mb-4 max-w-4xl mx-auto leading-tight">
-          Nest Generation Assessment <br /> Platform For Every School
-        </h1>
-        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-16">
-          Empower educator, engage students, and improve learning outcomes
-        </p>
 
         {/* Floating Illustrations */}
         {/* Coding Girl - Left */}
@@ -61,7 +55,8 @@ function TopSection() {
       {/* Wave Background */}
       <div className=" relative z-20">
         <ParallaxLanding />
-        
+        {/* <ParallaxWaves /> */}
+
         {/* Draggable Cards positioned on top of parallax */}
         <div className="absolute inset-x-0 bottom-0 z-50 h-[45vh] bg-linear-to-b from-[#7477f2] to-[#f3f6ff]">
           <DraggableCardsSection />

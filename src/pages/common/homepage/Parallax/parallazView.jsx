@@ -27,9 +27,12 @@ export default function ParallaxLanding() {
         style={{ y: layer3 }}
         className="absolute top-[20vh] bottom-0 left-0 right-0 z-30 flex items-start justify-center pt-16"
       >
-        <h1 className="text-black text-6xl font-bold drop-shadow-xl">
-          Parallax Landing Page
+        <h1 className="text-5xl md:text-6xl font-bold text-indigo-600 mb-4 max-w-4xl mx-auto leading-tight">
+          Nest Generation Assessment <br /> Platform For Every School
         </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-16">
+          Empower educator, engage students, and improve learning outcomes
+        </p>
       </motion.div>
 
       {/* FRONT WAVES */}
