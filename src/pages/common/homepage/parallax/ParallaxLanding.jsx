@@ -6,17 +6,20 @@ import DraggableCardsSection from "../ui/DraggableCardsSection";
 import fun from "../../../../assets/having-fun.svg";
 import codingImage from "../../../../assets/coding-a-website.svg";
 import studying from "../../../../assets/student-studying.svg";
+import Footer from "../../homepage/ui/Footer";
 
 export default function ParallaxLanding() {
   const sectionRef = useRef(null);
   const draggableRef = useRef(null);
   const topMiddleRef = useRef(null);
   const middleRef = useRef(null);
+  const footerRef = useRef(null);
 
   const [visibleSections, setVisibleSections] = useState({
     draggable: false,
     topMiddle: false,
     middle: false,
+    footer: false,
   });
 
   const { scrollYProgress } = useScroll({
@@ -55,6 +58,7 @@ export default function ParallaxLanding() {
     if (draggableRef.current) observer.observe(draggableRef.current);
     if (topMiddleRef.current) observer.observe(topMiddleRef.current);
     if (middleRef.current) observer.observe(middleRef.current);
+    if (footerRef.current) observer.observe(footerRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -166,6 +170,10 @@ export default function ParallaxLanding() {
 
       <div ref={middleRef} data-section="middle">
         <MiddleSection fadeContent={visibleSections.middle} />
+      </div>
+
+      <div ref={footerRef} data-section="footer">
+        <Footer fadeContent={visibleSections.footer} />
       </div>
     </>
   );
