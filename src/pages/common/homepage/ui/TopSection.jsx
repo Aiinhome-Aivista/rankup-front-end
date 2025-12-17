@@ -59,16 +59,16 @@ function TopSection() {
       </div>
 
       {/* Wave Background */}
-      <div className="h-[156vh]">
-        
-
+      <div className=" relative z-20">
         <ParallaxLanding />
+        
+        {/* Draggable Cards positioned on top of parallax */}
+        <div className="absolute inset-x-0 bottom-0 z-50 h-[45vh] bg-linear-to-b from-[#7477f2] to-[#f3f6ff]">
+          <DraggableCardsSection />
+        </div>
       </div>
 
-      <div className="bg-linear-to-b from-[#514cf1] to-[#f3f6ff]">
-        <DraggableCardsSection />
-      </div>
-      <div className="relative z-20 my-10">
+      <div className="">
         <TopMiddleSection />
       </div>
     </div>
