@@ -8,9 +8,11 @@ import apiService from "../../../service/apiService";
 import { initiateLoginApi, verifyLoginApi } from "../../../../connection";
 import { AuthContext } from "../../../context/AuthContext";
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
@@ -61,7 +63,7 @@ const Login = () => {
       console.log("Verify response:", res);
       if (res.isSuccess) {
          setIsLoggedIn(true);
-         // Navigate or handle successful login
+         navigate("/teacher/dashboard");
       } else {
         setErrorMsg(res.message || "Verification failed");
       }
