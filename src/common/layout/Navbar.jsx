@@ -14,6 +14,16 @@ import {
   Tour,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import mainLogo from "../../assets/icons/main-logo.svg";
+import followTheSigns from "../../assets/icons/follow_the_signs.svg";
+import inkPen from "../../assets/icons/ink_pen.svg";
+import starRateHalf from "../../assets/icons/star_rate_half.svg";
+import noteStack from "../../assets/icons/note_stack.svg";
+import package2 from "../../assets/icons/package_2.svg";
+import equalizer from "../../assets/icons/equalizer.svg";
+import webhook from "../../assets/icons/webhook.svg";
+import eyeTracking from "../../assets/icons/eye_tracking.svg";
+import hotelClass from "../../assets/icons/hotel_class.svg";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -25,74 +35,76 @@ function Navbar() {
       id: "Create",
       title: "Create",
       desc: "Reach Interactive Assessments",
-      icon: "ink_pen.svg",
+      icon: inkPen,
     },
     {
       id: "Grade",
       title: "Grade",
       desc: "Grading Made Easier",
-      icon: "star_rate_half.svg",
+      icon: starRateHalf,
     },
     {
       id: "Paper Mode",
       title: "Paper Mode",
       desc: "Digitize Paper Assesments",
-      icon: "note_stack.svg",
+      icon: noteStack,
     },
     {
       id: "Deliver",
       title: "Deliver",
       desc: "Secure and Flexible",
-      icon: "package_2.svg",
+      icon: package2,
     },
     {
       id: "Analyse",
       title: "Analyse",
       desc: "Actionable Insights",
-      icon: "equalizer.svg",
+      icon: equalizer,
     },
     {
       id: "Integrations",
       title: "Integrations",
       desc: "Use Your Go-To Tools",
-      icon: "webhook.svg",
+      icon: webhook,
     },
     {
       id: "Monitor",
       title: "Monitor",
       desc: "Real-time Progress",
-      icon: "eye_tracking.svg",
+      icon: eyeTracking,
     },
     {
       id: "AI Assistant",
       title: "AI Assistant",
       desc: "Your Teaching Assistant",
-      icon: "hotel_class.svg",
+      icon: hotelClass,
     },
   ];
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-transparent pointer-events-none">
+    <div className="fixed top-0 left-0 w-full z-50 bg-[#514CF180] pointer-events-none">
       <nav
         className={`
           pointer-events-auto
           absolute top-0 left-1/2 -translate-x-1/2
-          bg-[#A2AEF2] rounded-b-4xl rounded-t-none px-6 py-5 shadow-lg 
-          border-8 border-white border-t-0
+          bg-[#A2AEF2] rounded-b-4xl rounded-t-none px-6 py-3 
+          border-5 border-white border-t-0
+          backdrop-blur-2xl shadow-[0px_12px_22px_rgba(81,76,241,0.5)]
           transition-all duration-500 ease-in-out overflow-hidden 
-          ${isFeaturesOpen ? "max-h-[500px]" : "max-h-[90px]"}
+          ${isFeaturesOpen ? "max-h-[400px]" : "max-h-[65px]"}
           w-[calc(100%-2rem)] max-w-5xl
           z-50
         `}
         onMouseLeave={() => setIsFeaturesOpen(false)}
       >
         {/* Top Bar */}
-        <div className="flex items-center justify-between h-12">
+        <div className="flex items-center justify-between h-10">
           {/* Left: Logo & Links */}
           <div className="flex items-center gap-8">
             {/* Logo */}
+            {/* Logo */}
             <img
-              src="/main-logo.svg"
+              src={mainLogo}
               alt="RankUp Logo"
               className="w-10 h-10 object-contain"
             />
@@ -127,14 +139,14 @@ function Navbar() {
 
           {/* Right: Actions */}
           <div className="flex items-center gap-3">
-            <button className="hidden md:flex items-center gap-2 px-4 py-2 cursor-pointer rounded-xl text-[#4f46e5] font-semibold bg-gray-50 hover:bg-gray-200 transition-all active:scale-95 shadow-md border border-transparent hover:shadow-lg">
+            <button className="hidden md:flex items-center gap-2 px-3 py-1.5 cursor-pointer rounded-xl text-[#4f46e5] font-semibold bg-gray-50 hover:bg-gray-200 transition-all active:scale-95 shadow-md border border-transparent hover:shadow-lg">
               {/* <Tour fontSize="small" /> */}
-              <img src="/follow_the_signs.svg" alt="" />
+              <img src={followTheSigns} alt="" />
               Take a Tour
             </button>
             <button
               onClick={() => navigate("/login")}
-              className="flex items-center gap-2 px-5 py-2 cursor-pointer rounded-xl bg-[#514BF2] text-white font-semibold hover:bg-[#4338ca] transition-all active:scale-95 shadow-md hover:shadow-lg"
+              className="flex items-center gap-2 px-3 py-1.5 cursor-pointer rounded-xl bg-[#514BF2] text-white font-semibold hover:bg-[#4338ca] transition-all active:scale-95 shadow-md hover:shadow-lg"
             >
               <Person fontSize="small" />
               Sign In
