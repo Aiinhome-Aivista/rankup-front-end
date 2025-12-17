@@ -82,14 +82,14 @@ function Navbar() {
   ];
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-[#514CF180] pointer-events-none">
+    <div className="fixed top-0 left-0 w-full z-50 pointer-events-none">
       <nav
         className={`
           pointer-events-auto
           absolute top-0 left-1/2 -translate-x-1/2
           bg-[#A2AEF2] rounded-b-4xl rounded-t-none px-6 py-3 
-          border-5 border-white border-t-0
-          backdrop-blur-2xl shadow-[0px_12px_22px_rgba(81,76,241,0.5)]
+          border-5 border-white border-t-0 shadow-lg shadow-[#514CF180]
+          backdrop-blur-2xl
           transition-all duration-500 ease-in-out overflow-hidden 
           ${isFeaturesOpen ? "max-h-[400px]" : "max-h-[65px]"}
           w-[calc(100%-2rem)] max-w-5xl
