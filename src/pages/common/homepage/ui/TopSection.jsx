@@ -13,8 +13,8 @@ import PublicIcon from "@mui/icons-material/Public";
 import SpaIcon from "@mui/icons-material/Spa";
 import TopMiddleSection from "./TopMiddleSection";
 import DraggableCardsSection from "./DraggableCardsSection";
-import ParallaxWaves from "./ParallaxWaves";
-import ParallaxLanding from "../Parallax/parallazView";
+
+
 
 function TopSection() {
   return (

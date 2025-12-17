@@ -3,7 +3,7 @@ import "../../../style/homepage.css";
 import TopSection from "./ui/TopSection.jsx";
 import MiddleSection from "./ui/MiddleSection.jsx";
 import Footer from "./ui/Footer.jsx";
-import ParallaxLanding from "./parallax/parallazView.jsx";
+import ParallaxLanding from "./parallax/ParallaxLanding.jsx";
 
 function Homepage() {
   return (
