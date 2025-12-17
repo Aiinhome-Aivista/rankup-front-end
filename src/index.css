@@ -2,12 +2,12 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Nunito", ;
+  --font-sans: "Nunito";
 }
 
 :root {
   /* Typography */
-  font-family: "Nunito"!important ;
+  font-family: "Nunito" !important;
   line-height: 1.5;
   font-weight: 400;
 
@@ -192,7 +192,6 @@
 }
 
 @keyframes breathe {
-
   0%,
   100% {
     transform: scale(1);

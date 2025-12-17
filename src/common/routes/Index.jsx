@@ -4,6 +4,8 @@ import Homepage from "../../pages/common/homepage/Homepage";
 import TeacherDashboard from "../../pages/teacher/dashboard/TeacherDashboard";
 import CreateAssesment from "../../pages/teacher/create-assesment/CreateAssesment";
 import Login from "../../pages/common/login/login";
+import Registration from "../../pages/common/registration/Registration";
+
 
 function Index() {
   return (
@@ -17,6 +19,7 @@ function Index() {
         }
       />
       <Route path="login" element={<Login />} />
+      <Route path="register" element={<Registration />} />
       <Route
         path="teacher/dashboard"
         element={
@@ -26,7 +29,7 @@ function Index() {
         }
       />
       <Route
-        path="create-assesment/dashboard"
+        path="teacher/dashboard/create-assesment"
         element={
           <AppLayout>
             <CreateAssesment />

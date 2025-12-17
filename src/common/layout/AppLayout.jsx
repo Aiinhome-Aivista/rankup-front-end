@@ -7,7 +7,7 @@ import Header from "./Header";
 function AppLayout({ children }) {
   const { isLoggedIn } = useContext(AuthContext);
   return (
-    <div className="w-full min-h-screen bg-[#F3F4FF]">
+    <div className="w-full min-h-screen">
       <div className="flex flex-col min-h-screen">
         {isLoggedIn ? <Header /> : <Navbar />}
         {isLoggedIn && <Sidebar />}

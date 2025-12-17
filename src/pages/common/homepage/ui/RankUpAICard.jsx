@@ -5,14 +5,14 @@ import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import StarIcon from '@mui/icons-material/Star';
 import SchoolIcon from '@mui/icons-material/School';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import Waves from '../../../../assets/home-wave.svg';
+import Waves from '../../../../assets/Group 21.png';
 import { AlarmAddRounded, CalculateRounded, VideoCameraBack, Edit, Translate } from '@mui/icons-material';
 
 
 
 const RankUpAICard = () => {
     return (
-        <div className='relative w-full max-w-2xl h-[300px] rounded-4xl overflow-hidden shadow-2xl border-3 border-[#FFFFFF38]'>
+        <div className='relative w-full min-h-[300px] h-full rounded-[30px] overflow-hidden shadow-2xl border-3 border-[#FFFFFF38]'>
             {/* Background Gradient */}
             <div className='absolute inset-0'></div>
 
@@ -23,63 +23,59 @@ const RankUpAICard = () => {
                 <div className='absolute top-10 right-20 w-48 h-48 bg-purple-400/30 rounded-full blur-2xl'></div>
             </div>
 
-            <div className='relative z-10 flex h-full p-8'>
+            <div className='relative z-10 flex h-full p-4'>
                 {/* Left Side Info */}
                 <div className='flex flex-col w-1/2 text-[#A1AEF2]'>
 
                     {/* <Typography variant='h5' fontWeight='bold' sx={{color: '#A1AEF2' }}>
                         RankUp AI
                     </Typography> */}
-                    <h1 className='text-[#A1AEF2] font-extrabold text-xl'>RankUp AI</h1>
+                    <h1 className='text-[#A1AEF2] font-extrabold text-xl items-start justify-start flex'>RankUp AI</h1>
                     {/* Right Side Character */}
                     <img
                         src={Waves}
                         alt="wave"
-                        className="absolute -top-42 -right-8 w-[80%]" />
+                        className="absolute -top-55 -right-13 w-[80%]" />
 
-
-
-
-
-                    <div className="flex items-start gap-6 mt-4">
+                    <div className="flex items-start gap-18 mt-10 pl-4">
 
                         {/* Icons Grid */}
-                        <div className="grid grid-cols-2 gap-4 max-w-[120px]">
-                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/10">
-                                <CenterFocusStrongIcon  fontSize="small" />
+                        <div className="grid grid-cols-2 gap-6 max-w-[140px]">
+                            <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/10">
+                                <CenterFocusStrongIcon />
                             </div>
-                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/10">
-                                <StarIcon className="" fontSize="small" />
+                            <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/10">
+                                <StarIcon className="" />
                             </div>
-                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/10">
-                                <SchoolIcon className="" fontSize="small" />
+                            <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/10">
+                                <SchoolIcon className="" />
                             </div>
-                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/10">
-                                <BarChartIcon className="" fontSize="small" />
+                            <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/10">
+                                <BarChartIcon className="" />
                             </div>
                         </div>
 
                         {/* Stats Text */}
-                        <div className="space-y-3 text-sm">
+                        <div className="space-y-4 text-base">
                             <div className="flex items-center">
-                                <span className="font-bold text-">
-                                    2<span className="text-xs font-extrabold">hrs</span>
+                                <span className="font-bold text-xl">
+                                    2<span className="text-sm font-extrabold">hrs</span>
                                 </span>
                                 <span className='font-bold'>/</span>
-                                <span className="text-xs">daily</span>
+                                <span className="text-sm">daily</span>
                             </div>
 
                             <div className="flex items-center gap-2">
-                                <span className="font-bold text-lg">30</span>
-                                
-                                <span className="text-xs">Questions</span>
+                                <span className="font-bold text-xl">30</span>
+
+                                <span className="text-sm">Questions</span>
                             </div>
 
                             <div className="flex items-center gap-2">
-                                <span className="font-bold text-lg">
+                                <span className="font-bold text-xl">
                                     11<sup>th</sup>
                                 </span>
-                                <span className="text-xs">Rank</span>
+                                <span className="text-sm">Rank</span>
                             </div>
                         </div>
 
@@ -91,18 +87,18 @@ const RankUpAICard = () => {
                     <img
                         src={youngWoman}
                         alt="AI Assistant"
-                        className='absolute -bottom-8 h-[130px] object-cover -left-8'
+                        className='absolute -bottom-10 h-[220px]'
                     />
                 </div>
             </div>
 
             {/* Bottom Toolbar Mockup */}
-            <div className='absolute bottom-0 left-2/6 -translate-x-1/2 bg-white/20 backdrop-blur-lg rounded-full px-6 py-2 flex gap-6 text-[#A1AEF2]'>
+            <div className='absolute bottom-0 left-2/6 -translate-x-1/2 bg-white/20 backdrop-blur-lg rounded-tr-4xl rounded-tl-4xl px-6 py-1 flex gap-6 text-[#A1AEF2]'>
                 <CalculateRounded sx={{ fontSize: 20 }} />
                 <Translate sx={{ fontSize: 20 }} />
                 <AlarmAddRounded sx={{ fontSize: 20 }} />
-               <VideoCameraBack sx={{ fontSize: 20 }} />
-              <Edit sx={{ fontSize: 20 }} />
+                <VideoCameraBack sx={{ fontSize: 20 }} />
+                <Edit sx={{ fontSize: 20 }} />
             </div>
 
         </div>

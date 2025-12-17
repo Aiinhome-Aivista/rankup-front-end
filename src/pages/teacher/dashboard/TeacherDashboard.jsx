@@ -13,26 +13,26 @@ import AnnouncementSection from "./ui/AnnouncementSection";
 
 function TeacherDashboard() {
   return (
-    <div className="flex flex-col h-screen bg-[#514CF105]">
+    <div className="flex flex-col h-screen">
       {/* Header logic is handled by parent or here if needed, keeping simple */}
-      <div className="flex-1 overflow-y-auto p-8 bg-[#514CF105]">
+      <div className="flex-1 overflow-y-auto pl-14 pr-8">
         <div className="max-w-[1600px] mx-auto">
           <GreetingSection />
 
           {/* Main Grid Layout */}
           <div className="flex flex-col gap-6">
-            {/* Top Row Stats */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              <div className="lg:col-span-4 xl:col-span-3 max-h-64 overflow-y-auto">
+            {/* Top Row Stats (three large panels + one small panel) */}
+            <div className="flex flex-col lg:flex-row gap-6 items-start">
+              <div className="flex-1 max-h-64 overflow-y-auto">
                 <UpcomingClasses />
               </div>
-              <div className="lg:col-span-4 xl:col-span-3">
+              <div className="flex-1">
                 <WeeklyClassAverage />
               </div>
-              <div className="lg:col-span-4 xl:col-span-3">
+              <div className="flex-1">
                 <StrengthsWeaknesses />
               </div>
-              <div className="lg:col-span-12 xl:col-span-3">
+              <div className="w-full lg:w-40 xl:w-44">
                 <UpcomingTest />
               </div>
             </div>
