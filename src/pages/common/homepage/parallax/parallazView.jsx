@@ -10,41 +10,44 @@ export default function ParallaxLanding() {
   const layer5 = useTransform(scrollYProgress, [0, 1], [0, -600]);
 
   return (
-    <div className="relative h-[160vh] overflow-hidden bg-black">
+    <div className="relative h-[160vh] overflow-hidden bg-transparent">
       {/* BACK WAVES */}
       <motion.div
         style={{ y: layer1 }}
-        className="absolute top-[55vh] bottom-0 left-0 right-0 z-10 bg-[url('/Parallax/Layer01.svg')] bg-no-repeat bg-bottom "
+        className="absolute top-0 bottom-0 left-0 right-0 z-10 bg-[url('/Parallax/Layer01.svg')] bg-no-repeat bg-bottom "
       />
 
       <motion.div
         style={{ y: layer2 }}
-        className="absolute top-[55vh] bottom-0 left-0 right-0 z-20 bg-[url('/Parallax/Layer02.svg')] bg-no-repeat bg-bottom "
+        className="absolute top-0 bottom-0 left-0 right-0 z-20 bg-[url('/Parallax/Layer02.svg')] bg-no-repeat bg-bottom "
       />
 
       {/* TEXT */}
       <motion.div
         style={{ y: layer3 }}
-        className="absolute top-[30vh] bottom-0 left-0 right-0 z-30 flex items-start justify-center pt-16"
+        className="absolute top-[20vh] bottom-0 left-0 right-0 z-30 flex items-start justify-center pt-16"
       >
-        <h1 className="text-white text-6xl font-bold drop-shadow-xl">
-          Parallax Landing Page
+        <h1 className="text-5xl md:text-6xl font-bold text-indigo-600 mb-4 max-w-4xl mx-auto leading-tight">
+          Nest Generation Assessment <br /> Platform For Every School
         </h1>
+        <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-16">
+          Empower educator, engage students, and improve learning outcomes
+        </p>
       </motion.div>
 
       {/* FRONT WAVES */}
       <motion.div
         style={{ y: layer4 }}
-        className="absolute top-[55vh] bottom-0 left-0 right-0 z-40 bg-[url('/Parallax/Layer03.svg')] bg-no-repeat bg-bottom "
+        className="absolute top-0 bottom-0 left-0 right-0 z-40 bg-[url('/Parallax/Layer03.svg')] bg-no-repeat bg-bottom "
       />
 
       <motion.div
         style={{ y: layer5 }}
-        className="absolute top-[55vh] bottom-0 left-0 right-0 z-50 bg-[url('/Parallax/Layer04.svg')] bg-no-repeat bg-bottom "
+        className="absolute top-0 bottom-0 left-0 right-0 z-44 bg-[url('/Parallax/Layer04.svg')] bg-no-repeat bg-bottom "
       />
 
       {/* SCROLL CONTENT */}
-      <div className="relative z-50 mt-[120vh] text-center text-white">
+      <div className="relative z-44 mt-[120vh] text-center text-white">
         <p className="text-xl max-w-xl mx-auto">
           Parallax waves start from 60% viewport height.
         </p>
