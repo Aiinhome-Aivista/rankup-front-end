@@ -20,7 +20,7 @@ const AIAssistanceSection = ({ fadeContent = false }) => {
       y: 0,
       filter: "blur(0px)",
       transition: {
-        duration: 1,
+        duration: 1.5,
         ease: [0.25, 0.1, 0.25, 1],
       },
     },
