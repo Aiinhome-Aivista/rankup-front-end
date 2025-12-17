@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { TabView, TabPanel } from "primereact/tabview";
 // Sub-components
 import TopicsMaterials from "./ui/TopicsMaterials";
 import Configuration from "./ui/Configuration";
@@ -10,7 +9,10 @@ const SelfAssesment = () => {
 
   // State
   const [selectedSubject, setSelectedSubject] = useState(null);
-  const [selectedTopics, setSelectedTopics] = useState(null);
+  const [selectedTopics, setSelectedTopics] = useState([
+    { name: "Algebra", code: "ALG" },
+    { name: "Calculus", code: "CAL" }
+  ]);
   const [difficulty, setDifficulty] = useState("intermediate"); // beginner, intermediate, advanced
   const [assessmentTypes, setAssessmentTypes] = useState(["Multiple Choice"]);
   const [numQuestions, setNumQuestions] = useState(15);
@@ -48,7 +50,7 @@ const SelfAssesment = () => {
       <div className="flex gap-3">
         <button
           className="text-[#514CF1] font-bold bg-[#514CF10D] border border-[#514CF105] hover:bg-[#514CF105] text-sm rounded-full px-4 py-2"
-         
+
         >
           Save Draft
         </button>
@@ -67,84 +69,66 @@ const SelfAssesment = () => {
         {header}
 
         <div className="">
-          <TabView
-            activeIndex={activeIndex}
-            onTabChange={(e) => setActiveIndex(e.index)}
-            className="custom-tabview"
-            pt={{
-              nav: {
-                className:
-                  "border-b border-[#514CF10D] mb-6 bg-transparent w-full",
-              },
-              ink: { className: "bg-[#514CF1]" },
-            }}
-          >
-            <TabPanel
-              header="General Details"
-              headerClassName={
-                activeIndex === 0
-                  ? "!text-[#514CF1] font-bold"
-                  : "!text-[#514CF180] font-medium"
-              }
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-                {/* Left Column */}
-                <div className="lg:col-span-3 flex flex-col gap-8">
-                  <TopicsMaterials
-                    selectedSubject={selectedSubject}
-                    setSelectedSubject={setSelectedSubject}
-                    selectedTopics={selectedTopics}
-                    setSelectedTopics={setSelectedTopics}
-                    subjects={subjects}
-                    topics={topics}
-                  />
-                </div>
+          <div className="flex border-b border-[#514CF10D] mb-6">
+            {["General Details", "Question Building", "Preview Test"].map(
+              (tab, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`px-4 py-2 transition-colors duration-200 border-b-2 ${
+                    activeIndex === index
+                      ? "text-[#514CF1] border-[#514CF1] font-bold"
+                      : "text-[#514CF180] border-transparent hover:text-[#514CF1] font-bold"
+                  }`}
+                >
+                  {tab}
+                </button>
+              )
+            )}
+          </div>
 
-                {/* Right Column */}
-                <div className="lg:col-span-2 flex flex-col gap-6">
-                  <Configuration
-                    difficulty={difficulty}
-                    setDifficulty={setDifficulty}
-                    assessmentTypes={assessmentTypes}
-                    setAssessmentTypes={setAssessmentTypes}
-                    numQuestions={numQuestions}
-                    setNumQuestions={setNumQuestions}
-                    timeLimit={timeLimit}
-                    setTimeLimit={setTimeLimit}
-                    timeOptions={timeOptions}
-                  />
-
-                  <AISummary
-                    subject={selectedSubject}
-                    topics={selectedTopics}
-                    difficulty={difficulty}
-                    numQuestions={numQuestions}
-                    duration={timeLimit}
-                  />
-                </div>
+          {activeIndex === 0 && (
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+              {/* Left Column */}
+              <div className="lg:col-span-3 flex flex-col gap-8">
+                <TopicsMaterials
+                  selectedSubject={selectedSubject}
+                  setSelectedSubject={setSelectedSubject}
+                  selectedTopics={selectedTopics}
+                  setSelectedTopics={setSelectedTopics}
+                  subjects={subjects}
+                  topics={topics}
+                />
               </div>
-            </TabPanel>
-            <TabPanel
-              header="Question Building" 
-              headerClassName={
-                activeIndex === 1
-                  ? "!text-[#514CF1] font-bold"
-                  : "!text-[#514CF180] font-bold"
-              }
-            >
-              <p className="p-4">Question Building Content (AI Auto-generated)</p>
-            </TabPanel>
-            <TabPanel
-              header="Preview Test"
-              headerClassName={
-                activeIndex === 2
-                  ? "!text-[#514CF1] font-medium"
-                  : "!text-[#514CF180] font-medium"
-              }
-            >
-              <p className="p-4">Preview Test Content</p>
-            </TabPanel>
-          </TabView>
+
+              {/* Right Column */}
+              <div className="lg:col-span-2 flex flex-col gap-6">
+                <Configuration
+                  difficulty={difficulty}
+                  setDifficulty={setDifficulty}
+                  assessmentTypes={assessmentTypes}
+                  setAssessmentTypes={setAssessmentTypes}
+                  numQuestions={numQuestions}
+                  setNumQuestions={setNumQuestions}
+                  timeLimit={timeLimit}
+                  setTimeLimit={setTimeLimit}
+                  timeOptions={timeOptions}
+                />
+
+                <AISummary
+                  subject={selectedSubject}
+                  topics={selectedTopics}
+                  difficulty={difficulty}
+                  numQuestions={numQuestions}
+                  duration={timeLimit}
+                />
+              </div>
+            </div>
+          )}
+          {activeIndex === 1 && (
+            <p className="p-4">Question Building Content (AI Auto-generated)</p>
+          )}
+          {activeIndex === 2 && <p className="p-4">Preview Test Content</p>}
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { Checkbox } from "primereact/checkbox";
 import { Slider } from "primereact/slider";
 import { Dropdown } from "primereact/dropdown";
-import SettingsIcon from "@mui/icons-material/Settings";
+import ScheduleIcon from '@mui/icons-material/Schedule';
 import BarChartIcon from "@mui/icons-material/BarChart";
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
@@ -38,16 +38,16 @@ const Configuration = ({
     }
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 h-full">
-            <div className="flex items-center gap-2 mb-6 text-[#514CF1] font-semibold">
-                <SettingsIcon className="text-lg" />
+        <div className="bg-[#514CF105] p-6 rounded-2xl border border-[#514CF10D] h-full">
+            <div className="flex items-center gap-2 mb-6 text-[#514CF1] font-bold">
+                <ScheduleIcon className="text-lg" />
                 <span>Configuration</span>
             </div>
 
             <div className="flex flex-col gap-8">
                 {/* Difficulty Level */}
                 <div>
-                    <label className="text-sm font-semibold text-[#514CF1] block mb-3">
+                    <label className="text-sm font-bold text-[#514CF1] block mb-3">
                         Difficulty Level
                     </label>
                     <div className="grid grid-cols-3 gap-4">
@@ -61,11 +61,11 @@ const Configuration = ({
                                     className={`
                                 cursor-pointer flex flex-col items-center justify-center p-3 rounded-xl border transition-all text-center
                                 ${isSelected
-                                            ? 'bg-[#514CF105] border-[#514CF1] text-[#514CF1]'
-                                            : 'bg-gray-50 border-gray-100 text-gray-500 hover:border-[#514CF180]'}
+                                            ? 'border-[#514CF1] text-[#514CF1] bg-[#514CF10D]'
+                                            : 'bg-[#514CF10D] border-[#514CF11A] text-[#514CF1] hover:border-[#514CF180]'}
                             `}
                                 >
-                                    <Icon className={`mb-2 ${isSelected ? 'text-[#514CF1]' : 'text-gray-400'}`} />
+                                    <Icon className={`mb-2 ${isSelected ? 'text-[#514CF1]' : 'text-[#514CF1]'}`} />
                                     <span className="text-xs font-bold">{item.name}</span>
                                     <span className="text-[10px] opacity-70 mt-1">{item.desc}</span>
                                 </div>
