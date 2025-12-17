@@ -1,7 +1,7 @@
 import React from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, LabelList, Cell, ResponsiveContainer } from "recharts";
 
-function RadialProgress({ value, label, color }) {
+function RadialProgress({ value, label, color, remainingColor }) {
   const data = [
     { name: "Completed", value: value },
     { name: "Remaining", value: 100 - value },
@@ -14,20 +14,20 @@ function RadialProgress({ value, label, color }) {
           <PieChart>
             <Pie
               data={data}
-              innerRadius={10}
-              outerRadius={14}
+              innerRadius={14}
+              outerRadius={20}
               startAngle={90}
               endAngle={-270}
               dataKey="value"
               stroke="none"
             >
               <Cell key="completed" fill={color} cornerRadius={8} />
-              <Cell key="remaining" fill="#E2E8F0" />
+              <Cell key="remaining" fill={remainingColor} />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
       </div>
-      <span className="text-[10px] text-gray-500 font-medium mt-1">
+      <span className="text-xs text-[#514BF2] font-medium">
         {label}
       </span>
     </div>
@@ -36,33 +36,27 @@ function RadialProgress({ value, label, color }) {
 
 function StrengthsWeaknesses() {
   return (
-    <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100 h-36 md:h-40 lg:h-44 flex flex-col">
-      <h3 className="text-[#514BF2] font-semibold text-sm mb-6">
-        Strengths & Weaknesses Heatmap
-      </h3>
+    <div className="bg-[#514CF105] text-[#514BF2] rounded-3xl p-4 h-36 md:h-40 lg:h-44 flex flex-col justify-between">
+      <h3 className="font-bold text-sm">Strengths & Weaknesses Heatmap</h3>
 
-      <div className="flex justify-between items-center px-2">
-        <RadialProgress value={20} label="Algebra" color="#E2E8F0" />{" "}
+      <div className="flex justify-between items-center px-6">
+        <RadialProgress value={20} label="Algebra" color="#D9D9D9" remainingColor="#D9D9D980" />{" "}
         {/* Low - Gray/Light */}
-        <RadialProgress value={70} label="Fractions" color="#A2AEF2" />{" "}
+        <RadialProgress value={70} label="Fractions" color="#A1AEF2" remainingColor="#A1AEF226" />{" "}
         {/* Medium - Light Blue */}
-        <RadialProgress
-          value={85}
-          label="Force & Motion"
-          color="#514BF2"
-        />{" "}
+        <RadialProgress value={85} label="Force & Motion" color="#514CF1" remainingColor="#DFE0FC" />{" "}
         {/* High - Dark Blue */}
       </div>
 
-      <div className="flex justify-center gap-4 mt-auto text-[10px] text-gray-400">
+      <div className="flex justify-center gap-4 text-xs text-[#514BF2]">
         <div className="flex items-center gap-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#E2E8F0]"></div> Low
+          <div className="w-1.5 h-1.5 rounded-full bg-[#D9D9D9]"></div> Low
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#A2AEF2]"></div> Medium
+          <div className="w-1.5 h-1.5 rounded-full bg-[#A1AEF2]"></div> Medium
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#514BF2]"></div> High
+          <div className="w-1.5 h-1.5 rounded-full bg-[#514CF1]"></div> High
         </div>
       </div>
     </div>

@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Plus, Bell, ChevronRight, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import RVector from "../../assets/R-Vector.svg";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
   const [isNotificationsExpanded, setIsNotificationsExpanded] = useState(false);
 
   return (
-    <div className="w-full h-20 flex justify-between items-center px-8 py-3 sticky top-0 z-50">
+    <div className="w-full h-20 flex justify-between items-center px-8 py-3 sticky top-0 z-50 bg-white">
       {/* Left Side: Logo and Title */}
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 rounded-full flex justify-center items-center">
@@ -29,6 +31,9 @@ function Header() {
       <div className="flex items-center gap-6">
         {/* Create Assessment Button */}
         <button
+          onClick={() => {
+            navigate("/teacher/dashboard/create-assesment");
+          }}
           className="flex items-center gap-2 bg-[#514CF1] font-semibold text-white px-4 py-2
                    ring-6 ring-[#D9D9D9] rounded-full
                    hover:bg-[#514CF1] transition-colors cursor-pointer"

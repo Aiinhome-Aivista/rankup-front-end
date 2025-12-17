@@ -19,30 +19,36 @@ const data = [
 
 function WeeklyClassAverage() {
   return (
-    <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100 flex flex-col h-36 md:h-40 lg:h-44">
-      <div className="mb-2">
-        <h3 className="text-[#514BF2] font-semibold text-sm">
-          Weekly Class Average
+    <div className="bg-[#514CF105] text-[#514BF2] rounded-3xl p-4 flex flex-col justify-between h-36 md:h-40 lg:h-44">
+        <h3 className="font-bold text-sm">
+          Weekly Class Average 
         </h3>
-      </div>
 
-      <div className="flex-1 w-full h-full -ml-4">
+      <div className="flex-1 w-full h-full">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={data}>
+          <AreaChart data={data} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
             <defs>
               <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#514BF2" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#514BF2" stopOpacity={0} />
+                <stop offset="5%" stopColor="#514CF1" stopOpacity={0.2} />
+                <stop offset="95%" stopColor="#514CF1" stopOpacity={0.1} />
               </linearGradient>
             </defs>
             <XAxis
               dataKey="name"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#A0AEC0", fontSize: 10 }}
+              tick={{ fill: "#A1AEF2", fontSize: 10 }}
               dy={10}
             />
-            <YAxis hide domain={[0, 100]} />
+            <YAxis
+              domain={[0, 100]}
+              ticks={[0, 50, 100]}
+              tickFormatter={(value) => `${value}%`}
+              axisLine={{ stroke: "#514CF1" }}
+              tickLine={{ stroke: "#514CF1", width: 4 }}
+              tick={{ fill: "#A1AEF2", fontSize: 10 }}
+              width={30}
+            />
             <Tooltip
               contentStyle={{
                 borderRadius: "12px",
@@ -50,7 +56,7 @@ function WeeklyClassAverage() {
                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
               }}
               cursor={{
-                stroke: "#514BF2",
+                stroke: "#514CF1",
                 strokeWidth: 1,
                 strokeDasharray: "3 3",
               }}

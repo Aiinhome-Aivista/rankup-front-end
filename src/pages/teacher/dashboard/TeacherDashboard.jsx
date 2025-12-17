@@ -16,7 +16,7 @@ function TeacherDashboard() {
     <div className="flex flex-col h-screen">
       {/* Header logic is handled by parent or here if needed, keeping simple */}
       <div className="flex-1 overflow-y-auto pl-14 pr-8">
-        <div className="max-w-[1600px] mx-auto">
+        <div className="max-w-[1600px] mx-auto flex flex-col gap-2">
           <GreetingSection />
 
           {/* Main Grid Layout */}
@@ -32,7 +32,7 @@ function TeacherDashboard() {
               <div className="flex-1">
                 <StrengthsWeaknesses />
               </div>
-              <div className="w-full lg:w-40 xl:w-44">
+              <div className="w-full lg:w-44 xl:w-48">
                 <UpcomingTest />
               </div>
             </div>

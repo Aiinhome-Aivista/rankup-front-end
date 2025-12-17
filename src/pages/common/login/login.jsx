@@ -4,7 +4,6 @@ import vector3 from "../../../assets/Vector-3-login.svg";
 import vector4 from "../../../assets/Vector-4-login.svg";
 import vector5 from "../../../assets/Vector-5-login.svg";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import apiService from "../../../service/apiService";
 import { initiateLoginApi, verifyLoginApi } from "../../../../connection";
 import { AuthContext } from "../../../context/AuthContext";
 import { useContext, useEffect } from "react";
@@ -62,8 +61,25 @@ const Login = () => {
       const res = await verifyLoginApi({ email, otp });
       console.log("Verify response:", res);
       if (res.isSuccess) {
-         setIsLoggedIn(true);
-         navigate("/teacher/dashboard");
+        const token = res?.data?.token;
+        const user = res?.data?.user;
+
+        if (token) localStorage.setItem("token", token);
+        if (user) localStorage.setItem("user", JSON.stringify(user));
+
+        setIsLoggedIn(true);
+
+        const role = (user?.role || "").toLowerCase();
+        const rolePaths = {
+          admin: "/admin/dashboard",
+          teacher: "/teacher/dashboard",
+          student: "/student/dashboard",
+          parent: "/parent/dashboard",
+          examiner: "/examiner/dashboard",
+        };
+
+        const path = rolePaths[role] || "/";
+        navigate(path);
       } else {
         setErrorMsg(res.message || "Verification failed");
       }
@@ -75,7 +91,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#A1AEF2]  font-sans">
+    <div className="relative w-full h-screen overflow-hidden bg-[#A1AEF2] font-sans">
       {/* Top Left Branding */}
       <div className="absolute top-8 left-10 z-20 text-white text-xl font-bold tracking-wide">
         <span className="opacity-80">Ai</span>inhome |{" "}
@@ -159,9 +175,25 @@ const Login = () => {
               >
                 {isLoading ? (
                   <>
-                    <svg className="animate-spin h-5 w-5 text-indigo-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg
+                      className="animate-spin h-5 w-5 text-indigo-900"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                     </svg>
                     <span>{isOtpSent ? "Verifying..." : "Logging in..."}</span>
                   </>
@@ -170,8 +202,16 @@ const Login = () => {
                 )}
               </button>
               <div className="mt-4 text-center min-h-[24px]">
-                 {errorMsg && <p className="text-red-300 text-sm font-semibold">{errorMsg}</p>}
-                 {successMsg && <p className="text-emerald-300 text-sm font-semibold">{successMsg}</p>}
+                {errorMsg && (
+                  <p className="text-red-300 text-sm font-semibold">
+                    {errorMsg}
+                  </p>
+                )}
+                {successMsg && (
+                  <p className="text-emerald-300 text-sm font-semibold">
+                    {successMsg}
+                  </p>
+                )}
               </div>
 
               <div className="mt-6 text-xs md:text-sm text-center opacity-80">

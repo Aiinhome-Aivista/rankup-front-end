@@ -25,7 +25,7 @@ function GreetingSection() {
   };
 
   return (
-    <div className="flex justify-between items-end mb-8">
+    <div className="flex justify-between items-end">
       {/* Left: Greeting */}
       <div className="flex items-center">
         {/* Placeholder for the Illustration - abstract cloud/person */}
