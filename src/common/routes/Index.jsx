@@ -5,6 +5,7 @@ import TeacherDashboard from "../../pages/teacher/dashboard/TeacherDashboard";
 import CreateAssesment from "../../pages/teacher/create-assesment/CreateAssesment";
 import Login from "../../pages/common/login/login";
 import Registration from "../../pages/common/registration/Registration";
+import SelfAssesment from "../../pages/student/self-assesment/SelfAssesment";
 
 
 function Index() {
@@ -33,6 +34,14 @@ function Index() {
         element={
           <AppLayout>
             <CreateAssesment />
+          </AppLayout>
+        }
+      />
+       <Route
+        path="student/self-assesment"
+        element={
+          <AppLayout>
+            <SelfAssesment />
           </AppLayout>
         }
       />
