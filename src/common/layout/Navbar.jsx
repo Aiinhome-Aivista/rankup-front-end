@@ -183,7 +183,7 @@ function Navbar() {
         {/* Expanded Content: Features Grid */}
         <div
           className={`
-          mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-4
+          mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 pb-2
           transition-opacity duration-500 delay-100
           ${isFeaturesOpen ? "opacity-100 visible" : "opacity-0 invisible"}
         `}
@@ -192,7 +192,7 @@ function Navbar() {
             <div
               key={feature.id}
               onClick={() => setActiveFeature(feature.id)}
-              className="group relative flex items-start gap-4 p-3 rounded-2xl cursor-pointer transition-all duration-500"
+              className="group relative flex items-start gap-4 p-2 rounded-2xl cursor-pointer transition-all duration-500"
             >
               {/* Expanding Background Layer */}
               <div
@@ -201,7 +201,7 @@ function Navbar() {
                   ${
                     activeFeature === feature.id
                       ? "top-0 left-0 w-full h-full rounded-2xl opacity-100"
-                      : "top-3 left-3 w-[2.75rem] h-[2.75rem] rounded-xl opacity-100 group-hover:top-0 group-hover:left-0 group-hover:w-full group-hover:h-full group-hover:rounded-2xl"
+                      : "top-2 left-2 w-[2.75rem] h-[2.75rem] rounded-xl opacity-100 group-hover:top-0 group-hover:left-0 group-hover:w-full group-hover:h-full group-hover:rounded-2xl"
                   }
                 `}
               />

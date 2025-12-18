@@ -3,12 +3,14 @@ import vector2 from "../../../assets/Vector-2-login.svg";
 import vector3 from "../../../assets/Vector-3-login.svg";
 import vector4 from "../../../assets/Vector-4-login.svg";
 import vector5 from "../../../assets/Vector-5-login.svg";
+import logo from "../../../assets/icons/Aiinhome _ RU.svg";
+import mainLogo from "../../../assets/R-logo.svg";
+import rankupLogo from "../../../assets/Rank Up Academy.svg";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import { initiateLoginApi, verifyLoginApi } from "../../../../connection";
 import { AuthContext } from "../../../context/AuthContext";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import mainLogo from "../../../assets/icons/main-logo.svg";
 
 const Login = () => {
   const { setToken } = useContext(AuthContext);
@@ -95,47 +97,46 @@ const Login = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#A1AEF2] font-sans">
       {/* Top Left Branding */}
-      <div className="absolute top-8 left-10 z-20 text-white text-xl font-bold tracking-wide">
-        <span className="opacity-80">Ai</span>inhome |{" "}
-        <span className="opacity-80">RU</span>
+      <div className="absolute top-6 left-8 z-20 tracking-wide">
+        <img src={logo} alt="" />
       </div>
 
       {/* Wave Background */}
       <div className="absolute  w-full h-full pointer-events-none">
-        <div className="absolute top-110 left-0 w-full z-5 overflow-hidden">
+        <div className="absolute top-95 left-0 w-full z-5 overflow-hidden">
           {/* scale-110 to ensure no gaps if it moves slightly */}
           <img src={vector5} alt="" className="w-full h-auto " />
         </div>
         <div className="absolute top-40 left-0 w-[120%] z-3">
           <img src={vector3} alt="" className="w-full h-auto " />
         </div>
-        <div className="absolute top-15 -left-1 w-full z-2">
+        <div className="absolute top-30 left-0 w-full z-2">
           <img src={vector2} alt="" className="w-full h-auto " />
         </div>
-        <div className="absolute top-40 left-4 w-[110%] z-4">
+        <div className="absolute top-60 left-0 w-[110%] z-4">
           {/* shift left/right to vary the look */}
           <img src={vector4} alt="" className="w-full h-auto " />
         </div>
       </div>
 
       {/* Login Card */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md lg:max-w-md xl:max-w-lg 2xl:max-w-xl px-4">
-        <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 md:p-12 shadow-2xl min-h-[600px] flex flex-col justify-center">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md lg:max-w-md xl:max-w-lg 2xl:max-w-xl min-h-[500px]  px-4">
+        <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 md:p-10 shadow-2xl  flex flex-col justify-center">
           <div className="flex flex-col items-center text-center text-white">
             {/* Logo */}
-            <img
-              src={mainLogo}
-              alt="RankUp Logo"
-              className="w-15 h-15 object-contain"
-            />
+            <div className="mb-4">
+              <img src={mainLogo} alt="" />
+            </div>
 
-            <h1 className="text-3xl font-bold mb-2">Rankup Academy</h1>
+            <div className="mb-2">
+              <img src={rankupLogo} alt="" />
+            </div>
             <p className="text-sm md:text-base opacity-90 mb-8 font-light">
               Customize Every View. Empower Every Decision.
             </p>
 
             {/* Form */}
-            <div className="w-full space-y-4">
+            <div className="w-full space-y-4 overflow-y-auto max-h-[50vh] custom-scrollbar">
               <div className="relative">
                 <input
                   type="text"
@@ -143,7 +144,7 @@ const Login = () => {
                   value={email}
                   disabled={isOtpSent}
                   onChange={(e) => setEmail(e.target.value)}
-                  className={`w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm ${
+                  className={`w-full px-5 py-3 bg-transparent border border-[#D9D9D9]! rounded-xl outline-none placeholder-white! text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300  ${
                     isOtpSent ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 />
@@ -156,7 +157,7 @@ const Login = () => {
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm"
+                    className="w-full px-5 py-3 bg-transparent border border-[#D9D9D9]! rounded-xl outline-none placeholder-white! text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 "
                   />
                 ) : (
                   <input
@@ -164,7 +165,7 @@ const Login = () => {
                     placeholder="Enter OTP"
                     value={otp}
                     onChange={(e) => setOtp(e.target.value)}
-                    className="w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm"
+                    className="w-full px-5 py-3 bg-transparent border border-[#D9D9D9]! rounded-xl outline-none placeholder-white! text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 "
                   />
                 )}
               </div>
@@ -205,7 +206,7 @@ const Login = () => {
                   "Login"
                 )}
               </button>
-              <div className="mt-4 text-center min-h-[24px]">
+              <div className="mt-4 text-center ">
                 {errorMsg && (
                   <p className="text-red-300 text-sm font-semibold">
                     {errorMsg}
