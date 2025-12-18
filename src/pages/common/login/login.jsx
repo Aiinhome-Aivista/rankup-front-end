@@ -100,25 +100,25 @@ const Login = () => {
 
       {/* Wave Background */}
       <div className="absolute  w-full h-full pointer-events-none">
-        <div className="absolute top-110 left-0 w-full z-5 overflow-hidden">
+        <div className="absolute top-95 left-0 w-full z-5 overflow-hidden">
           {/* scale-110 to ensure no gaps if it moves slightly */}
           <img src={vector5} alt="" className="w-full h-auto " />
         </div>
         <div className="absolute top-40 left-0 w-[120%] z-3">
           <img src={vector3} alt="" className="w-full h-auto " />
         </div>
-        <div className="absolute top-15 -left-1 w-full z-2">
+        <div className="absolute top-30 left-0 w-full z-2">
           <img src={vector2} alt="" className="w-full h-auto " />
         </div>
-        <div className="absolute top-40 left-4 w-[110%] z-4">
+        <div className="absolute top-60 left-0 w-[110%] z-4">
           {/* shift left/right to vary the look */}
           <img src={vector4} alt="" className="w-full h-auto " />
         </div>
       </div>
 
       {/* Login Card */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md lg:max-w-md xl:max-w-lg 2xl:max-w-xl px-4">
-        <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 md:p-12 shadow-2xl min-h-[600px] flex flex-col justify-center">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md lg:max-w-md xl:max-w-lg 2xl:max-w-xl min-h-[500px]  px-4">
+        <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 md:p-10 shadow-2xl  flex flex-col justify-center">
           <div className="flex flex-col items-center text-center text-white">
             {/* Logo */}
             <div className="mb-4">
@@ -131,7 +131,7 @@ const Login = () => {
             </p>
 
             {/* Form */}
-            <div className="w-full space-y-4">
+            <div className="w-full space-y-4 overflow-y-auto max-h-[50vh] custom-scrollbar">
               <div className="relative">
                 <input
                   type="text"
@@ -201,7 +201,7 @@ const Login = () => {
                   "Login"
                 )}
               </button>
-              <div className="mt-4 text-center min-h-[24px]">
+              <div className="mt-4 text-center ">
                 {errorMsg && (
                   <p className="text-red-300 text-sm font-semibold">
                     {errorMsg}

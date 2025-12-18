@@ -23,23 +23,23 @@ const Registration = () => {
 
       {/* Wave Background */}
       <div className="absolute w-full h-full pointer-events-none">
-        <div className="absolute top-110 left-0 w-full z-5 overflow-hidden">
+        <div className="absolute top-95 left-0 w-full z-5 overflow-hidden">
           <img src={vector5} alt="" className="w-full h-auto" />
         </div>
         <div className="absolute top-40 left-0 w-[120%] z-3">
           <img src={vector3} alt="" className="w-full h-auto" />
         </div>
-        <div className="absolute top-15 -left-1 w-full z-2">
+        <div className="absolute top-30 -left-1 w-full z-2">
           <img src={vector2} alt="" className="w-full h-auto" />
         </div>
-        <div className="absolute top-40 left-4 w-[110%] z-4">
+        <div className="absolute top-60 left-4 w-[110%] z-4">
           <img src={vector4} alt="" className="w-full h-auto" />
         </div>
       </div>
 
       {/* Registration Card */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-lg lg:max-w-xl px-4 py-8">
-        <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 shadow-2xl overflow-y-auto max-h-[90vh] custom-scrollbar">
+        <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 shadow-2xl ">
           <div className="flex flex-col items-center text-center text-white">
             <h1 className="text-3xl font-bold mb-2">Register</h1>
             <p className="text-sm md:text-base opacity-90 mb-6 font-light">
@@ -73,7 +73,7 @@ const Registration = () => {
             </div>
 
             {/* Forms */}
-            <div className="w-90 space-y-4">
+            <div className="w-90 space-y-4 overflow-y-auto max-h-[50vh] custom-scrollbar">
               {activeTab === "individual" ? (
                 <IndividualRegistration />
               ) : (
