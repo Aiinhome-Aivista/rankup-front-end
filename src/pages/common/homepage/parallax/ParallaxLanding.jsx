@@ -46,7 +46,7 @@ export default function ParallaxLanding() {
           className="absolute top-[20vh] inset-x-0 z-30 flex flex-col items-center text-center px-4"
         >
           <h1 className="text-5xl md:text-6xl font-bold text-indigo-600">
-            Next Generation Assessment <br /> Platform For Every School
+            Next Generation Assessment for <br /> Platform For Every School
           </h1>
           <p className="text-gray-500 text-lg md:text-xl max-w-2xl mt-6">
             Empower educators, engage students, and improve learning outcomes
