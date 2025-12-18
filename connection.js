@@ -1,7 +1,7 @@
 import apiService from './src/service/apiService.js';
 
-const BASE_URL = 'http://122.163.121.176:3019/v1/';
-/* const BASE_URL = 'http://157.173.221.226:3019/v1/'; */
+/* const BASE_URL = 'http://122.163.121.176:3019/v1/'; */
+const BASE_URL = 'http://157.173.221.226:3019/v1/';
 
 export const GET_APIS = {
   fetchSubjects: `${BASE_URL}get_subjects/subjects`,

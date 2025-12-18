@@ -1,12 +1,12 @@
 import React from "react";
+import studentFace from "../../../../assets/student_face_2.svg"
 
 function StudentPerformance() {
   return (
-    <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-6">
+    <div className="bg-[#514CF105] rounded-2xl p-4 flex flex-col">
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 bg-[#514BF2] rounded-full flex items-center justify-center text-white">
-          {/* Use an emoji or icon for the robot face */}
-          <span className="text-sm">🤖</span>
+        <div className="w-8 h-8 flex items-center justify-center text-white">
+          <studentFace/>
         </div>
         <h3 className="text-[#514BF2] font-semibold text-sm">
           Student Performance

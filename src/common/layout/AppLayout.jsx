@@ -11,7 +11,7 @@ function AppLayout({ children }) {
       <div className="flex flex-col min-h-screen">
         {isLoggedIn ? <Header /> : <Navbar />}
         {isLoggedIn && <Sidebar />}
-        <main className="w-full flex-1 overflow-y-auto">{children}</main>
+        <main className="w-full h-full flex-1 overflow-y-auto">{children}</main>
       </div>
     </div>
   );
