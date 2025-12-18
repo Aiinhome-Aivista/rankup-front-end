@@ -152,7 +152,7 @@ function TopMiddleSection({ fadeContent = false }) {
                 <div
                   className={`
                     shrink-0 w-12 h-12 rounded-lg flex items-center justify-center mr-6
-                    ${isActive ? "text-app-primary-850" : "text-app-primary-70"}
+                    ${isActive ? "text-app-primary-180" : "text-app-primary-70"}
                   `}
                 >
                   {item.icon}
@@ -162,14 +162,14 @@ function TopMiddleSection({ fadeContent = false }) {
                 <div className="flex-1">
                   <h3
                     className={`text-xl font-bold mb-2 ${
-                      isActive ? "text-app-primary-850" : "text-app-primary-70"
+                      isActive ? "text-app-primary-180" : "text-app-primary-70"
                     }`}
                   >
                     {item.text}
                   </h3>
                   <p
                     className={`text-sm leading-relaxed transition-colors duration-300 ${
-                      isActive ? "text-app-primary-850" : "text-app-primary-80"
+                      isActive ? "text-app-primary-180" : "text-app-primary-80"
                     }`}
                   >
                     {item.description}

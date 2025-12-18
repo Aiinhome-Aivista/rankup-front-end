@@ -238,7 +238,7 @@ function DraggableCardsSection({ fadeContent = false }) {
                 dx="0"
                 dy="0"
                 stdDeviation="5.5"
-                floodColor="var(--color-app-primary-850)"
+                floodColor="var(--color-app-primary-180)"
                 floodOpacity="1"
               />
             </filter>
@@ -246,7 +246,7 @@ function DraggableCardsSection({ fadeContent = false }) {
           <path
             d={getSmoothPath()}
             fill="none"
-            stroke="var(--color-app-primary-850)"
+            stroke="var(--color-app-primary-180)"
             strokeWidth="5"
             strokeLinecap="round"
             className="opacity-40"

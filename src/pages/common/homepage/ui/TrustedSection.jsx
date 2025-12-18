@@ -11,7 +11,7 @@ const testimonials = [
     role: "ZEMS world Academy, DUBAI",
     quote:
       '"The game changer for me this year has been using the lockdown app".',
-    videoColor: "bg-[#9FA9F6]",
+    videoColor: "bg-[var(--video-one)]",
   },
   {
     id: 2,
@@ -19,51 +19,51 @@ const testimonials = [
     role: "International School, London",
     quote:
       '"An incredible tool that has revolutionized our assessment process."',
-    videoColor: "bg-[#F69F9F]",
+    videoColor: "bg-[var(--video-two)]",
   },
   {
     id: 3,
     name: "Ms. Sarah Smith",
     role: "Tech Academy, NY",
     quote: '"Highly recommended for all educators looking for efficiency."',
-    videoColor: "bg-[#9FF6C5]",
+    videoColor: "bg-[var(--video-three)]",
   },
 ];
 
 const videoSlides = [
   {
     id: 1,
-    color: "bg-[#9FA9F6]",
+    color: "bg-[var(--video-one)]",
     content: (
       <div className="text-center">
-        <FastForward sx={{ fontSize: 40, color: "var(--brand-dark)" }} />
+        <FastForward sx={{ fontSize: 40, color: "var(--app-black-100)" }} />
       </div>
     ),
   },
   {
     id: 2,
-    color: "bg-[#F69F9F]",
+    color: "bg-[var(--video-two)]",
     content: (
       <div className="text-center">
-        <FastForward sx={{ fontSize: 40, color: "var(--brand-dark)" }} />
+        <FastForward sx={{ fontSize: 40, color: "var(--app-black-100)" }} />
       </div>
     ),
   },
   {
     id: 3,
-    color: "bg-[#9FF6C5]",
+    color: "bg-[var(--video-three)]",
     content: (
       <div className="text-center">
-        <FastForward x={{ fontSize: 40, color: "var(--brand-dark)" }} />
+        <FastForward sx={{ fontSize: 40, color: "var(--app-black-100)" }} />
       </div>
     ),
   },
   {
     id: 4,
-    color: "bg-[#F6ECB9]",
+    color: "bg-[var(--video-four)]",
     content: (
       <div className="text-center">
-        <FastForward sx={{ fontSize: 40, color: "var(--brand-dark)" }} />
+        <FastForward sx={{ fontSize: 40, color: "var(--app-black-100)" }} />
       </div>
     ),
   },
@@ -117,15 +117,15 @@ const TrustedSection = ({ fadeContent = false }) => {
       >
         {/* Left Content: Testimonial Card */}
         <div className="flex flex-col items-center drop-shadow">
-          <div className="relative p-2 border border-brand-dark rounded-[3.5rem] bg-white shadow-[6px_6px_0px_0px_var(--brand-dark)]">
-            <div className="relative w-[320px] h-[500px] border border-brand-dark rounded-[3rem] p-6 flex flex-col justify-between bg-white transition-all duration-500 ease-in-out">
+          <div className="relative p-2 border border-app-black-100 rounded-[3.5rem] bg-white shadow-card-border">
+            <div className="relative w-[320px] h-[500px] border border-app-black-100 rounded-[3rem] p-6 flex flex-col justify-between bg-white transition-all duration-500 ease-in-out">
               {/* Header */}
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full border-4 border-brand-dark flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full border-4 border-app-black-100 flex items-center justify-center">
                   <Person2RoundedIcon sx={{ fontSize: 38 }} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-black text-sm">
+                  <h3 className="font-bold text-app-black-900 text-sm">
                     {currentTestimonial.name}
                   </h3>
                   <p className="text-[10px] text-gray-500 font-semibold">
@@ -135,7 +135,7 @@ const TrustedSection = ({ fadeContent = false }) => {
               </div>
 
               {/* Video Carousel Placeholder */}
-              <div className="relative w-full h-48 rounded-3xl overflow-hidden mt-4 bg-white/[0.03]">
+              <div className="relative w-full h-48 rounded-3xl overflow-hidden mt-4 bg-app-black-200">
                 {videoSlides.map((slide, vIndex) => {
                   // Calculate offset for inner carousel
                   let offset = vIndex - videoIndex;
@@ -196,7 +196,7 @@ const TrustedSection = ({ fadeContent = false }) => {
 
               {/* Quote */}
               <div className="mt-4">
-                <p className="text-xs font-medium text-black leading-relaxed min-h-12">
+                <p className="text-xs font-medium text-app-black-900 leading-relaxed min-h-12">
                   {currentTestimonial.quote}
                 </p>
               </div>
@@ -206,7 +206,7 @@ const TrustedSection = ({ fadeContent = false }) => {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star
                     key={star}
-                    sx={{ fontSize: 16, color: "var(--brand-dark)" }}
+                    sx={{ fontSize: 16, color: "var(--app-black-100)" }}
                   />
                 ))}
               </div>
@@ -218,7 +218,7 @@ const TrustedSection = ({ fadeContent = false }) => {
             {testimonials.map((_, index) => (
               <div
                 key={index}
-                className={`h-3 rounded-full bg-brand-dark transition-all duration-300 ${
+                className={`h-3 rounded-full bg-app-black-100 transition-all duration-300 ${
                   index === currentIndex ? "w-8" : "w-3"
                 }`}
               ></div>
@@ -236,11 +236,11 @@ const TrustedSection = ({ fadeContent = false }) => {
             />
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark mb-4 w-full">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-app-black-100 mb-4 w-full">
             Trusted by educators <br /> worldwide
           </h2>
 
-          <p className="text-brand-dark text-sm md:text-lg w-full">
+          <p className="text-app-black-100 text-sm md:text-lg w-full">
             Hear from passionate educators who are{" "}
             <br className="hidden md:block" /> shaping the future of assessments
           </p>

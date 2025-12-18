@@ -58,17 +58,19 @@ layer(base);
   --color-app-primary-90: var(--primary-90);
   --color-app-primary-110: var(--primary-110);
   --color-app-primary-120: var(--primary-120);
-  --color-app-primary-500: var(--primary-500);
-  --color-app-primary-500-70: var(--primary-500-70);
-  --color-app-primary-700: #514cf180;
-  --color-app-primary-600: var(--primary-600);
-  --color-app-primary-100: var(--primary-100);
-  --color-app-primary-800: var(--primary-800);
-  --color-app-primary-850: var(--primary-850);
+  --color-app-primary-130: var(--primary-130);
+  --color-app-primary-140: var(--primary-140);
+  --color-app-primary-140-70: var(--primary-140-70);
+  --color-app-primary-160: #514cf180;
+  --color-app-primary-150: var(--primary-150);
+  --color-app-primary-170: var(--primary-170);
+  --color-app-primary-180: var(--primary-180);
   --color-app-primary-900: #514cf133;
   --color-app-primary-950: var(--primary-950);
 
   --color-app-black-100: var(--black-100);
+  --color-app-black-200: var(--black-200);
+  --color-app-black-900: var(--black-900);
 
   --app-background-color: var(--color-app-bg);
 
@@ -77,10 +79,14 @@ layer(base);
   --color-app-primary-sky: var(--primary-sky);
   --color-app-primary-yellow: var(--primary-yellow);
 
+  --color-app-video-one: var(--video-one);
+  --color-app-video-two: var(--video-two);
+  --color-app-video-three: var(--video-three);
+  --color-app-video-four: var(--video-four);
 
 
   /* Custom shadow */
-  --shadow-custom: 0px 0px 50px 0px rgb(82 63 105 / 15%);
+  --shadow-card-border: 6px 6px 0px 0px var(--color-app-black-100);
 
   /* Custom animations */
   --animate-wiggle: wiggle 1s ease-in-out infinite;
@@ -134,19 +140,21 @@ layer(base);
     --primary-70: #9CA3AF;
     --primary-80: #D1D5DB;
     --primary-90: #4B5563;
-    --primary-100: #5c6b9f;
+    --primary-130: #5c6b9f;
     --primary-110: #888585;
     --primary-120: #111827;
-    --primary-500: #a1aef2;
-    --primary-500-70: #a1aef2b3;
-    --primary-600: #514bf2;
-    --primary-700: #514cf180;
-    --primary-800: #4f46e5;
-    --primary-850: #4338ca;
+    --primary-140: #a1aef2;
+    --primary-140-70: #a1aef2b3;
+    --primary-150: #514bf2;
+    --primary-160: #514cf180;
+    --primary-170: #4f46e5;
+    --primary-180: #4338ca;
     --primary-950: #514cf133;
     --brand-secondary: #7e8ff2;
 
     --black-100: #1c1b1f;
+    --black-200: #FFFFFF03;
+    --black-900: #000000;
 
 
     --brand-dark: #262626;
@@ -155,6 +163,11 @@ layer(base);
     --primary-green: #81BC06;
     --primary-sky: #05A6F0;
     --primary-yellow: #FFBA08;
+
+    --video-one: #9FA9F6;
+    --video-two: #F69F9F;
+    --video-three: #9FF6C5;
+    --video-four: #F6ECB9;
 
 
 

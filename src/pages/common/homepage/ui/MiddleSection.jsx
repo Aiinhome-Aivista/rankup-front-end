@@ -95,14 +95,14 @@ function MiddleSection({ fadeContent = false }) {
           <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 md:translate-x-0 w-[420px] h-[420px] md:w-[690px] md:h-[690px] flex items-center justify-center -mr-80">
             {/* Concentric Circles */}
             {/* Largest Circle */}
-            <div className="absolute w-full h-full rounded-full bg-linear-to-br from-app-primary-500 to-app-primary-55 opacity-40  animate-[breathe_4s_ease-in-out_infinite]"></div>
+            <div className="absolute w-full h-full rounded-full bg-linear-to-br from-app-primary-140 to-app-primary-55 opacity-40  animate-[breathe_4s_ease-in-out_infinite]"></div>
 
             {/* Middle Circle */}
-            <div className="absolute w-[75%] h-[75%] rounded-full bg-linear-to-br from-app-primary-500 to-app-primary-55 opacity-40 drop-shadow-2xl animate-[breathe_6s_ease-in-out_infinite]"></div>
+            <div className="absolute w-[75%] h-[75%] rounded-full bg-linear-to-br from-app-primary-140 to-app-primary-55 opacity-40 drop-shadow-2xl animate-[breathe_6s_ease-in-out_infinite]"></div>
             {/* Inner Circle */}
-            <div className="absolute w-[50%] h-[50%] rounded-full bg-linear-to-br from-app-primary-500 to-app-primary-55 opacity-60 flex items-center justify-center drop-shadow-2xl animate-[breathe_5s_ease-in-out_infinite]">
+            <div className="absolute w-[50%] h-[50%] rounded-full bg-linear-to-br from-app-primary-140 to-app-primary-55 opacity-60 flex items-center justify-center drop-shadow-2xl animate-[breathe_5s_ease-in-out_infinite]">
               {/* Center Gradient Core */}
-              <div className="w-[60%] h-[60%] rounded-full bg-linear-to-br from-app-primary-500 to-app-primary-55 opacity-80 shadow-2xl animate-[breathe_7s_ease-in-out_infinite]"></div>
+              <div className="w-[60%] h-[60%] rounded-full bg-linear-to-br from-app-primary-140 to-app-primary-55 opacity-80 shadow-2xl animate-[breathe_7s_ease-in-out_infinite]"></div>
             </div>
             {/* Floating Icons */}
             {/* Icon 1 Orbit Container */}
