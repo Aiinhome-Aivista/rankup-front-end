@@ -76,13 +76,13 @@ function MiddleSection({ fadeContent = false }) {
               />
             </div>
 
-            <h1 className="text-brand-dark font-extrabold text-4xl md:text-5xl leading-tight mb-6">
+            <h1 className="text-app-black-100 font-extrabold text-4xl md:text-5xl leading-tight mb-6">
               Integrated with the
               <br />
               platforms you use
             </h1>
 
-            <p className="text-gray-600 text-lg leading-relaxed">
+            <p className="text-app-primary-90 text-lg leading-relaxed">
               Connect your favorite tools effortlessly. Our platform{" "}
               <br className="hidden md:block" />
               plays well with others, creating a unified ecosystem for{" "}
@@ -95,14 +95,14 @@ function MiddleSection({ fadeContent = false }) {
           <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 md:translate-x-0 w-[420px] h-[420px] md:w-[690px] md:h-[690px] flex items-center justify-center -mr-80">
             {/* Concentric Circles */}
             {/* Largest Circle */}
-            <div className="absolute w-full h-full rounded-full bg-linear-to-br from-brand-tertiary to-brand-primary opacity-40  animate-[breathe_4s_ease-in-out_infinite]"></div>
+            <div className="absolute w-full h-full rounded-full bg-linear-to-br from-app-primary-500 to-app-primary-55 opacity-40  animate-[breathe_4s_ease-in-out_infinite]"></div>
 
             {/* Middle Circle */}
-            <div className="absolute w-[75%] h-[75%] rounded-full bg-linear-to-br from-brand-tertiary to-brand-primary opacity-40 drop-shadow-2xl animate-[breathe_6s_ease-in-out_infinite]"></div>
+            <div className="absolute w-[75%] h-[75%] rounded-full bg-linear-to-br from-app-primary-500 to-app-primary-55 opacity-40 drop-shadow-2xl animate-[breathe_6s_ease-in-out_infinite]"></div>
             {/* Inner Circle */}
-            <div className="absolute w-[50%] h-[50%] rounded-full bg-linear-to-br from-brand-tertiary to-brand-primary opacity-60 flex items-center justify-center drop-shadow-2xl animate-[breathe_5s_ease-in-out_infinite]">
+            <div className="absolute w-[50%] h-[50%] rounded-full bg-linear-to-br from-app-primary-500 to-app-primary-55 opacity-60 flex items-center justify-center drop-shadow-2xl animate-[breathe_5s_ease-in-out_infinite]">
               {/* Center Gradient Core */}
-              <div className="w-[60%] h-[60%] rounded-full bg-linear-to-br from-brand-tertiary to-brand-primary opacity-80 shadow-2xl animate-[breathe_7s_ease-in-out_infinite]"></div>
+              <div className="w-[60%] h-[60%] rounded-full bg-linear-to-br from-app-primary-500 to-app-primary-55 opacity-80 shadow-2xl animate-[breathe_7s_ease-in-out_infinite]"></div>
             </div>
             {/* Floating Icons */}
             {/* Icon 1 Orbit Container */}
@@ -135,10 +135,10 @@ function MiddleSection({ fadeContent = false }) {
             <div className="absolute w-full h-full animate-[oscillate-reverse_30s_ease-in-out_infinite]">
               <div className="absolute bottom-[20%] left-[20%] bg-white/30 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/20 transform hover:scale-110 transition-transform duration-400 animate-[oscillate_30s_ease-in-out_infinite]">
                 <div className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 grid grid-cols-2 grid-rows-2 gap-1">
-                  <div className="bg-[#F35325]"></div>
-                  <div className="bg-[#81BC06]"></div>
-                  <div className="bg-[#05A6F0]"></div>
-                  <div className="bg-[#FFBA08]"></div>
+                  <div className="bg-app-primary-red"></div>
+                  <div className="bg-app-primary-green"></div>
+                  <div className="bg-app-primary-sky"></div>
+                  <div className="bg-app-primary-yellow"></div>
                 </div>
               </div>
             </div>

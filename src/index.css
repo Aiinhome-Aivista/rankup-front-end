@@ -55,6 +55,7 @@ layer(base);
   --color-app-primary-65: var(--primary-65);
   --color-app-primary-70: var(--primary-70);
   --color-app-primary-80: var(--primary-80);
+  --color-app-primary-90: var(--primary-90);
   --color-app-primary-500: var(--primary-500);
   --color-app-primary-500-70: var(--primary-500-70);
   --color-app-primary-700: #514cf180;
@@ -68,6 +69,13 @@ layer(base);
   --color-app-black-100: var(--black-100);
 
   --app-background-color: var(--color-app-bg);
+
+  --color-app-primary-red: var(--primary-red);
+  --color-app-primary-green: var(--primary-green);
+  --color-app-primary-sky: var(--primary-sky);
+  --color-app-primary-yellow: var(--primary-yellow);
+
+
 
   /* Custom shadow */
   --shadow-custom: 0px 0px 50px 0px rgb(82 63 105 / 15%);
@@ -86,7 +94,6 @@ layer(base);
   :root {
     /* Light theme (default) color tokens */
     --color-bg: #ffffff;
-    --color-text: #a1aef2;
     --color-text-tertiary: #ffffffff;
     --color-button-secondary: #514cf10d;
     --color-button-tertiary: #d9d9d9;
@@ -114,7 +121,7 @@ layer(base);
     --destructive: #ef4444;
     --destructive-foreground: #fafafa;
 
-    /* Custom Brand Colors - Light Mode */
+    /* Main Colors - Light Mode */
     --primary-bg: #ffffff
     --primary-10: #dcdbfc;
     --primary-20: #b7baf8;
@@ -124,6 +131,7 @@ layer(base);
     --primary-65: #6366f1;
     --primary-70: #9CA3AF;
     --primary-80: #D1D5DB;
+    --primary-90: #4B5563;
     --primary-100: #5c6b9f;
     --primary-500: #a1aef2;
     --primary-500-70: #a1aef2b3;
@@ -138,7 +146,13 @@ layer(base);
 
 
     --brand-dark: #262626;
-    
+
+    --primary-red: #F35325;
+    --primary-green: #81BC06;
+    --primary-sky: #05A6F0;
+    --primary-yellow: #FFBA08;
+
+
 
     /* Typography */
     font-family: "Nunito", system-ui, sans-serif;
