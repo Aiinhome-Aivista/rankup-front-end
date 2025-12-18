@@ -47,45 +47,78 @@ function Footer({ fadeContent = false }) {
         <div className="flex flex-col md:flex-row w-full justify-between gap-12 mb-20">
           {/* Column 1 */}
           <div className="flex flex-col space-y-4">
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               About Us
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               Features
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               Pricing
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               Documentation
             </a>
           </div>
 
           {/* Column 2 */}
           <div className="flex flex-col space-y-4">
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               Support
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               Terms & Conditions
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               Contact
             </a>
           </div>
 
           {/* Column 3 */}
           <div className="flex flex-col space-y-4">
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               Contact
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               FAQ
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm">
+            <a
+              href="#"
+              className="text-app-primary-110 hover:text-app-primary-120 text-sm"
+            >
               Blog
             </a>
           </div>
@@ -93,7 +126,7 @@ function Footer({ fadeContent = false }) {
 
         {/* Bottom Copyright */}
         <div className="text-center pb-8">
-          <p className="text-gray-400 text-sm">
+          <p className="text-app-primary-70 text-sm">
             @2020 Aiinhome Technologies Pvt. Ltd. All rights reserved
           </p>
         </div>
