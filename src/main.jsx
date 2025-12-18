@@ -5,6 +5,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 import App from "./App.jsx";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 
 // Disable browser scroll restoration BEFORE React initializes
 if ("scrollRestoration" in history) {
@@ -13,6 +14,8 @@ if ("scrollRestoration" in history) {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </StrictMode>
 );

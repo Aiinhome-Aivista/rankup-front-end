@@ -98,7 +98,7 @@ function TopMiddleSection({ fadeContent = false }) {
   };
 
   return (
-    <div className="w-full bg-linear-to-b from-[#b7baf8] to-[#ffffff] py-20 font-sans overflow-hidden">
+    <div className="w-full bg-linear-to-b from-brand-secondary to-brand-white py-20 font-sans overflow-hidden">
       <motion.div
         className="container mx-auto px-4 gap-6 flex flex-col items-center pb-6"
         variants={contentVariants}
@@ -133,10 +133,10 @@ function TopMiddleSection({ fadeContent = false }) {
                   w-full max-w-4xl cursor-pointer
                   ${
                     isActive
-                      ? "z-30 opacity-100 scale-100 bg-[#E0E7FF] border-[#6366F1] shadow-xl"
+                      ? "z-30 opacity-100 scale-100 bg-brand-light border-brand-primary shadow-xl"
                       : isNeighbor
-                      ? "z-20 opacity-80 scale-95 bg-[#E0E7FF] border-[0.5px] border-[#6366F1] blur-[2px]"
-                      : "z-10 opacity-30 scale-90 bg-[#E0E7FF] border-transparent blur-[2px]"
+                      ? "z-20 opacity-80 scale-95 bg-brand-light border-[0.5px] border-brand-primary blur-[2px]"
+                      : "z-10 opacity-30 scale-90 bg-brand-light border-transparent blur-[2px]"
                   }
                 `}
                 style={{
@@ -150,7 +150,7 @@ function TopMiddleSection({ fadeContent = false }) {
                 <div
                   className={`
                     flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center mr-6
-                    ${isActive ? "text-[#4338ca]" : "text-gray-400"}
+                    ${isActive ? "text-brand-hover" : "text-gray-400"}
                   `}
                 >
                   {item.icon}
@@ -160,14 +160,14 @@ function TopMiddleSection({ fadeContent = false }) {
                 <div className="flex-1">
                   <h3
                     className={`text-xl font-bold mb-2 ${
-                      isActive ? "text-[#4338ca]" : "text-gray-400"
+                      isActive ? "text-brand-hover" : "text-gray-400"
                     }`}
                   >
                     {item.text}
                   </h3>
                   <p
                     className={`text-sm leading-relaxed transition-colors duration-300 ${
-                      isActive ? "text-[#4338ca]" : "text-gray-300"
+                      isActive ? "text-brand-hover" : "text-gray-300"
                     }`}
                   >
                     {item.description}

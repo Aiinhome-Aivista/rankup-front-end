@@ -36,7 +36,7 @@ const videoSlides = [
     color: "bg-[#9FA9F6]",
     content: (
       <div className="text-center">
-        <FastForward sx={{ fontSize: 40, color: "#1C1B1F" }} />
+        <FastForward sx={{ fontSize: 40, color: "var(--brand-dark)" }} />
       </div>
     ),
   },
@@ -45,7 +45,7 @@ const videoSlides = [
     color: "bg-[#F69F9F]",
     content: (
       <div className="text-center">
-        <FastForward sx={{ fontSize: 40, color: "##1C1B1F" }} />
+        <FastForward sx={{ fontSize: 40, color: "var(--brand-dark)" }} />
       </div>
     ),
   },
@@ -54,7 +54,7 @@ const videoSlides = [
     color: "bg-[#9FF6C5]",
     content: (
       <div className="text-center">
-        <FastForward x={{ fontSize: 40, color: "##1C1B1F" }} />
+        <FastForward x={{ fontSize: 40, color: "var(--brand-dark)" }} />
       </div>
     ),
   },
@@ -63,7 +63,7 @@ const videoSlides = [
     color: "bg-[#F6ECB9]",
     content: (
       <div className="text-center">
-        <FastForward sx={{ fontSize: 40, color: "#1C1B1F" }} />
+        <FastForward sx={{ fontSize: 40, color: "var(--brand-dark)" }} />
       </div>
     ),
   },
@@ -117,11 +117,11 @@ const TrustedSection = ({ fadeContent = false }) => {
       >
         {/* Left Content: Testimonial Card */}
         <div className="flex flex-col items-center drop-shadow">
-          <div className="relative p-2 border border-[#1C1B1F] rounded-[3.5rem] bg-white shadow-[6px_6px_0px_0px_#1C1B1F]">
-            <div className="relative w-[320px] h-[500px] border border-[#1C1B1F] rounded-[3rem] p-6 flex flex-col justify-between bg-white transition-all duration-500 ease-in-out">
+          <div className="relative p-2 border border-brand-dark rounded-[3.5rem] bg-white shadow-[6px_6px_0px_0px_var(--brand-dark)]">
+            <div className="relative w-[320px] h-[500px] border border-brand-dark rounded-[3rem] p-6 flex flex-col justify-between bg-white transition-all duration-500 ease-in-out">
               {/* Header */}
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full border-4 border-[#1C1B1F] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full border-4 border-brand-dark flex items-center justify-center">
                   <Person2RoundedIcon sx={{ fontSize: 38 }} />
                 </div>
                 <div>
@@ -135,7 +135,7 @@ const TrustedSection = ({ fadeContent = false }) => {
               </div>
 
               {/* Video Carousel Placeholder */}
-              <div className="relative w-full h-48 rounded-3xl overflow-hidden mt-4 bg-[#FFFFFF03]">
+              <div className="relative w-full h-48 rounded-3xl overflow-hidden mt-4 bg-white/[0.03]">
                 {videoSlides.map((slide, vIndex) => {
                   // Calculate offset for inner carousel
                   let offset = vIndex - videoIndex;
@@ -204,7 +204,10 @@ const TrustedSection = ({ fadeContent = false }) => {
               {/* Rating */}
               <div className="flex gap-1 mt-2">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} sx={{ fontSize: 16, color: "#1C1B1F" }} />
+                  <Star
+                    key={star}
+                    sx={{ fontSize: 16, color: "var(--brand-dark)" }}
+                  />
                 ))}
               </div>
             </div>
@@ -215,7 +218,7 @@ const TrustedSection = ({ fadeContent = false }) => {
             {testimonials.map((_, index) => (
               <div
                 key={index}
-                className={`h-3 rounded-full bg-[#1C1B1F] transition-all duration-300 ${
+                className={`h-3 rounded-full bg-brand-dark transition-all duration-300 ${
                   index === currentIndex ? "w-8" : "w-3"
                 }`}
               ></div>
@@ -233,11 +236,11 @@ const TrustedSection = ({ fadeContent = false }) => {
             />
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#1C1B1F] mb-4 w-full">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark mb-4 w-full">
             Trusted by educators <br /> worldwide
           </h2>
 
-          <p className="text-[#1C1B1F] text-sm md:text-lg w-full">
+          <p className="text-brand-dark text-sm md:text-lg w-full">
             Hear from passionate educators who are{" "}
             <br className="hidden md:block" /> shaping the future of assessments
           </p>

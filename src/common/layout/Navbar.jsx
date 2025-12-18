@@ -24,6 +24,7 @@ import equalizer from "../../assets/icons/equalizer.svg";
 import webhook from "../../assets/icons/webhook.svg";
 import eyeTracking from "../../assets/icons/eye_tracking.svg";
 import hotelClass from "../../assets/icons/hotel_class.svg";
+import ThemeToggle from "../ThemeToggle";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -112,8 +113,8 @@ function Navbar() {
         className={`
           pointer-events-auto
           absolute left-1/2 -translate-x-1/2
-          bg-[#A2AEF2]/70 rounded-b-4xl rounded-t-none px-6 py-3 
-          border-5 border-white border-t-0 shadow-lg shadow-[#514CF180]
+          bg-brand-tertiary/70 rounded-b-4xl rounded-t-none px-6 py-3 
+          border-5 border-brand-white border-t-0 shadow-lg shadow-brand-primary/50
           backdrop-blur-lg
           transition-all duration-500 ease-in-out overflow-hidden 
           ${isFeaturesOpen ? "max-h-[400px]" : "max-h-[65px]"}
@@ -136,10 +137,10 @@ function Navbar() {
             />
 
             {/* Links */}
-            <div className="hidden md:flex items-center gap-6 text-[#5c6b9f] font-medium text-sm">
+            <div className="hidden md:flex items-center gap-6 text-brand-text-muted font-medium text-sm">
               <button
                 onMouseEnter={() => setIsFeaturesOpen(true)}
-                className="flex items-center gap-1 text-[#514BF2] cursor-pointer transition-colors outline-none"
+                className="flex items-center gap-1 text-brand-primary cursor-pointer transition-colors outline-none hover:text-brand-primary/80"
               >
                 Features
                 {isFeaturesOpen ? (
@@ -148,16 +149,16 @@ function Navbar() {
                   <KeyboardArrowDown fontSize="small" />
                 )}
               </button>
-              <button className="flex items-center gap-1 text-[#514BF2] cursor-pointer transition-colors">
+              <button className="flex items-center gap-1 text-brand-primary cursor-pointer transition-colors hover:text-brand-primary/80">
                 Curriculum <KeyboardArrowDown fontSize="small" />
               </button>
-              <button className="flex items-center gap-1 text-[#514BF2] cursor-pointer transition-colors">
+              <button className="flex items-center gap-1 text-brand-primary cursor-pointer transition-colors hover:text-brand-primary/80">
                 Resources <KeyboardArrowDown fontSize="small" />
               </button>
-              <button className="flex items-center gap-1 text-[#514BF2] cursor-pointer transition-colors">
+              <button className="flex items-center gap-1 text-brand-primary cursor-pointer transition-colors hover:text-brand-primary/80">
                 Company <KeyboardArrowDown fontSize="small" />
               </button>
-              <button className="flex items-center gap-1 text-[#514BF2] cursor-pointer transition-colors">
+              <button className="flex items-center gap-1 text-brand-primary cursor-pointer transition-colors hover:text-brand-primary/80">
                 Plans <KeyboardArrowDown fontSize="small" />
               </button>
             </div>
@@ -165,14 +166,15 @@ function Navbar() {
 
           {/* Right: Actions */}
           <div className="flex items-center gap-3">
-            <button className="hidden md:flex items-center gap-2 px-3 py-1.5 cursor-pointer rounded-xl text-[#4f46e5] font-semibold bg-gray-50 hover:bg-gray-200 transition-all active:scale-95 shadow-md border border-transparent hover:shadow-lg">
+            <button className="hidden md:flex items-center gap-2 px-3 py-1.5 cursor-pointer rounded-xl text-brand-primary font-semibold bg-brand-white hover:bg-muted transition-all active:scale-95 shadow-md border border-border hover:shadow-lg">
               {/* <Tour fontSize="small" /> */}
               <img src={followTheSigns} alt="" />
               Take a Tour
             </button>
+            <ThemeToggle className="h-6 w-6" />
             <button
               onClick={() => navigate("/login")}
-              className="flex items-center gap-2 px-3 py-1.5 cursor-pointer rounded-xl bg-[#514BF2] text-white font-semibold hover:bg-[#4338ca] transition-all active:scale-95 shadow-md hover:shadow-lg"
+              className="flex items-center gap-2 px-3 py-1.5 cursor-pointer rounded-xl bg-brand-primary text-brand-white font-semibold hover:bg-brand-hover transition-all active:scale-95 shadow-md hover:shadow-lg"
             >
               <Person fontSize="small" />
               Sign In
@@ -197,7 +199,7 @@ function Navbar() {
               {/* Expanding Background Layer */}
               <div
                 className={`
-                  absolute bg-[#514CF133] border border-[#514CF1] transition-all duration-500 ease-in-out z-0
+                  absolute bg-brand-primary/20 border border-brand-primary transition-all duration-500 ease-in-out z-0
                   ${
                     activeFeature === feature.id
                       ? "top-0 left-0 w-full h-full rounded-2xl opacity-100"
@@ -212,8 +214,8 @@ function Navbar() {
                 relative z-10 p-2.5 rounded-xl transition-all duration-500
                 ${
                   activeFeature === feature.id
-                    ? "text-[#514CF1]"
-                    : "text-[#4f46e5]"
+                    ? "text-brand-primary"
+                    : "text-brand-primary"
                 }
               `}
               >
@@ -231,8 +233,8 @@ function Navbar() {
                   font-bold text-sm mb-0.5 transition-colors
                   ${
                     activeFeature === feature.id
-                      ? "text-[#514CF1]"
-                      : "text-[#1C1B1F] group-hover:text-[#4f46e5]"
+                      ? "text-brand-primary"
+                      : "text-brand-dark group-hover:text-brand-primary"
                   }
                 `}
                 >
@@ -243,8 +245,8 @@ function Navbar() {
                   text-xs font-medium transition-colors
                   ${
                     activeFeature === feature.id
-                      ? "text-[#514CF1]"
-                      : "text-[#1C1B1F] group-hover:text-[#4f46e5]"
+                      ? "text-brand-primary"
+                      : "text-brand-dark group-hover:text-brand-primary"
                   }
                 `}
                 >
