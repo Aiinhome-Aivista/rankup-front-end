@@ -151,8 +151,8 @@ function TopMiddleSection({ fadeContent = false }) {
                 {/* Icon Box */}
                 <div
                   className={`
-                    flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center mr-6
-                    ${isActive ? "text-[#4338ca]" : "text-gray-400"}
+                    shrink-0 w-12 h-12 rounded-lg flex items-center justify-center mr-6
+                    ${isActive ? "text-app-primary-850" : "text-app-primary-70"}
                   `}
                 >
                   {item.icon}
@@ -162,14 +162,14 @@ function TopMiddleSection({ fadeContent = false }) {
                 <div className="flex-1">
                   <h3
                     className={`text-xl font-bold mb-2 ${
-                      isActive ? "text-[#4338ca]" : "text-gray-400"
+                      isActive ? "text-app-primary-850" : "text-app-primary-70"
                     }`}
                   >
                     {item.text}
                   </h3>
                   <p
                     className={`text-sm leading-relaxed transition-colors duration-300 ${
-                      isActive ? "text-[#4338ca]" : "text-gray-300"
+                      isActive ? "text-app-primary-850" : "text-app-primary-80"
                     }`}
                   >
                     {item.description}
