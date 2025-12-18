@@ -3,6 +3,9 @@ import vector2 from "../../../assets/Vector-2-login.svg";
 import vector3 from "../../../assets/Vector-3-login.svg";
 import vector4 from "../../../assets/Vector-4-login.svg";
 import vector5 from "../../../assets/Vector-5-login.svg";
+import logo from "../../../assets/icons/Aiinhome _ RU.svg";
+import mainLogo from "../../../assets/R-logo.svg";
+import rankupLogo from "../../../assets/Rank Up Academy.svg";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import { initiateLoginApi, verifyLoginApi } from "../../../../connection";
 import { AuthContext } from "../../../context/AuthContext";
@@ -93,9 +96,8 @@ const Login = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#A1AEF2] font-sans">
       {/* Top Left Branding */}
-      <div className="absolute top-8 left-10 z-20 text-white text-xl font-bold tracking-wide">
-        <span className="opacity-80">Ai</span>inhome |{" "}
-        <span className="opacity-80">IG</span>
+      <div className="absolute top-6 left-8 z-20 tracking-wide">
+        <img src={logo} alt="" />
       </div>
 
       {/* Wave Background */}
@@ -122,10 +124,12 @@ const Login = () => {
           <div className="flex flex-col items-center text-center text-white">
             {/* Logo */}
             <div className="mb-4">
-              <DashboardIcon sx={{ fontSize: 48 }} className="opacity-90" />
+              <img src={mainLogo} alt="" />
             </div>
 
-            <h1 className="text-3xl font-bold mb-2">InsightGrid</h1>
+            <div className="mb-2">
+              <img src={rankupLogo} alt="" />
+            </div>
             <p className="text-sm md:text-base opacity-90 mb-8 font-light">
               Customize Every View. Empower Every Decision.
             </p>
@@ -139,7 +143,7 @@ const Login = () => {
                   value={email}
                   disabled={isOtpSent}
                   onChange={(e) => setEmail(e.target.value)}
-                  className={`w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm ${
+                  className={`w-full px-5 py-3 bg-transparent border border-[#D9D9D9]! rounded-xl outline-none placeholder-white! text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300  ${
                     isOtpSent ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 />
@@ -152,7 +156,7 @@ const Login = () => {
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm"
+                    className="w-full px-5 py-3 bg-transparent border border-[#D9D9D9]! rounded-xl outline-none placeholder-white! text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 "
                   />
                 ) : (
                   <input
@@ -160,7 +164,7 @@ const Login = () => {
                     placeholder="Enter OTP"
                     value={otp}
                     onChange={(e) => setOtp(e.target.value)}
-                    className="w-full px-5 py-3 bg-white/5 border border-white/20 rounded-xl outline-none placeholder-gray-200 text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 backdrop-blur-sm"
+                    className="w-full px-5 py-3 bg-transparent border border-[#D9D9D9]! rounded-xl outline-none placeholder-white! text-white focus:bg-white/10 focus:border-white/50 transition-all duration-300 "
                   />
                 )}
               </div>

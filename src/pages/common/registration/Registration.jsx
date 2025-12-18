@@ -8,6 +8,7 @@ import ApartmentIcon from "@mui/icons-material/Apartment";
 import IndividualRegistration from "./ui/IndividualRegistration";
 import InstituteRegistration from "./ui/InstituteRegistration";
 import { useNavigate } from "react-router-dom";
+import logo from "../../../assets/icons/Aiinhome _ RU.svg";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -16,9 +17,8 @@ const Registration = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#A1AEF2] font-sans">
       {/* Top Left Branding */}
-      <div className="absolute top-8 left-10 z-20 text-white text-xl font-bold tracking-wide">
-        <span className="opacity-80">Ai</span>inhome |{" "}
-        <span className="opacity-80">IG</span>
+      <div className="absolute top-6 left-8 z-20 tracking-wide">
+        <img src={logo} alt="" />
       </div>
 
       {/* Wave Background */}
