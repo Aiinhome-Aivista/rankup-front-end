@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.6",
     "@mui/material": "^7.3.6",
+    "@rankup/shared-ui": "github:Aiinhome-Aivista/shared-rankup-ui",
     "@tailwindcss/vite": "^4.1.17",
     "framer-motion": "^12.23.26",
     "lucide-react": "^0.560.0",
