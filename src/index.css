@@ -14,17 +14,6 @@ layer(base);
   --font-nunito: Nunito, system-ui, sans-serif;
 
   /* Map CSS variables to Tailwind utilities */
-  /* --color-border: var(--border);
-  --color-background: var(--color-bg);
-  --color-foreground: var(--color-text);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground); */
 
   --color-app-bg: var(--color-bg);
   --color-app-text: var(--color-text);
@@ -54,14 +43,24 @@ layer(base);
   --color-app-gradient-end: var(--color-gradient-end);
 
   /* Map Brand Colors to Tailwind utilities */
-  --color-app-brand-primary: var(--brand-primary);
-  --color-app-brand-secondary: var(--brand-secondary);
+  --color-app-primary-50: #514cf1;
+  --color-app-primary-500: var(--primary-500);
+  --color-app-primary-500-70: var(--primary-500-70);
+  --color-app-primary-700: #514cf180;
+  --color-app-primary-600: var(--primary-600);
+  --color-app-primary-100: var(--primary-100);
+  --color-app-primary-800: var(--primary-800);
+  --color-app-primary-850: var(--primary-850);
+  --color-app-primary-900: #514cf133;
+  --color-app-black-100: var(--black-100);
   --color-app-brand-tertiary: var(--brand-tertiary);
   --color-app-brand-light: var(--brand-light);
   --color-app-brand-dark: var(--brand-dark);
   --color-app-brand-white: var(--brand-white);
   --color-app-brand-text-muted: var(--brand-text-muted);
   --color-app-brand-hover: var(--brand-hover);
+
+  --app-background-color: var(--color-app-bg);
 
   /* Custom shadow */
   --shadow-custom: 0px 0px 50px 0px rgb(82 63 105 / 15%);
@@ -81,10 +80,7 @@ layer(base);
     /* Light theme (default) color tokens */
     --color-bg: #ffffff;
     --color-text: #a1aef2;
-    --color-text-primary: #514cf1;
-    --color-text-secondary: #1c1b1f;
     --color-text-tertiary: #ffffffff;
-    --color-button-primary: #514cf1;
     --color-button-secondary: #514cf10d;
     --color-button-tertiary: #d9d9d9;
     --color-border: #ffffff38;
@@ -100,11 +96,9 @@ layer(base);
     --color-input-box-bg: #fbfbfb00;
     --color-shadow: #514cf180;
     --color-drop-shadow: #ffffff38;
-    --color-drop-shadow-primary: #514cf133;
     --color-inner-shadow: #ffffff40;
     --color-image-bg: #1c1b1f99;
     --color-gradient-start: #f21d2f;
-    --color-gradient-end: #514cf1;
 
     --foreground: #0c1420;
     --card: #f1f5f9;
@@ -116,13 +110,19 @@ layer(base);
     --destructive-foreground: #fafafa;
 
     /* Custom Brand Colors - Light Mode */
-    --brand-primary: #514bf2;
+    --primary-50: #514cf1;
+    --primary-100: #5c6b9f;
+    --primary-500: #a1aef2;
+    --primary-500-70: #a1aef2b3;
+    --primary-600: #514bf2;
+    --primary-700: #514cf180;
+    --primary-800: #4f46e5;
+    --primary-850: #4338ca;
+    --primary-900: #514cf133;
     --brand-secondary: #7e8ff2;
-    --brand-tertiary: #a2aef2;
     --brand-light: #dcdbfc;
     --brand-dark: #262626;
-    --brand-text-muted: #5c6b9f;
-    --brand-hover: #4338ca;
+    --black-100: #1c1b1f;
 
     /* Typography */
     font-family: "Nunito", system-ui, sans-serif;

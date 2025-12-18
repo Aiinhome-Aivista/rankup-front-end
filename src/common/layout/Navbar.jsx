@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   KeyboardArrowDown,
   KeyboardArrowUp,
-  Create,
-  Grade,
-  Assignment,
-  Send,
-  Analytics,
-  IntegrationInstructions,
-  MonitorHeart,
-  AutoAwesome,
   Person,
-  Tour,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import mainLogo from "../../assets/icons/main-logo.svg";
@@ -24,7 +15,6 @@ import equalizer from "../../assets/icons/equalizer.svg";
 import webhook from "../../assets/icons/webhook.svg";
 import eyeTracking from "../../assets/icons/eye_tracking.svg";
 import hotelClass from "../../assets/icons/hotel_class.svg";
-import ThemeToggle from "../ThemeToggle";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -113,8 +103,8 @@ function Navbar() {
         className={`
           pointer-events-auto
           absolute left-1/2 -translate-x-1/2
-          bg-app-text rounded-b-4xl rounded-t-none px-6 py-3 
-          border-5 border-app-bg border-t-0 shadow-lg shadow-app-text/50
+          bg-app-primary-500-70 rounded-b-4xl rounded-t-none px-6 py-3 
+          border-5 border-white border-t-0 shadow-lg shadow-app-primary-700
           backdrop-blur-lg
           transition-all duration-500 ease-in-out overflow-hidden 
           ${isFeaturesOpen ? "max-h-[400px]" : "max-h-[65px]"}
@@ -137,10 +127,10 @@ function Navbar() {
             />
 
             {/* Links */}
-            <div className="hidden md:flex items-center gap-6 text-app-text-muted font-medium text-sm">
+            <div className="hidden md:flex items-center gap-6 text-app-primary-100 font-medium text-sm">
               <button
                 onMouseEnter={() => setIsFeaturesOpen(true)}
-                className="flex items-center gap-1 text-app-text-primary cursor-pointer transition-colors outline-none hover:text-app-text-primary/80"
+                className="flex items-center gap-1 text-app-primary-600 cursor-pointer transition-colors outline-none"
               >
                 Features
                 {isFeaturesOpen ? (
@@ -149,16 +139,16 @@ function Navbar() {
                   <KeyboardArrowDown fontSize="small" />
                 )}
               </button>
-              <button className="flex items-center gap-1 text-app-text-primary cursor-pointer transition-colors hover:text-app-text-primary/80">
+              <button className="flex items-center gap-1 text-app-primary-600 cursor-pointer transition-colors">
                 Curriculum <KeyboardArrowDown fontSize="small" />
               </button>
-              <button className="flex items-center gap-1 text-app-text-primary cursor-pointer transition-colors hover:text-app-text-primary/80">
+              <button className="flex items-center gap-1 text-app-primary-600 cursor-pointer transition-colors">
                 Resources <KeyboardArrowDown fontSize="small" />
               </button>
-              <button className="flex items-center gap-1 text-app-text-primary cursor-pointer transition-colors hover:text-app-text-primary/80">
+              <button className="flex items-center gap-1 text-app-primary-600 cursor-pointer transition-colors">
                 Company <KeyboardArrowDown fontSize="small" />
               </button>
-              <button className="flex items-center gap-1 text-app-text-primary cursor-pointer transition-colors hover:text-app-text-primary/80">
+              <button className="flex items-center gap-1 text-app-primary-600 cursor-pointer transition-colors">
                 Plans <KeyboardArrowDown fontSize="small" />
               </button>
             </div>
@@ -166,15 +156,14 @@ function Navbar() {
 
           {/* Right: Actions */}
           <div className="flex items-center gap-3">
-            <button className="hidden md:flex items-center gap-2 px-3 py-1.5 cursor-pointer rounded-xl text-brand-primary font-semibold bg-brand-white hover:bg-muted transition-all active:scale-95 shadow-md border border-border hover:shadow-lg">
+            <button className="hidden md:flex items-center gap-2 px-3 py-1.5 cursor-pointer rounded-xl text-app-primary-800 font-semibold bg-gray-50 hover:bg-gray-200 transition-all active:scale-95 shadow-md border border-transparent hover:shadow-lg">
               {/* <Tour fontSize="small" /> */}
               <img src={followTheSigns} alt="" />
               Take a Tour
             </button>
-            <ThemeToggle className="h-6 w-6" />
             <button
               onClick={() => navigate("/login")}
-              className="flex items-center gap-2 px-3 py-1.5 cursor-pointer rounded-xl bg-app-primary text-app-white font-semibold hover:bg-app-hover transition-all active:scale-95 shadow-md hover:shadow-lg"
+              className="flex items-center gap-2 px-3 py-1.5 cursor-pointer rounded-xl bg-app-primary-600 text-white font-semibold hover:bg-app-primary-850 transition-all active:scale-95 shadow-md hover:shadow-lg"
             >
               <Person fontSize="small" />
               Sign In
@@ -199,11 +188,11 @@ function Navbar() {
               {/* Expanding Background Layer */}
               <div
                 className={`
-                  absolute bg-app-primary/20 border border-app-primary transition-all duration-500 ease-in-out z-0
+                  absolute bg-app-primary-900 border border-app-primary-50 transition-all duration-500 ease-in-out z-0
                   ${
                     activeFeature === feature.id
                       ? "top-0 left-0 w-full h-full rounded-2xl opacity-100"
-                      : "top-2 left-2 w-[2.75rem] h-[2.75rem] rounded-xl opacity-100 group-hover:top-0 group-hover:left-0 group-hover:w-full group-hover:h-full group-hover:rounded-2xl"
+                      : "top-2 left-2 w-11 h-11 rounded-xl opacity-100 group-hover:top-0 group-hover:left-0 group-hover:w-full group-hover:h-full group-hover:rounded-2xl"
                   }
                 `}
               />
@@ -214,8 +203,8 @@ function Navbar() {
                 relative z-10 p-2.5 rounded-xl transition-all duration-500
                 ${
                   activeFeature === feature.id
-                    ? "text-brand-primary"
-                    : "text-brand-primary"
+                    ? "text-app-primary-50"
+                    : "text-app-primary-800"
                 }
               `}
               >
@@ -233,8 +222,8 @@ function Navbar() {
                   font-bold text-sm mb-0.5 transition-colors
                   ${
                     activeFeature === feature.id
-                      ? "text-brand-primary"
-                      : "text-brand-dark group-hover:text-brand-primary"
+                      ? "text-app-primary-50"
+                      : "text-app-black-100 group-hover:text-app-primary-800"
                   }
                 `}
                 >
@@ -245,8 +234,8 @@ function Navbar() {
                   text-xs font-medium transition-colors
                   ${
                     activeFeature === feature.id
-                      ? "text-brand-primary"
-                      : "text-brand-dark group-hover:text-brand-primary"
+                      ? "text-app-primary-50"
+                      : "text-app-black-100 group-hover:text-app-primary-800"
                   }
                 `}
                 >
