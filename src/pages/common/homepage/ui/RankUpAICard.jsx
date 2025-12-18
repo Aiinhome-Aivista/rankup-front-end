@@ -35,7 +35,7 @@ const RankUpAICard = () => {
                     <img
                         src={Waves}
                         alt="wave"
-                        className="absolute -top-55 -right-13 w-[80%]" />
+                        className="absolute -top-75 -right-13 w-[95%]" />
 
                     <div className="flex items-start gap-18 mt-10 pl-4">
 
