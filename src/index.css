@@ -44,6 +44,7 @@ layer(base);
 
   /* Map Brand Colors to Tailwind utilities */
   --color-app-primary-50: #514cf1;
+  --color-app-primary-55: var(--primary-55);
   --color-app-primary-500: var(--primary-500);
   --color-app-primary-500-70: var(--primary-500-70);
   --color-app-primary-700: #514cf180;
@@ -52,13 +53,9 @@ layer(base);
   --color-app-primary-800: var(--primary-800);
   --color-app-primary-850: var(--primary-850);
   --color-app-primary-900: #514cf133;
+  --color-app-primary-950: var(--primary-950);
+
   --color-app-black-100: var(--black-100);
-  --color-app-brand-tertiary: var(--brand-tertiary);
-  --color-app-brand-light: var(--brand-light);
-  --color-app-brand-dark: var(--brand-dark);
-  --color-app-brand-white: var(--brand-white);
-  --color-app-brand-text-muted: var(--brand-text-muted);
-  --color-app-brand-hover: var(--brand-hover);
 
   --app-background-color: var(--color-app-bg);
 
@@ -110,7 +107,7 @@ layer(base);
     --destructive-foreground: #fafafa;
 
     /* Custom Brand Colors - Light Mode */
-    --primary-50: #514cf1;
+    --primary-55: #514cf1;
     --primary-100: #5c6b9f;
     --primary-500: #a1aef2;
     --primary-500-70: #a1aef2b3;
@@ -118,7 +115,7 @@ layer(base);
     --primary-700: #514cf180;
     --primary-800: #4f46e5;
     --primary-850: #4338ca;
-    --primary-900: #514cf133;
+    --primary-950: #514cf133;
     --brand-secondary: #7e8ff2;
     --brand-light: #dcdbfc;
     --brand-dark: #262626;
