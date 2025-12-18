@@ -16,12 +16,39 @@
 
   /* Light theme (default) color tokens */
   --color-bg: #ffffff;
-  --color-text: #0f172a;
+  --color-text: #A1AEF2;
+  --color-text-primary: #514CF1;
+  --color-text-secondary: #1C1B1F;
+  --color-text-tertiary: #FFFFFFFF;
+  --color-button-primary: #514CF1;
+  --color-button-secondary:#514CF10D;
+  --color-button-tertiary:#D9D9D9;
+  --color-border: #FFFFFF38;
+  --color-card-small:#A1AEF2B2;
+  --color-card-bg:#FCFBFF;
+  --color-card-bg-primary: #514CF103;
+  --color-card-bg-secondary:#514CF105;
+  --color-card-bg-tertiary:#FFFFFF1A;
+  --color-card:#FFFFFF38;
+  --color-placeholder-primary: #D9D9D9;
+  --color-placeholder-secondary: #514CF180;
+  --color-input-box-border:#D9D9D9;
+  --color-input-box-bg:#FBFBFB00;
+  --color-shadow:#514CF180;
+  --color-drop-shadow:#FFFFFF38;
+  --color-drop-shadow-primary: #514CF133;
+  --color-inner-shadow:#FFFFFF40;
+  --color-image-bg:#1C1B1F99;
+  --color-gradient-start:#F21D2F;
+  --color-gradient-end:#514CF1;
+
 
   /* System-aware color scheme support */
   color-scheme: light dark;
   color: var(--color-text);
   background-color: var(--color-bg);
+
+ 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,8 +58,32 @@
 
 /* Dark theme overrides: apply by setting `data-theme="dark"` on the root element */
 :root[data-theme="dark"] {
-  --color-bg: #0b1220;
-  --color-text: #e6eef8;
+  --color-bg: ;
+  --color-text: ;
+  --color-text-primary: ;
+  --color-text-secondary: ;
+  --color-text-tertiary: ;
+  --color-button-primary: ;
+  --color-button-secondary: ;
+  --color-button-tertiary: ;
+  --color-border: ;
+  --color-card: ;
+  --color-card-bg: ;
+  --color-card-bg-primary:  ;
+  --color-card-bg-secondary: ;
+  --color-card-bg-tertiary: ;
+  --color-card: ;
+  --color-placeholder-primary:  ;
+  --color-placeholder-secondary: ;
+  --color-input-box-border: ;
+  --color-input-box-bg: ;
+  --color-shadow: ;
+  --color-drop-shadow: ;
+  --color-drop-shadow-primary:  ;
+  --color-inner-shadow: ;
+  --color-image-bg: ;
+  --color-gradient-start: ;
+  --color-gradient-end: ;
 
   color-scheme: dark;
   color: var(--color-text);
