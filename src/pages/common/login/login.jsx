@@ -11,7 +11,6 @@ import { initiateLoginApi, verifyLoginApi } from "../../../../connection";
 import { AuthContext } from "../../../context/AuthContext";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import mainLogo from "../../../assets/icons/main-logo.svg";
 
 const Login = () => {
   const { setToken } = useContext(AuthContext);
