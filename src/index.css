@@ -43,12 +43,16 @@ layer(base);
   --color-app-gradient-end: var(--color-gradient-end);
 
   /* Map Brand Colors to Tailwind utilities */
+  --color-app-primary-bg: var(--primary-bg);
   --color-app-primary-10: var(--primary-10);
   --color-app-primary-20: var(--primary-20);
   --color-app-primary-30: #a1aef2b2;
   --color-app-primary-35: var(--primary-35);
+  --color-app-primary-40: var(--primary-40);
   --color-app-primary-50: #514cf1;
   --color-app-primary-55: var(--primary-55);
+  --color-app-primary-60: #6366F1;
+  --color-app-primary-65: var(--primary-65);
   --color-app-primary-500: var(--primary-500);
   --color-app-primary-500-70: var(--primary-500-70);
   --color-app-primary-700: #514cf180;
@@ -103,17 +107,19 @@ layer(base);
     --foreground: #0c1420;
     --card: #f1f5f9;
     --card-foreground: #000000;
-    --primary: #6366f1;
     --muted: #cfd9e5;
     --muted-foreground: #64748b;
     --destructive: #ef4444;
     --destructive-foreground: #fafafa;
 
     /* Custom Brand Colors - Light Mode */
+    --primary-bg: #ffffff
     --primary-10: #dcdbfc;
     --primary-20: #b7baf8;
     --primary-35: #a1aef2b2;
+    --primary-40: #E0E7FF;
     --primary-55: #514cf1;
+    --primary-65: #6366f1;
     --primary-100: #5c6b9f;
     --primary-500: #a1aef2;
     --primary-500-70: #a1aef2b3;
@@ -124,8 +130,11 @@ layer(base);
     --primary-950: #514cf133;
     --brand-secondary: #7e8ff2;
 
-    --brand-dark: #262626;
     --black-100: #1c1b1f;
+
+
+    --brand-dark: #262626;
+    
 
     /* Typography */
     font-family: "Nunito", system-ui, sans-serif;
