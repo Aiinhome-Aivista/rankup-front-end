@@ -256,29 +256,6 @@ layer(base);
   animation: float 6s ease-in-out infinite;
 }
 
-/* ==================== Form Styling ==================== */
-[type="text"],
-[type="email"],
-[type="password"],
-[type="url"],
-[type="number"],
-[type="date"],
-[type="datetime-local"],
-[type="month"],
-[type="week"],
-[type="time"],
-[type="search"],
-[type="tel"],
-textarea,
-select {
-  @apply w-full rounded-md border border-border bg-background text-sm text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-hidden focus:ring-1 focus:ring-primary;
-}
-
-[type="checkbox"],
-[type="radio"] {
-  @apply h-4 w-4 rounded-sm border-border bg-background checked:border-primary checked:bg-primary focus:ring-2 focus:ring-primary focus:ring-offset-0;
-}
-
 /* ==================== Hide Scrollbar - All Browsers ==================== */
 ::-webkit-scrollbar {
   display: none;
