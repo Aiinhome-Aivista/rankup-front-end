@@ -1,5 +1,4 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import BiotechIcon from '@mui/icons-material/Biotech';
 import ScienceIcon from '@mui/icons-material/Science';
@@ -25,7 +24,7 @@ const ScoreCard = () => {
                     <div className="rounded-2xl flex items-center justify-center">
                         <img src={face2} alt="Profile" className="w-10 h-10" />
                     </div>
-                    <Typography variant="h6" sx={{ fontWeight: 'normal', opacity: 0.9 }}>Sumaya</Typography>
+                    <h1 className="text-[#A1AEF2] font-light text-lg">Sumaya</h1>
                     <div className="flex items-baseline">
                         <span className="text-2xl font-bold text-[#A5C9FF]">15</span>
                         <span className="text-lg text-white/70 ml-1">/20</span>
@@ -35,10 +34,10 @@ const ScoreCard = () => {
                 {/* Subject Grid */}
                 <div className="grid grid-cols-2 gap-3 pl-4">
                     {/* Mathematics */}
-                    <div className="bg-white/10 rounded-2xl flex flex-col items-center justify-center border border-white/5 w-full">
+                    <div className="bg-[#FFFFFF38] rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-full">
                         <CalculateIcon sx={{ fontSize: 24 }} />
                         <span className="text-[11px] font-medium">Mathematics</span>
-                        <div className="flex  mt-2">
+                        <div className="flex gap-3 mt-2">
                             <div className="flex items-center gap-1">
                                 <div className="w-2 h-2 rounded-full bg-blue-600"></div>
                                 <span className="text-[10px] font-bold">5</span>
@@ -51,7 +50,7 @@ const ScoreCard = () => {
                     </div>
 
                     {/* Biology */}
-                    <div className="bg-white/10 rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-full">
+                    <div className="bg-[#FFFFFF38] rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-full">
                         <BiotechIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.9 }} />
                         <span className="text-[11px] font-medium">Biology</span>
                         <div className="flex gap-3 mt-2">
@@ -67,7 +66,7 @@ const ScoreCard = () => {
                     </div>
 
                     {/* Chemistry */}
-                    <div className="bg-white/10 rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-full">
+                    <div className="bg-[#FFFFFF38] rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-full">
                         <ScienceIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.9 }} />
                         <span className="text-[11px] font-medium">Chemistry</span>
                         <div className="flex gap-3 mt-2">
@@ -83,7 +82,7 @@ const ScoreCard = () => {
                     </div>
 
                     {/* Geography */}
-                    <div className="bg-white/10 rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-full">
+                    <div className="bg-[#FFFFFF38] rounded-2xl p-2 flex flex-col items-center justify-center backdrop-blur-sm border border-white/5 w-full">
                         <PublicIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.9 }} />
                         <span className="text-[11px] font-medium">Geography</span>
                         <div className="flex gap-3 mt-2">
@@ -109,10 +108,7 @@ const ScoreCard = () => {
                     bg-[#FFFFFF38]
                     rounded-l-2xl
                     flex flex-col items-center justify-center
-                    gap-2
-                    shadow-lg
-                    border border-white/20
-                    z-10">
+                    gap-2">
                 <StarIcon sx={{ fontSize: 16, color: "#A1AEF2" }} />
                 <StarIcon sx={{ fontSize: 16, color: "#A1AEF2" }} />
                 <StarIcon sx={{ fontSize: 16, color: "#A1AEF2" }} />

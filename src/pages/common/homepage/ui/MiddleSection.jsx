@@ -152,7 +152,7 @@ function MiddleSection({ fadeContent = false }) {
       </div>
 
       {/* Trusted By Educators Section */}
-      <div ref={trustedRef} data-section="trusted">
+      <div ref={trustedRef} data-section="trusted" className="mt-25">
         <TrustedSection fadeContent={visibleSubSections.trusted} />
       </div>
     </>

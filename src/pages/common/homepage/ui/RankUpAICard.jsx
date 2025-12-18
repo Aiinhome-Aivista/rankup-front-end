@@ -93,7 +93,7 @@ const RankUpAICard = () => {
             </div>
 
             {/* Bottom Toolbar Mockup */}
-            <div className='absolute bottom-0 left-2/6 -translate-x-1/2 bg-white/20 backdrop-blur-lg rounded-tr-4xl rounded-tl-4xl px-6 py-1 flex gap-6 text-[#A1AEF2]'>
+            <div className='absolute bottom-0 left-2/6 -translate-x-1/2 bg-[#FFFFFF38] backdrop-blur-lg rounded-tr-4xl rounded-tl-4xl px-6 py-1 flex gap-6 text-[#A1AEF2]'>
                 <CalculateRounded sx={{ fontSize: 20 }} />
                 <Translate sx={{ fontSize: 20 }} />
                 <AlarmAddRounded sx={{ fontSize: 20 }} />
