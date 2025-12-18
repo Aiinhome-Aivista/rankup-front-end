@@ -5,8 +5,6 @@ layer(base);
 /* Import Tailwind CSS 4 */
 @import "tailwindcss";
 
-
-
 /* ==================== Tailwind Theme Configuration ==================== */
 @theme {
   /* Reset default fonts */
@@ -17,6 +15,8 @@ layer(base);
 
   /* Map Brand Colors to Tailwind utilities */
   --color-app-primary-bg: var(--primary-bg);
+  --color-app-primary-bg-4: var(--primary-bg-4);
+  --color-app-primary-bg-5: var(--primary-bg-5);
   --color-app-primary-10: var(--primary-10);
   --color-app-primary-20: var(--primary-20);
   --color-app-primary-30: #a1aef2b2;
@@ -24,7 +24,7 @@ layer(base);
   --color-app-primary-40: var(--primary-40);
   --color-app-primary-50: #514cf1;
   --color-app-primary-55: var(--primary-55);
-  --color-app-primary-60: #6366F1;
+  --color-app-primary-60: #6366f1;
   --color-app-primary-65: var(--primary-65);
   --color-app-primary-70: var(--primary-70);
   --color-app-primary-80: var(--primary-80);
@@ -38,8 +38,11 @@ layer(base);
   --color-app-primary-150: var(--primary-150);
   --color-app-primary-170: var(--primary-170);
   --color-app-primary-180: var(--primary-180);
+  --color-app-primary-190: var(--primary-190);
   --color-app-primary-900: #514cf133;
   --color-app-primary-950: var(--primary-950);
+
+  --color-app-primary-to-red: var(--primary-to-red);
 
   --color-app-black-100: var(--black-100);
   --color-app-black-200: var(--black-200);
@@ -57,7 +60,6 @@ layer(base);
   --color-app-video-three: var(--video-three);
   --color-app-video-four: var(--video-four);
 
-
   /* Custom shadow */
   --shadow-card-border: 6px 6px 0px 0px var(--color-app-black-100);
 
@@ -69,25 +71,23 @@ layer(base);
   --animate-fade-out-up: fade-out-up 0.3s ease-out;
 }
 
-
-
 /* ==================== Base Theme Colors ==================== */
 @layer base {
-
   /* Default theme - Light Mode */
   :root {
-
     /* Main Colors - Light Mode */
-    --primary-bg: #ffffff
+    --primary-bg: #ffffff;
+    --primary-bg-4: #ffffff38;
+    --primary-bg-5: #ffffff80;
     --primary-10: #dcdbfc;
     --primary-20: #b7baf8;
     --primary-35: #a1aef2b2;
-    --primary-40: #E0E7FF;
+    --primary-40: #e0e7ff;
     --primary-55: #514cf1;
     --primary-65: #6366f1;
-    --primary-70: #9CA3AF;
-    --primary-80: #D1D5DB;
-    --primary-90: #4B5563;
+    --primary-70: #9ca3af;
+    --primary-80: #d1d5db;
+    --primary-90: #4b5563;
     --primary-130: #5c6b9f;
     --primary-110: #888585;
     --primary-120: #111827;
@@ -97,21 +97,24 @@ layer(base);
     --primary-160: #514cf180;
     --primary-170: #4f46e5;
     --primary-180: #4338ca;
+    --primary-190: #d9d9d9;
     --primary-950: #514cf133;
 
+    --primary-to-red: #f21d2f;
+
     --black-100: #1c1b1f;
-    --black-200: #FFFFFF03;
+    --black-200: #ffffff03;
     --black-900: #000000;
 
-    --primary-red: #F35325;
-    --primary-green: #81BC06;
-    --primary-sky: #05A6F0;
-    --primary-yellow: #FFBA08;
+    --primary-red: #f35325;
+    --primary-green: #81bc06;
+    --primary-sky: #05a6f0;
+    --primary-yellow: #ffba08;
 
-    --video-one: #9FA9F6;
-    --video-two: #F69F9F;
-    --video-three: #9FF6C5;
-    --video-four: #F6ECB9;
+    --video-one: #9fa9f6;
+    --video-two: #f69f9f;
+    --video-three: #9ff6c5;
+    --video-four: #f6ecb9;
 
     /* System-aware color scheme support */
     color-scheme: light;

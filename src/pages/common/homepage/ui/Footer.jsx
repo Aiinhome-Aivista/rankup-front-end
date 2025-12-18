@@ -24,7 +24,7 @@ function Footer({ fadeContent = false }) {
   };
 
   return (
-    <footer className="pt-8 pb-0 relative overflow-hidden font-sans border-t border-border">
+    <footer className="pt-8 pb-0 relative overflow-hidden font-sans border-t border-app-primary-190">
       <motion.div
         className="max-w-6xl mx-auto px-10 lg:px-14"
         variants={contentVariants}
