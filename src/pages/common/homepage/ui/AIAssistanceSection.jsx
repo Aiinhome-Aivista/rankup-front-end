@@ -117,8 +117,8 @@ const AIAssistanceSection = ({ fadeContent = false }) => {
             whileInView="visible"
             viewport={{ margin: "-50px" }}
           >
-            <div className="w-full h-full text-app-primary-bg-5 rounded-3xl px-6 pb-6 border-3 border-app-primary-bg-4 text-center backdrop-blur-xl shadow-[5px_12px_22px_4px_rgba(0,0,0,0.25)] flex flex-col items-center">
-              <p className="text-app-primary-bg-5 text-lg font-normal mt-8">
+            <div className="w-full h-full text-app-primary-5 rounded-3xl px-6 pb-6 border-3 border-app-primary-4 text-center backdrop-blur-xl shadow-[5px_12px_22px_4px_rgba(0,0,0,0.25)] flex flex-col items-center">
+              <p className="text-app-primary-5 text-lg font-normal mt-8">
                 {" "}
                 At RankUp, we use Artificial Intelligence (AI) to transform the
                 way students learn, practice, and succeed. Our AI-driven system
@@ -143,14 +143,14 @@ const AIAssistanceSection = ({ fadeContent = false }) => {
               >
                 Generate
               </button>
-              <div className="absolute -bottom-22 right-28 w-[23px] h-[199px] rounded-l-4xl bg-app-primary-bg-4 rotate-90"></div>
+              <div className="absolute -bottom-22 right-28 w-[23px] h-[199px] rounded-l-4xl bg-app-primary-4 rotate-90"></div>
             </div>
           </motion.div>
 
           {/* Blank Cards Stack */}
           <div className="md:col-span-4 flex flex-col gap-6 h-full">
             <motion.div
-              className="flex-1 w-full backdrop-blur-xl shadow-[5px_12px_22px_4px_rgba(0,0,0,0.25)] rounded-3xl border-3 border-app-primary-bg-4  min-h-[140px]"
+              className="flex-1 w-full backdrop-blur-xl shadow-[5px_12px_22px_4px_rgba(0,0,0,0.25)] rounded-3xl border-3 border-app-primary-4  min-h-[140px]"
               variants={{
                 hidden: { opacity: 0, y: 50 },
                 visible: {
@@ -165,7 +165,7 @@ const AIAssistanceSection = ({ fadeContent = false }) => {
             />
             <motion.div
               className="flex-1 w-full rounded-[30px] backdrop-blur-xl shadow-[5px_12px_22px_4px_rgba(0,0,0,0.25)]
-                        border-3 border-app-primary-bg-4 min-h-[140px]"
+                        border-3 border-app-primary-4 min-h-[140px]"
               variants={{
                 hidden: { opacity: 0, y: 50 },
                 visible: {

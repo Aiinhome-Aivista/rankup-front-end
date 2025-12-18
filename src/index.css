@@ -15,8 +15,8 @@ layer(base);
 
   /* Map Brand Colors to Tailwind utilities */
   --color-app-primary-bg: var(--primary-bg);
-  --color-app-primary-bg-4: var(--primary-bg-4);
-  --color-app-primary-bg-5: var(--primary-bg-5);
+  --color-app-primary-4: var(--primary-4);
+  --color-app-primary-5: var(--primary-5);
   --color-app-primary-10: var(--primary-10);
   --color-app-primary-20: var(--primary-20);
   --color-app-primary-30: #a1aef2b2;
@@ -60,6 +60,8 @@ layer(base);
   --color-app-video-three: var(--video-three);
   --color-app-video-four: var(--video-four);
 
+  --color-app-purple-glow: var(--primary-purple-400-30);
+
   /* Custom shadow */
   --shadow-card-border: 6px 6px 0px 0px var(--color-app-black-100);
 
@@ -77,8 +79,8 @@ layer(base);
   :root {
     /* Main Colors - Light Mode */
     --primary-bg: #ffffff;
-    --primary-bg-4: #ffffff38;
-    --primary-bg-5: #ffffff80;
+    --primary-4: #ffffff38;
+    --primary-5: #ffffff80;
     --primary-10: #dcdbfc;
     --primary-20: #b7baf8;
     --primary-35: #a1aef2b2;
@@ -110,6 +112,7 @@ layer(base);
     --primary-green: #81bc06;
     --primary-sky: #05a6f0;
     --primary-yellow: #ffba08;
+    --primary-purple-400-30: rgba(192, 132, 252, 0.3);
 
     --video-one: #9fa9f6;
     --video-two: #f69f9f;
