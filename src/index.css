@@ -43,6 +43,7 @@ layer(base);
   --color-app-gradient-end: var(--color-gradient-end);
 
   /* Map Brand Colors to Tailwind utilities */
+  --color-app-primary-10: var(--primary-10);
   --color-app-primary-50: #514cf1;
   --color-app-primary-55: var(--primary-55);
   --color-app-primary-500: var(--primary-500);
@@ -107,6 +108,7 @@ layer(base);
     --destructive-foreground: #fafafa;
 
     /* Custom Brand Colors - Light Mode */
+    --primary-10: #dcdbfc;
     --primary-55: #514cf1;
     --primary-100: #5c6b9f;
     --primary-500: #a1aef2;
@@ -117,7 +119,7 @@ layer(base);
     --primary-850: #4338ca;
     --primary-950: #514cf133;
     --brand-secondary: #7e8ff2;
-    --brand-light: #dcdbfc;
+
     --brand-dark: #262626;
     --black-100: #1c1b1f;
 

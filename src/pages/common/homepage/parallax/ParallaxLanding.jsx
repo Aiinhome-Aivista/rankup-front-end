@@ -86,9 +86,10 @@ export default function ParallaxLanding() {
       {/* PARALLAX SECTION */}
       <section
         ref={sectionRef}
-        className="relative h-[180vh] overflow-hidden bg-gradient-to-b from-brand-light via-brand-light to-brand-primary"
+        className="relative h-[180vh] overflow-hidden"
         style={{
-          backgroundSize: "100% 100%",
+          background:
+            "linear-gradient(to bottom, var(--color-app-primary-10) 66.67%, var(--color-app-primary-55) 66.67%)",
         }}
       >
         <div className="absolute -right-5 -top-2 hidden lg:block w-72 opacity-90 hover:scale-105 transition-transform duration-500 z-1">
@@ -116,10 +117,10 @@ export default function ParallaxLanding() {
           />
         </div>
         <div className="flex flex-col items-center text-center absolute top-[30vh] inset-x-0 z-40">
-          <h1 className="text-5xl md:text-6xl font-bold text-brand-primary">
+          <h1 className="text-5xl md:text-6xl font-bold text-app-primary-55">
             Next Generation Assessment <br /> Platform For Every School
           </h1>
-          <p className="text-brand-text-muted text-lg md:text-xl max-w-2xl mt-6">
+          <p className="text-app-primary-55 text-lg md:text-xl max-w-2xl mt-6">
             Empower educators, engage students, and improve learning outcomes
           </p>
         </div>
