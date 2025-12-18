@@ -5,6 +5,8 @@ layer(base);
 /* Import Tailwind CSS 4 */
 @import "tailwindcss";
 
+
+
 /* ==================== Tailwind Theme Configuration ==================== */
 @theme {
   /* Reset default fonts */
@@ -12,35 +14,6 @@ layer(base);
 
   /* Font families */
   --font-nunito: Nunito, system-ui, sans-serif;
-
-  /* Map CSS variables to Tailwind utilities */
-
-  --color-app-bg: var(--color-bg);
-  --color-app-text: var(--color-text);
-  --color-app-text-primary: var(--color-text-primary);
-  --color-app-text-secondary: var(--color-text-secondary);
-  --color-app-text-tertiary: var(--color-text-tertiary);
-  --color-app-button-primary: var(--color-button-primary);
-  --color-app-button-secondary: var(--color-button-secondary);
-  --color-app-button-tertiary: var(--color-button-tertiary);
-  --color-app-border: var(--color-border);
-  --color-app-card-small: var(--color-card-small);
-  --color-app-card-bg: var(--color-card-bg);
-  --color-app-card-bg-primary: var(--color-card-bg-primary);
-  --color-app-card-bg-secondary: var(--color-card-bg-secondary);
-  --color-app-card-bg-tertiary: var(--color-card-bg-tertiary);
-  --color-app-card: var(--color-card);
-  --color-app-placeholder-primary: var(--color-placeholder-primary);
-  --color-app-placeholder-secondary: var(--color-placeholder-secondary);
-  --color-app-input-box-border: var(--color-input-box-border);
-  --color-app-input-box-bg: var(--color-input-box-bg);
-  --color-app-shadow: var(--color-shadow);
-  --color-app-drop-shadow: var(--color-drop-shadow);
-  --color-app-drop-shadow-primary: var(--color-drop-shadow-primary);
-  --color-app-inner-shadow: var(--color-inner-shadow);
-  --color-app-image-bg: var(--color-image-bg);
-  --color-app-gradient-start: var(--color-gradient-start);
-  --color-app-gradient-end: var(--color-gradient-end);
 
   /* Map Brand Colors to Tailwind utilities */
   --color-app-primary-bg: var(--primary-bg);
@@ -96,38 +69,13 @@ layer(base);
   --animate-fade-out-up: fade-out-up 0.3s ease-out;
 }
 
+
+
 /* ==================== Base Theme Colors ==================== */
 @layer base {
+
   /* Default theme - Light Mode */
   :root {
-    /* Light theme (default) color tokens */
-    --color-bg: #ffffff;
-    --color-text-tertiary: #ffffffff;
-    --color-button-secondary: #514cf10d;
-    --color-button-tertiary: #d9d9d9;
-    --color-border: #ffffff38;
-    --color-card-bg: #fcfbff;
-    --color-card-bg-primary: #514cf103;
-    --color-card-bg-secondary: #514cf105;
-    --color-card-bg-tertiary: #ffffff1a;
-    --color-card: #ffffff38;
-    --color-placeholder-primary: #d9d9d9;
-    --color-placeholder-secondary: #514cf180;
-    --color-input-box-border: #d9d9d9;
-    --color-input-box-bg: #fbfbfb00;
-    --color-shadow: #514cf180;
-    --color-drop-shadow: #ffffff38;
-    --color-inner-shadow: #ffffff40;
-    --color-image-bg: #1c1b1f99;
-    --color-gradient-start: #f21d2f;
-
-    --foreground: #0c1420;
-    --card: #f1f5f9;
-    --card-foreground: #000000;
-    --muted: #cfd9e5;
-    --muted-foreground: #64748b;
-    --destructive: #ef4444;
-    --destructive-foreground: #fafafa;
 
     /* Main Colors - Light Mode */
     --primary-bg: #ffffff
@@ -150,14 +98,10 @@ layer(base);
     --primary-170: #4f46e5;
     --primary-180: #4338ca;
     --primary-950: #514cf133;
-    --brand-secondary: #7e8ff2;
 
     --black-100: #1c1b1f;
     --black-200: #FFFFFF03;
     --black-900: #000000;
-
-
-    --brand-dark: #262626;
 
     --primary-red: #F35325;
     --primary-green: #81BC06;
@@ -169,17 +113,8 @@ layer(base);
     --video-three: #9FF6C5;
     --video-four: #F6ECB9;
 
-
-
-    /* Typography */
-    font-family: "Nunito", system-ui, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-
     /* System-aware color scheme support */
     color-scheme: light;
-    color: var(--foreground);
-    background-color: var(--background);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -212,15 +147,6 @@ layer(base);
     color-scheme: dark;
     /* color: var(--foreground);
     background-color: var(--background); */
-  }
-
-  /* Border compatibility layer for Tailwind v4 */
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-border, currentColor);
   }
 }
 
@@ -367,7 +293,7 @@ layer(base);
 /* ==================== Custom Quill Editor Styling ==================== */
 .custom-quill-editor .p-editor-toolbar {
   border: none !important;
-  background-color: #e0e7ff !important;
+  background-color: var(--primary-40) !important;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
