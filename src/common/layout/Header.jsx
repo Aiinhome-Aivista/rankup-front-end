@@ -3,14 +3,23 @@ import { Plus, Bell, ChevronRight, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import RVector from "../../assets/R-Vector.svg";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function Header() {
   const navigate = useNavigate();
   const [isNotificationsExpanded, setIsNotificationsExpanded] = useState(false);
+  const [isProfileHovered, setIsProfileHovered] = useState(false);
+  const { setToken } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    setToken("");
+    navigate("/");
+  };
 
   return (
     <div className="w-full h-20 flex justify-between items-center px-8 py-3 sticky top-0 z-50 bg-white">
-      {/* Left Side: Logo and Title */}
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 rounded-full flex justify-center items-center">
           <img
@@ -27,9 +36,7 @@ function Header() {
         </h1>
       </div>
 
-      {/* Right Side: Actions and Profile */}
       <div className="flex items-center gap-6">
-        {/* Create Assessment Button */}
         <button
           onClick={() => {
             navigate("/teacher/dashboard/create-assesment");
@@ -45,7 +52,6 @@ function Header() {
           <span className="font-medium text-sm">Create Assessment</span>
         </button>
 
-        {/* Notifications / Status Bar */}
         <div
           className="flex items-center gap-3 bg-[#D9D9D9] px-4 py-3 rounded-full cursor-pointer hover:bg-[#D9D9D9] transition-colors h-12"
           onClick={() => setIsNotificationsExpanded(!isNotificationsExpanded)}
@@ -84,9 +90,33 @@ function Header() {
           />
         </div>
 
-        {/* Profile Icon */}
-        <div className="w-10 h-10 bg-gray-200 rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-300 transition-colors">
-          <User size={24} className="text-gray-600" />
+        <div
+          className="relative"
+          onMouseEnter={() => setIsProfileHovered(true)}
+          onMouseLeave={() => setIsProfileHovered(false)}
+        >
+          <div className="w-10 h-10 bg-gray-200 rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-300 transition-colors">
+            <User size={24} className="text-gray-600" />
+          </div>
+
+          <AnimatePresence>
+            {isProfileHovered && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute right-0 top-12 w-32 bg-white rounded-xl shadow-lg border border-gray-100 py-2 overflow-hidden z-50"
+              >
+                <div
+                  className="px-4 py-2 hover:bg-gray-50 cursor-pointer text-sm font-medium text-red-500 transition-colors flex items-center gap-2"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>

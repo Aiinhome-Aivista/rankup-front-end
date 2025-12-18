@@ -1,6 +1,11 @@
 const apiService = async (url, options = {}) => {
   let headers = options.headers || {};
 
+  const token = localStorage.getItem("token");
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+
   if (!(options.body instanceof FormData)) {
     headers["Content-Type"] = "application/json";
   }

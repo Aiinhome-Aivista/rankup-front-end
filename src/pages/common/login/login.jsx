@@ -11,9 +11,10 @@ import { initiateLoginApi, verifyLoginApi } from "../../../../connection";
 import { AuthContext } from "../../../context/AuthContext";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import mainLogo from "../../../assets/icons/main-logo.svg";
 
 const Login = () => {
-  const { setIsLoggedIn } = useContext(AuthContext);
+  const { setToken } = useContext(AuthContext);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -67,10 +68,11 @@ const Login = () => {
         const token = res?.data?.token;
         const user = res?.data?.user;
 
-        if (token) localStorage.setItem("token", token);
+        if (token) {
+          localStorage.setItem("token", token);
+          setToken(token);
+        }
         if (user) localStorage.setItem("user", JSON.stringify(user));
-
-        setIsLoggedIn(true);
 
         const role = (user?.role || "").toLowerCase();
         const rolePaths = {
