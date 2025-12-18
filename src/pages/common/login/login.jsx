@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import mainLogo from "../../../assets/icons/main-logo.svg";
 
 const Login = () => {
-  const { setIsLoggedIn } = useContext(AuthContext);
+  const { setToken } = useContext(AuthContext);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -65,10 +65,11 @@ const Login = () => {
         const token = res?.data?.token;
         const user = res?.data?.user;
 
-        if (token) localStorage.setItem("token", token);
+        if (token) {
+          localStorage.setItem("token", token);
+          setToken(token);
+        }
         if (user) localStorage.setItem("user", JSON.stringify(user));
-
-        setIsLoggedIn(true);
 
         const role = (user?.role || "").toLowerCase();
         const rolePaths = {
@@ -122,11 +123,11 @@ const Login = () => {
         <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 md:p-12 shadow-2xl min-h-[600px] flex flex-col justify-center">
           <div className="flex flex-col items-center text-center text-white">
             {/* Logo */}
-             <img
-                         src={mainLogo}
-                         alt="RankUp Logo"
-                         className="w-15 h-15 object-contain"
-                       />
+            <img
+              src={mainLogo}
+              alt="RankUp Logo"
+              className="w-15 h-15 object-contain"
+            />
 
             <h1 className="text-3xl font-bold mb-2">Rankup Academy</h1>
             <p className="text-sm md:text-base opacity-90 mb-8 font-light">
