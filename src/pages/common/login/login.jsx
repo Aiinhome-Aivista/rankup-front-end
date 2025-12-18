@@ -8,6 +8,7 @@ import { initiateLoginApi, verifyLoginApi } from "../../../../connection";
 import { AuthContext } from "../../../context/AuthContext";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import mainLogo from "../../../assets/icons/main-logo.svg";
 
 const Login = () => {
   const { setIsLoggedIn } = useContext(AuthContext);
@@ -95,7 +96,7 @@ const Login = () => {
       {/* Top Left Branding */}
       <div className="absolute top-8 left-10 z-20 text-white text-xl font-bold tracking-wide">
         <span className="opacity-80">Ai</span>inhome |{" "}
-        <span className="opacity-80">IG</span>
+        <span className="opacity-80">RU</span>
       </div>
 
       {/* Wave Background */}
@@ -121,11 +122,13 @@ const Login = () => {
         <div className="backdrop-blur-lg bg-white/10 border border-white rounded-3xl p-8 md:p-12 shadow-2xl min-h-[600px] flex flex-col justify-center">
           <div className="flex flex-col items-center text-center text-white">
             {/* Logo */}
-            <div className="mb-4">
-              <DashboardIcon sx={{ fontSize: 48 }} className="opacity-90" />
-            </div>
+             <img
+                         src={mainLogo}
+                         alt="RankUp Logo"
+                         className="w-15 h-15 object-contain"
+                       />
 
-            <h1 className="text-3xl font-bold mb-2">InsightGrid</h1>
+            <h1 className="text-3xl font-bold mb-2">Rankup Academy</h1>
             <p className="text-sm md:text-base opacity-90 mb-8 font-light">
               Customize Every View. Empower Every Decision.
             </p>

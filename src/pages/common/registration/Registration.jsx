@@ -18,7 +18,7 @@ const Registration = () => {
       {/* Top Left Branding */}
       <div className="absolute top-8 left-10 z-20 text-white text-xl font-bold tracking-wide">
         <span className="opacity-80">Ai</span>inhome |{" "}
-        <span className="opacity-80">IG</span>
+        <span className="opacity-80">RU</span>
       </div>
 
       {/* Wave Background */}
