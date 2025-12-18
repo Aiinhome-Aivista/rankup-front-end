@@ -14,9 +14,9 @@ layer(base);
   --font-nunito: Nunito, system-ui, sans-serif;
 
   /* Map CSS variables to Tailwind utilities */
-  --color-border: var(--border);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* --color-border: var(--border);
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-destructive: var(--destructive);
@@ -24,17 +24,44 @@ layer(base);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
+  --color-card-foreground: var(--card-foreground); */
+
+  --color-app-bg: var(--color-bg);
+  --color-app-text: var(--color-text);
+  --color-app-text-primary: var(--color-text-primary);
+  --color-app-text-secondary: var(--color-text-secondary);
+  --color-app-text-tertiary: var(--color-text-tertiary);
+  --color-app-button-primary: var(--color-button-primary);
+  --color-app-button-secondary: var(--color-button-secondary);
+  --color-app-button-tertiary: var(--color-button-tertiary);
+  --color-app-border: var(--color-border);
+  --color-app-card-small: var(--color-card-small);
+  --color-app-card-bg: var(--color-card-bg);
+  --color-app-card-bg-primary: var(--color-card-bg-primary);
+  --color-app-card-bg-secondary: var(--color-card-bg-secondary);
+  --color-app-card-bg-tertiary: var(--color-card-bg-tertiary);
+  --color-app-card: var(--color-card);
+  --color-app-placeholder-primary: var(--color-placeholder-primary);
+  --color-app-placeholder-secondary: var(--color-placeholder-secondary);
+  --color-app-input-box-border: var(--color-input-box-border);
+  --color-app-input-box-bg: var(--color-input-box-bg);
+  --color-app-shadow: var(--color-shadow);
+  --color-app-drop-shadow: var(--color-drop-shadow);
+  --color-app-drop-shadow-primary: var(--color-drop-shadow-primary);
+  --color-app-inner-shadow: var(--color-inner-shadow);
+  --color-app-image-bg: var(--color-image-bg);
+  --color-app-gradient-start: var(--color-gradient-start);
+  --color-app-gradient-end: var(--color-gradient-end);
 
   /* Map Brand Colors to Tailwind utilities */
-  --color-brand-primary: var(--brand-primary);
-  --color-brand-secondary: var(--brand-secondary);
-  --color-brand-tertiary: var(--brand-tertiary);
-  --color-brand-light: var(--brand-light);
-  --color-brand-dark: var(--brand-dark);
-  --color-brand-white: var(--brand-white);
-  --color-brand-text-muted: var(--brand-text-muted);
-  --color-brand-hover: var(--brand-hover);
+  --color-app-brand-primary: var(--brand-primary);
+  --color-app-brand-secondary: var(--brand-secondary);
+  --color-app-brand-tertiary: var(--brand-tertiary);
+  --color-app-brand-light: var(--brand-light);
+  --color-app-brand-dark: var(--brand-dark);
+  --color-app-brand-white: var(--brand-white);
+  --color-app-brand-text-muted: var(--brand-text-muted);
+  --color-app-brand-hover: var(--brand-hover);
 
   /* Custom shadow */
   --shadow-custom: 0px 0px 50px 0px rgb(82 63 105 / 15%);
@@ -51,17 +78,42 @@ layer(base);
 @layer base {
   /* Default theme - Light Mode */
   :root {
-    --background: #ffffff;
+    /* Light theme (default) color tokens */
+    --color-bg: #ffffff;
+    --color-text: #a1aef2;
+    --color-text-primary: #514cf1;
+    --color-text-secondary: #1c1b1f;
+    --color-text-tertiary: #ffffffff;
+    --color-button-primary: #514cf1;
+    --color-button-secondary: #514cf10d;
+    --color-button-tertiary: #d9d9d9;
+    --color-border: #ffffff38;
+    --color-card-small: #a1aef2b2;
+    --color-card-bg: #fcfbff;
+    --color-card-bg-primary: #514cf103;
+    --color-card-bg-secondary: #514cf105;
+    --color-card-bg-tertiary: #ffffff1a;
+    --color-card: #ffffff38;
+    --color-placeholder-primary: #d9d9d9;
+    --color-placeholder-secondary: #514cf180;
+    --color-input-box-border: #d9d9d9;
+    --color-input-box-bg: #fbfbfb00;
+    --color-shadow: #514cf180;
+    --color-drop-shadow: #ffffff38;
+    --color-drop-shadow-primary: #514cf133;
+    --color-inner-shadow: #ffffff40;
+    --color-image-bg: #1c1b1f99;
+    --color-gradient-start: #f21d2f;
+    --color-gradient-end: #514cf1;
+
     --foreground: #0c1420;
     --card: #f1f5f9;
     --card-foreground: #000000;
     --primary: #6366f1;
-    --primary-foreground: #ffffff;
     --muted: #cfd9e5;
     --muted-foreground: #64748b;
     --destructive: #ef4444;
     --destructive-foreground: #fafafa;
-    --border: #e2e8f0;
 
     /* Custom Brand Colors - Light Mode */
     --brand-primary: #514bf2;
@@ -69,7 +121,6 @@ layer(base);
     --brand-tertiary: #a2aef2;
     --brand-light: #dcdbfc;
     --brand-dark: #262626;
-    --brand-white: var(--background);
     --brand-text-muted: #5c6b9f;
     --brand-hover: #4338ca;
 
@@ -91,19 +142,17 @@ layer(base);
 
   /* Dark Mode */
   :root[data-theme="dark"] {
-    --background: #0a0a0a;
+    /* --background: #0a0a0a;
     --foreground: #f2f2f2;
     --card: #121212;
     --card-foreground: #f2f2f2;
     --primary: #8b5cf6;
-    --primary-foreground: #ffffff;
     --muted: #262626;
     --muted-foreground: #a3a3a3;
     --destructive: #f87171;
     --destructive-foreground: #fafafa;
     --border: #262626;
 
-    /* Custom Brand Colors - Dark Mode (adjusted for dark theme) */
     --brand-primary: #8b5cf6;
     --brand-secondary: #a78bfa;
     --brand-tertiary: #c4b5fd;
@@ -111,11 +160,11 @@ layer(base);
     --brand-dark: #f2f2f2;
     --brand-white: var(--background);
     --brand-text-muted: #a3a3a3;
-    --brand-hover: #7c3aed;
+    --brand-hover: #7c3aed; */
 
     color-scheme: dark;
-    color: var(--foreground);
-    background-color: var(--background);
+    /* color: var(--foreground);
+    background-color: var(--background); */
   }
 
   /* Border compatibility layer for Tailwind v4 */
