@@ -221,7 +221,7 @@ function DraggableCardsSection({ fadeContent = false }) {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full h-[600px]  overflow-hidden select-none  bg-linear-to-b from-brand-primary to-brand-secondary "
+      className="relative w-full h-[600px]  overflow-hidden select-none  bg-linear-to-b from-app-primary-55 to-app-primary-20 "
     >
       {/* Content wrapper with fade animation */}
       <motion.div
@@ -238,7 +238,7 @@ function DraggableCardsSection({ fadeContent = false }) {
                 dx="0"
                 dy="0"
                 stdDeviation="5.5"
-                floodColor="#4338ca"
+                floodColor="var(--color-app-primary-850)"
                 floodOpacity="1"
               />
             </filter>
@@ -246,7 +246,7 @@ function DraggableCardsSection({ fadeContent = false }) {
           <path
             d={getSmoothPath()}
             fill="none"
-            stroke="var(--brand-hover)"
+            stroke="var(--color-app-primary-850)"
             strokeWidth="5"
             strokeLinecap="round"
             className="opacity-40"
@@ -268,8 +268,8 @@ function DraggableCardsSection({ fadeContent = false }) {
                   : "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
             }}
             className={`absolute transform -translate-x-1/2 -translate-y-1/2 
-            bg-brand-tertiary/70 backdrop-blur-[15px] border-4 border-brand-white 
-            rounded-[24px] p-4 text-left text-brand-primary 
+            bg-app-primary-30 backdrop-blur-[15px] border-4 border-white 
+            rounded-[24px] p-4 text-left text-app-primary-55 
             w-[140px] h-[140px] flex flex-col items-left justify-center
             shadow-[0_8px_32px_rgba(0,0,0,0.1)] 
             z-10

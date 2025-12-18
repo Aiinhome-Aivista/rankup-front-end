@@ -44,6 +44,9 @@ layer(base);
 
   /* Map Brand Colors to Tailwind utilities */
   --color-app-primary-10: var(--primary-10);
+  --color-app-primary-20: var(--primary-20);
+  --color-app-primary-30: #a1aef2b2;
+  --color-app-primary-35: var(--primary-35);
   --color-app-primary-50: #514cf1;
   --color-app-primary-55: var(--primary-55);
   --color-app-primary-500: var(--primary-500);
@@ -82,7 +85,6 @@ layer(base);
     --color-button-secondary: #514cf10d;
     --color-button-tertiary: #d9d9d9;
     --color-border: #ffffff38;
-    --color-card-small: #a1aef2b2;
     --color-card-bg: #fcfbff;
     --color-card-bg-primary: #514cf103;
     --color-card-bg-secondary: #514cf105;
@@ -109,6 +111,8 @@ layer(base);
 
     /* Custom Brand Colors - Light Mode */
     --primary-10: #dcdbfc;
+    --primary-20: #b7baf8;
+    --primary-35: #a1aef2b2;
     --primary-55: #514cf1;
     --primary-100: #5c6b9f;
     --primary-500: #a1aef2;
