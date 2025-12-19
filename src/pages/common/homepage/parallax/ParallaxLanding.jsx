@@ -7,6 +7,7 @@ import fun from "../../../../assets/having-fun.svg";
 import codingImage from "../../../../assets/coding-a-website.svg";
 import studying from "../../../../assets/student-studying.svg";
 import Footer from "../../homepage/ui/Footer";
+import {UseTheme} from "@rankup/shared-ui";
 
 export default function ParallaxLanding() {
   const sectionRef = useRef(null);
@@ -14,6 +15,7 @@ export default function ParallaxLanding() {
   const topMiddleRef = useRef(null);
   const middleRef = useRef(null);
   const footerRef = useRef(null);
+  const {theme} = UseTheme();
 
   const [visibleSections, setVisibleSections] = useState({
     draggable: false,
@@ -117,7 +119,7 @@ export default function ParallaxLanding() {
           />
         </div>
         <div className="flex flex-col items-center text-center absolute top-[30vh] inset-x-0 z-40">
-          <h1 className="text-5xl md:text-6xl font-bold text-indigo-600">
+          <h1 className="text-5xl md:text-6xl font-bold text-indigo-600" >
             Next Generation Assessment <br /> Platform For Every School
           </h1>
           <p className="text-gray-500 text-lg md:text-xl max-w-2xl mt-6">
